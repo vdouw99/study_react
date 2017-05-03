@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1668df58-f28b-494a-a199-294af6674d06" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/public/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/public/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/App.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/App.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/App.test.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/my-app/src/logo.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/npm-debug.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
     </list>
     <ignored path="react.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +49,8 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+            <state relative-caret-position="270">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -216,12 +202,12 @@
       <updated>1493803943410</updated>
       <workItem from="1493803944841" duration="1263000" />
       <workItem from="1493806674351" duration="792000" />
-      <workItem from="1493810387732" duration="615000" />
+      <workItem from="1493810387732" duration="1396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2670000" />
+    <option name="totallyTimeSpent" value="3451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="685" y="98" width="1235" height="933" extended-state="0" />
@@ -518,8 +504,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="270">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding />
         </state>
       </provider>
