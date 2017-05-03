@@ -24,6 +24,14 @@ windows用户
 "build": "rd/s/q build && set NODE_ENV=production && webpack"
 根目录记得创建“build”文件夹
 
+webpack-dev-server
+监听代码改动，实时在浏览器中呈现
+
+（npm install webpack webpack-dev-server --save-dev）
+
+
+
+
 
 
 
