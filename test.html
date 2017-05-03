@@ -6,15 +6,19 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <script src="react.js"></script>
-    <script src="react-dom.js"></script>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="react.min.js"></script>
+    <script src="react-dom.min.js"></script>
+    <script src="babel.min.js"></script>
 </head>
 <body>
-<script type="text/jsx">
-    function testJSX(){
-        return (<div>test JSX</div>);
-    }
+<div id="example"></div>
+<script type="text/babel">
+    ReactDOM.render(
+            <h1>hello,world</h1>,
+            document.getElementById('example')
+    );
 </script>
 </body>
 </html>
