@@ -32,6 +32,10 @@ webpack-dev-server
 （npm install react react-dom --save）
 为什么没有-dev？因为程序发布后，也要用react和react-dom
 
+查看package.json你会发现，webpack在devDependencies里，因为项目上线了，就不需要了；
+react在dependencies里，因为一直需要。
+
+
 
 
 
