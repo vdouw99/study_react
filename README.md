@@ -29,7 +29,8 @@ webpack-dev-server
 
 （npm install webpack webpack-dev-server --save-dev）
 
-
+（npm install react react-dom --save）
+为什么没有-dev？因为程序发布后，也要用react和react-dom
 
 
 
