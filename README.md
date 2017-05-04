@@ -68,9 +68,12 @@ immutable
 react-addons-css-transition-group
 react-addons-pure-render-mixin
 react-redux
-
-
-
-
+// 先这样安装了一下（npm install react-redux）
+react-router
+// 先这样安装了一下（npm install react-router）
+react-swipe
+redux
+swipe-js-iso
+whatwg-fetch
 
 
