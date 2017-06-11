@@ -2,3 +2,8 @@ node_modules/
 build/
 npm-debug.log
 .idea/
+.gitignore
+README.md
+package.json
+public/
+src/
