@@ -1,9 +1,5 @@
-node_modules/
-build/
-npm-debug.log
 .idea/
-.gitignore
-README.md
-package.json
-public/
-src/
+byFacebook/my-app/node_modules/
+mecode/node_modules/
+
+
