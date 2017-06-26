@@ -1,5 +1,5 @@
 /**
- * Created by sf on 2017/3/3.
+ * Created by zhangsanfeng on 2017/6/26.
  */
 
 var htmlWebpackPlugin = require('html-webpack-plugin');
