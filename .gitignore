@@ -1,3 +1,6 @@
 .idea/
 byFacebook/my-app/node_modules/
 oldcode/app/node_modules/
+me/node_modules/
+me/app/node_modules/
+me/project/node_modules/
