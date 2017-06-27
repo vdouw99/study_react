@@ -30,39 +30,27 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader'],
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
             },
             {
                 test: /\.less$/,
-                loader: 'style-loader!css-loader!postcss-loader!less-loader',
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                loader: 'style-loader!css-loader!postcss-loader!less-loader'
             },
             {
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader',
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader'
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader',
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                loader: 'html-loader'
             },
             {
                 test: /\.tpl$/,
-                loader: 'ejs-loader',
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                loader: 'ejs-loader'
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader'],
-                exclude: path.resolve(__dirname, 'node_modules'),
-                include: path.resolve(__dirname, 'src')
+                loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
             }
         ]
     },
@@ -131,4 +119,3 @@ module.exports = {
         inline: true
     }
 };
-
