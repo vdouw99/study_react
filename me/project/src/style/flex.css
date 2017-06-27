@@ -4,3 +4,13 @@
     background: red;
     width: 600px;
 }
+
+.flex-div .left {
+    flex: 1;
+}
+
+.flex-div .right {
+    width: 100px;
+    background: yellow;
+    opacity: 0.5;
+}
