@@ -3,11 +3,12 @@
  */
 
 var fs = require('fs');
-var htmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var webpack = require('webpack');
+var htmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: './src/app.js',
@@ -15,8 +16,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].bundle.js'
     },
-
-
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         loaders: [
             {
@@ -24,34 +26,43 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {
-                    presets: ['latest']
-                }
+                query: {presets: ['latest']}
             },
-            {test: /\.css$/, use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']},
-            {test: /\.less$/, loader: 'style-loader!css-loader!postcss-loader!less-loader'},
-            // {
-            //     test: /\.less$/,
-            //     exclude: /node_modules/,
-            //     loader: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'css-loader?modules&localIdentName=[local]-[hash:base64:8]!resolve-url-loader!postcss-loader!less-loader'
-            //     })
-            // },
-            // {
-            //     test: /\.css$/,
-            //     exclude: /node_modules/,
-            //     loader: ExtractTextPlugin.extract({
-            //         fallback: 'style-loader',
-            //         use: 'css-loadermodules&localIdentName=[local]-[hash:base64:8]!resolve-url-loader!postcss-loader'
-            //     })
-            // },
-            {test: /\.scss$/, loader: 'style-loader!css-loader!postcss-loader!sass-loader'},
-            {test: /\.html$/, loader: 'html-loader'},
-            {test: /\.tpl$/, loader: 'ejs-loader'},
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader'],
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
+            },
+            {
+                test: /\.less$/,
+                loader: 'style-loader!css-loader!postcss-loader!less-loader',
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!postcss-loader!sass-loader',
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader',
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
+            },
+            {
+                test: /\.tpl$/,
+                loader: 'ejs-loader',
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
+            },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
+                loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader'],
+                exclude: path.resolve(__dirname, 'node_modules'),
+                include: path.resolve(__dirname, 'src')
             }
         ]
     },
@@ -94,8 +105,8 @@ module.exports = {
                 //supresses warnings, usually from module minification
                 warnings: false
             },
-            beautify:false,
-            comments:false
+            beautify: false,
+            comments: false
         }),
 
         // 分离CSS和JS文件
@@ -105,9 +116,19 @@ module.exports = {
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
-            cssProcessorOptions: { discardComments: {removeAll: true } },
+            cssProcessorOptions: {discardComments: {removeAll: true}},
             canPrint: true
+        }),
+
+        // 自动打开浏览器
+        new OpenBrowserPlugin({
+            url: 'http://localhost:3000'
         })
-    ]
+    ],
+
+    devServer: {
+        hot: true,
+        inline: true
+    }
 };
 
