@@ -8,6 +8,8 @@ topthinking：一位同学的代码
 
 mater ： 《React入门》
 
+fakefish : https://fakefish.github.io/react-webpack-cookbook/Getting-started.html
+
 $ npm install -g create-react-app
 $ create-react-app my-app
 $ cd my-app/

@@ -11,7 +11,11 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: [
+        'webpack/hot/dev-server.js',
+        'webpack-dev-server/client?http://localhost:3000',
+        './src/app.js'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].bundle.js'

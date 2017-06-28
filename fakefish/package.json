@@ -1,16 +1,17 @@
 {
-	"name": "fakefish",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "webpack-dev-server --progress --colors",
-		"build": "webpack --config webpack.config.js --progress --colors --display-modules --display-reasons"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"webpack": "^3.0.0"
-	}
+  "name": "fakefish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --progress --colors",
+    "build": "webpack --config webpack.config.js --progress --colors --display-modules --display-reasons"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  }
 }
