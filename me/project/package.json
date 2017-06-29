@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js --port 3000 --hot --inline --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --progress --colors --display-modules --display-reasons"
+    "build": "webpack --config webpack.server.js --progress --colors --display-modules --display-reasons"
   },
   "author": "",
   "license": "ISC",
