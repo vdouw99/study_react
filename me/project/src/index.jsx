@@ -17,9 +17,10 @@ class Hello extends React.Component {
         return (
             <div>
                 <p>hello world, jsx is normal.</p>
-                <div className="flex-div">
+                <div className="flex-div" style={{fontSize:'20px'}}>
                     <div className="left">left</div>
                     <div className="right">right</div>
+                    {/*这是注释*/}
                 </div>
                 {str == 100 ? '变量是100！' : '变量不是100！'}
             </div>
