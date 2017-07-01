@@ -1,4 +1,7 @@
-@import './flex.css';
+* {
+    margin: 0;
+    padding: 0;
+}
 
 html, body {
     background: rgba(0, 0, 0, 0.1);
