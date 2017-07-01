@@ -12,11 +12,13 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: [
+        'webpack/hot/dev-server.js',
+        'webpack-dev-server/client?http://localhost:3000',
         './src/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[hash:5].js'
+        filename: 'js/[name].bundle.js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -69,11 +71,6 @@ module.exports = {
                 }
             }
         }),
-        new webpack.DefinePlugin({
-            'process.env':{
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
         new htmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
@@ -83,6 +80,13 @@ module.exports = {
                 collapseWhitespace: true
             }
         }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             minimize: true,
@@ -90,6 +94,8 @@ module.exports = {
             output: {comments: false},
             minChunks: Infinity
         }),
+
+
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
@@ -105,16 +111,31 @@ module.exports = {
         }),
 
         // 分离CSS和JS文件
-        new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
+        // new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
 
         //css代码压缩
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {discardComments: {removeAll: true}},
-            canPrint: true
-        })
+        // new OptimizeCssAssetsPlugin({
+        //     assetNameRegExp: /\.css$/g,
+        //     cssProcessor: require('cssnano'),
+        //     cssProcessorOptions: {discardComments: {removeAll: true}},
+        //     canPrint: true
+        // }),
 
-        
-    ]
+
+
+        // 自动打开浏览器
+        new OpenBrowserPlugin({
+            url: 'http://localhost:3000'
+        })
+    ],
+
+    devServer: {
+        // historyApiFallback: true,    //不跳转
+        hot: true,
+        inline: true
+    }
 };
+
+
+
+
