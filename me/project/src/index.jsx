@@ -20,7 +20,7 @@ class Hello extends React.Component {
             <div>
                 <p>hello world, jsx is normal.</p>
                 <div className="flex-div" style={{fontSize:'20px'}}>
-                    <div className="left" onClick={this.clickHandler}>点击查看当前时间</div>
+                    <div className="left" ref="left" data-id="leftID" onClick={this.clickHandler.bind(this)}>点击查看当前时间</div>
                     <div className="right">right</div>
                     {/*这是注释*/}
                 </div>
@@ -32,7 +32,10 @@ class Hello extends React.Component {
     // 自定义事件
     clickHandler() {
         alert(new Date());
+        alert(this.refs.left.innerHTML);
+        alert(this.refs.left.getAttribute('data-id'));
     }
+
 }
 
 render(
