@@ -12,7 +12,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: [
-        './src/app.js'
+        './src/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -24,11 +24,11 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest']}
+                query: {presets: ['latest','react']}
             },
             {
                 test: /\.css$/,
@@ -69,9 +69,14 @@ module.exports = {
                 }
             }
         }),
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
         new htmlWebpackPlugin({
             filename: 'index.html',
-            template: 'index.html',
+            template: './src/index.html',
             inject: 'body',
             minify: {
                 removeComments: true,
@@ -108,7 +113,7 @@ module.exports = {
             cssProcessor: require('cssnano'),
             cssProcessorOptions: {discardComments: {removeAll: true}},
             canPrint: true
-        }),
+        })
 
         
     ]

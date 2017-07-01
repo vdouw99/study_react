@@ -26,16 +26,10 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest']}
-            },
-            {
-                test: /\.jsx$/,
-                exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                loader: 'babel-loader',
                 query: {presets: ['latest','react']}
             },
             {
@@ -86,26 +80,35 @@ module.exports = {
                 collapseWhitespace: true
             }
         }),
-        // new webpack.optimize.UglifyJsPlugin({
-        //     sourceMap: true,
-        //     minimize: true,
-        //     compress: {warnings: false},
-        //     output: {comments: false},
-        //     minChunks: Infinity
-        // }),
+
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
+        }),
+
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            minimize: true,
+            compress: {warnings: false},
+            output: {comments: false},
+            minChunks: Infinity
+        }),
+
+
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
 
         //js代码压缩
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         //supresses warnings, usually from module minification
-        //         warnings: false
-        //     },
-        //     beautify: false,
-        //     comments: false
-        // }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                //supresses warnings, usually from module minification
+                warnings: false
+            },
+            beautify: false,
+            comments: false
+        }),
 
         // 分离CSS和JS文件
         // new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
@@ -117,6 +120,8 @@ module.exports = {
         //     cssProcessorOptions: {discardComments: {removeAll: true}},
         //     canPrint: true
         // }),
+
+
 
         // 自动打开浏览器
         new OpenBrowserPlugin({
