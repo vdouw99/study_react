@@ -17,7 +17,7 @@ class Hello extends React.Component {
     render() {
         var str = 100;
         return (
-            <div>
+            <div onClick={this.clickParent}>
                 <p>hello world, jsx is normal.</p>
                 <div className="flex-div" style={{fontSize:'20px'}}>
                     <div className="left" ref="left" data-id="leftID" onClick={this.clickHandler.bind(this)}>点击查看当前时间</div>
@@ -30,10 +30,15 @@ class Hello extends React.Component {
     }
 
     // 自定义事件
-    clickHandler() {
+    clickHandler(e) {
+        e.stopPropagation();
         alert(new Date());
         alert(this.refs.left.innerHTML);
         alert(this.refs.left.getAttribute('data-id'));
+    }
+
+    clickParent(){
+        alert('parent');
     }
 
 }
