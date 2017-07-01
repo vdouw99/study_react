@@ -13,6 +13,7 @@ import './style/flex.css';
 class Hello extends React.Component {
     // 定义的一个函数
     render() {
+        var str = 100;
         return (
             <div>
                 <p>hello world, jsx is normal.</p>
@@ -20,6 +21,7 @@ class Hello extends React.Component {
                     <div className="left">left</div>
                     <div className="right">right</div>
                 </div>
+                {str == 100 ? '变量是100！' : '变量不是100！'}
             </div>
         )
     }
