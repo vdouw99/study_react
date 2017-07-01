@@ -14,7 +14,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server.js',
         'webpack-dev-server/client?http://localhost:3000',
-        './src/app.js'
+        './src/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -31,6 +31,12 @@ module.exports = {
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
                 query: {presets: ['latest']}
+            },
+            {
+                test: /\.jsx$/,
+                exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
+                loader: 'babel-loader',
+                query: {presets: ['latest','react']}
             },
             {
                 test: /\.css$/,
@@ -73,44 +79,44 @@ module.exports = {
         }),
         new htmlWebpackPlugin({
             filename: 'index.html',
-            template: 'index.html',
+            template: './src/index.html',
             inject: 'body',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true
             }
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
-            minimize: true,
-            compress: {warnings: false},
-            output: {comments: false},
-            minChunks: Infinity
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     sourceMap: true,
+        //     minimize: true,
+        //     compress: {warnings: false},
+        //     output: {comments: false},
+        //     minChunks: Infinity
+        // }),
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
 
         //js代码压缩
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                //supresses warnings, usually from module minification
-                warnings: false
-            },
-            beautify: false,
-            comments: false
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         //supresses warnings, usually from module minification
+        //         warnings: false
+        //     },
+        //     beautify: false,
+        //     comments: false
+        // }),
 
         // 分离CSS和JS文件
-        new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
+        // new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
 
         //css代码压缩
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {discardComments: {removeAll: true}},
-            canPrint: true
-        }),
+        // new OptimizeCssAssetsPlugin({
+        //     assetNameRegExp: /\.css$/g,
+        //     cssProcessor: require('cssnano'),
+        //     cssProcessorOptions: {discardComments: {removeAll: true}},
+        //     canPrint: true
+        // }),
 
         // 自动打开浏览器
         new OpenBrowserPlugin({
