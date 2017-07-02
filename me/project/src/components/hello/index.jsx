@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {render} from 'react-dom';
 
 import Header from '../../components/header/index.jsx';
@@ -16,6 +17,8 @@ class Hello extends React.Component {
 
     constructor(props, context) {
         super(props, context);
+        // 性能优化
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         this.state = {
             now1: Date()
         }
