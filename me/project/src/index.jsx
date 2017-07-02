@@ -9,6 +9,9 @@ import Header from './components/header/index.jsx';
 import Hello from './components/hello/index.jsx';
 
 render(
-    <Hello />,
+    <div>
+        <Hello />
+        <Header />
+    </div>,
     document.getElementById('root')
 );

@@ -5,8 +5,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import Header from '../../components/header/index.jsx';
-
 import '../../script/main.js';
 import '../../style/common.css';
 import '../../style/flex.css';
@@ -20,7 +18,6 @@ class Hello extends React.Component {
         var arr = ['张', '三', '丰'];
         return (
             <div onClick={this.clickParent}>
-                <Header />
                 <p>hello world, jsx is normal.</p>
                 <div className="flex-div" style={{fontSize:'20px'}}>
                     <div className="left" ref="left" data-id="leftID" onClick={this.clickHandler.bind(this)}>
