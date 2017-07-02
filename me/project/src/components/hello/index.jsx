@@ -18,9 +18,10 @@ class Hello extends React.Component {
     render() {
         var str = 100;
         var arr = ['张', '三', '丰'];
+        var propObj = {a: '父组件通过props向子组件传值（值为对象）', b: 'bb'};
         return (
             <div onClick={this.clickParent}>
-                <Header title="向组件传值，组件用this.props.XX接收" />
+                <Header title={propObj}/>
                 <p>hello world, jsx is normal.</p>
                 <div className="flex-div" style={{fontSize:'20px'}}>
                     <div className="left" ref="left" data-id="leftID" onClick={this.clickHandler.bind(this)}>
@@ -29,7 +30,7 @@ class Hello extends React.Component {
                     <div className="right">right</div>
                     {/*这是注释*/}
                 </div>
-                {str == 100 ? '变量是100！' : '变量不是100！'}
+                <p>{str == 100 ? '变量是100！' : '变量不是100！'}</p>
                 <ul>
                     {arr.map(function (item, index) {
                         return <li data-key={index+1}>{item}</li>

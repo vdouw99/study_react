@@ -3,15 +3,22 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+    margin-bottom: 10px;
 }
 
 html, body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background: rgba(0, 0, 0, 0.1);
     width: 100%;
     padding: 30px 50px;
+}
+
+li {
+    float: left;
 }
 

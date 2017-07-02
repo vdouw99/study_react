@@ -9,10 +9,12 @@
 
 .flex-div .left {
     flex: 1;
+    margin: 0;
 }
 
 .flex-div .right {
     width: 100px;
     background: yellow;
     opacity: 0.5;
+    margin: 0;
 }

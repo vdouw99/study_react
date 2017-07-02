@@ -8,7 +8,7 @@ import {render} from 'react-dom';
 class Header extends React.Component {
     render() {
         return (
-            <h1>{this.props.title}</h1>
+            <h4>{this.props.title.a}</h4>
         )
     }
 }
