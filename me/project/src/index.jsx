@@ -11,7 +11,7 @@ import Hello from './components/hello/index.jsx';
 render(
     <div>
         <Hello />
-        <Header />
+        <Header title="向组件传值，组件用this.props.XX接收" />
     </div>,
     document.getElementById('root')
 );
