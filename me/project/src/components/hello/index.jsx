@@ -70,6 +70,10 @@ class Hello extends React.Component {
         })
     }
 
+    componentDidMount() {
+        alert('模板都在页面上渲染完了，这就是所谓的生命周期');
+    }
+
 }
 
 export default Hello;
