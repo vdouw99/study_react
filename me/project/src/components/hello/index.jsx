@@ -71,7 +71,19 @@ class Hello extends React.Component {
     }
 
     componentDidMount() {
-        alert('模板都在页面上渲染完了，这就是所谓的生命周期');
+        // 组件第一次加载时渲染完成的事件，一般在此获取网络数据。实际开始项目开发时，会经常用到。
+    }
+
+    shouldComponentUpdate() {
+        // 主要用于性能优化
+    }
+
+    componentDidUpdate() {
+        // 组件更新了之后触发的事件，一般用于清空并更新数据。实际开始项目开发时，会经常用到。
+    }
+
+    componentWillUnmount() {
+        // 组件在销毁之前触发的事件，一般用户存储一些特殊信息，以及清理setTimeout事件等
     }
 
 }
