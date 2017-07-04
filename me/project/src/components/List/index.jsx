@@ -7,10 +7,12 @@ import {render} from 'react-dom';
 
 class List extends React.Component {
     render() {
+        const data = this.props.todos;  // 接收父组件的传值
         return (
             <ul style={{marginTop:'10px',fontSize:'15px',lineHeight:'30px'}}>
-                <li onClick={this.deleteFn.bind(this)}>123</li>
-                <li onClick={this.deleteFn.bind(this)}>456</li>
+                {data.map((item,index)=>{
+                    return <li data-key={index} data-id={item.id} onClick={this.deleteFn.bind(this)}>{item.text}</li>
+                })}
             </ul>
         )
     }
