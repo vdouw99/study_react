@@ -6,6 +6,7 @@ import React from 'react';
 import {render} from 'react-dom';
 
 import Hello from './components/hello/index.jsx';
+import Todo from './containers/Todo/index.jsx';
 
 // 性能测试
 import Perf from 'react-addons-perf';
@@ -14,6 +15,10 @@ window.Perf = Perf;
 // }
 
 render(
-    <Hello />,
+    <div>
+        <Hello />
+        <div style={{clear:'both'}}></div>
+        <Todo />
+    </div>,
     document.getElementById('root')
 );
