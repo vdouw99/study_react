@@ -10,15 +10,16 @@ class List extends React.Component {
         const data = this.props.todos;  // 接收父组件的传值
         return (
             <ul style={{marginTop:'10px',fontSize:'15px',lineHeight:'30px'}}>
-                {data.map((item,index)=>{
-                    return <li data-key={index} data-id={item.id} onClick={this.deleteFn.bind(this)}>{item.text}</li>
+                {data.map((item, index)=> {
+                    return <li data-key={index} data-id={item.id}
+                               onClick={this.clickHandler.bind(this,item.id)}>{item.text}</li>
                 })}
             </ul>
         )
     }
 
-    deleteFn(event) {
-        alert(event.target.innerHTML);
+    clickHandler(id) {
+        this.props.deleteFn(id);
     }
 }
 
