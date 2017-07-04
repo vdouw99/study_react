@@ -16,7 +16,7 @@ class Input extends React.Component {
     render() {
         return (
             <div>
-                <input type="text"
+                <input type="text" placeholder="回车触发事件"
                        onChange={this.changeHandler.bind(this)}
                        onKeyUp={this.keyUpHandler.bind(this)}
                        value={this.state.value}/>
@@ -34,7 +34,7 @@ class Input extends React.Component {
     keyUpHandler(e) {
         const value = this.state.value;
         if (e.keyCode === 13 && value.trim()) {
-            // this.props.
+            this.props.fnByInputModule(value);      // 触发父组件的事件
             this.setState({value: ''});
             console.log(this.state.value);
         }

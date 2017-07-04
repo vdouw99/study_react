@@ -12,10 +12,14 @@ class Todo extends React.Component {
     render() {
         return (
             <div>
-                <Input />
+                <Input fnByInputModule={this.submitFn.bind(this)} />
                 <List />
             </div>
         )
+    }
+
+    submitFn(value){
+        alert('来自子组件触发的事件');
     }
 }
 
