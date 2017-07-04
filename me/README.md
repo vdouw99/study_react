@@ -118,7 +118,7 @@ componentDidUpdate
 componentWillUnmount
 组件在销毁之前触发的事件，一般用户存储一些特殊信息，以及清理setTimeout事件等。
 
-todoList包含两个子组件：todo和list
+todoList包含两个子组件：Input和List
 
 
 
