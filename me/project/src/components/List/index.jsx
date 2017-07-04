@@ -9,10 +9,14 @@ class List extends React.Component {
     render() {
         return (
             <ul style={{marginTop:'10px',fontSize:'15px',lineHeight:'30px'}}>
-                <li>123</li>
-                <li>456</li>
+                <li onClick={this.deleteFn.bind(this)}>123</li>
+                <li onClick={this.deleteFn.bind(this)}>456</li>
             </ul>
         )
+    }
+
+    deleteFn(event) {
+        alert(event.target.innerHTML);
     }
 }
 

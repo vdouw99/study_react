@@ -17,6 +17,7 @@ class Todo extends React.Component {
             </div>
         )
     }
+
 }
 
 export default Todo;
