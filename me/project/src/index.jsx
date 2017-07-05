@@ -7,6 +7,7 @@ import {render} from 'react-dom';
 
 import Hello from './components/hello/index.jsx';
 import Todo from './containers/Todo/index.jsx';
+import RouteMap from './router/routeMap.jsx';
 
 // 性能测试
 import Perf from 'react-addons-perf';
@@ -19,6 +20,8 @@ render(
         <Hello />
         <div style={{clear:'both'}}></div>
         <Todo />
+        <div style={{clear:'both'}}></div>
+        <RouteMap />
     </div>,
     document.getElementById('root')
 );

@@ -20,7 +20,7 @@ class Todo extends React.Component {
         return (
             <div>
                 <Input fnByInputModule={this.submitFn.bind(this)}/>
-                <List todos={this.state.todos} deleteFn={this.deleteFn.bind(this)} />
+                <List todos={this.state.todos} deleteFn={this.deleteFn.bind(this)}/>
             </div>
         )
     }
@@ -36,11 +36,11 @@ class Todo extends React.Component {
         console.log(this.state.todos);
     }
 
-    deleteFn(id){
+    deleteFn(id) {
         let data = this.state.todos;
         this.setState({
-            todos:data.filter(item=>{
-                if(item.id !== id){
+            todos: data.filter(item=> {
+                if (item.id !== id) {
                     return item;
                 }
             })
