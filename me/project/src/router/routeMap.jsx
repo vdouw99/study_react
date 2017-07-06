@@ -3,17 +3,43 @@
  */
 
 import React from 'react';
-import {Router, Route, IndexRoute} from 'react-router';
+import {render} from 'react-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import App from '../containers/App.jsx';
 import Home from '../containers/Home/index.jsx';
+import List from '../containers/List/index.jsx';
+
+// class RouteMap extends React.Component {
+//     render() {
+//         return (
+//             <Router path="/" component={App}>
+//                 <Route path="home" component={Home}/>
+//                 <Route path="list" component={List}/>
+//             </Router>
+//         )
+//     }
+// }
 
 class RouteMap extends React.Component {
     render() {
         return (
-            <div>routeMap</div>
+            <Router>
+                <div>
+                    <ul>
+                        <li><Link to="/">App</Link></li>
+                        <li><Link to="/home">Home</Link></li>
+                        <li><Link to="/list">List</Link></li>
+                    </ul>
+                    <div style={{clear:'both'}}></div>
+                    <Route exact path="/" component={App}/>
+                    <Route path="/home" component={Home}/>
+                    <Route path="/list" component={List}/>
+                </div>
+            </Router>
         )
     }
 }
+
 
 export default RouteMap;

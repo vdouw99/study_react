@@ -10,7 +10,7 @@ class App extends React.Component {
         return (
             <div>
                 <div>head</div>
-                <div>{this.props.children}</div>
+                <div>app.jsx</div>
                 <div>foot</div>
             </div>
         )
