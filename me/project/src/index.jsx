@@ -4,6 +4,7 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import {hashHistory} from 'react-router';
 
 import Hello from './components/hello/index.jsx';
 import Todo from './containers/Todo/index.jsx';
@@ -16,12 +17,12 @@ window.Perf = Perf;
 // }
 
 render(
-    <div>
+    <div onclick="alert()">
         <Hello />
         <div style={{clear:'both'}}></div>
         <Todo />
         <div style={{clear:'both'}}></div>
-        <RouteMap />
+        <RouteMap history={hashHistory} />
     </div>,
     document.getElementById('root')
 );
