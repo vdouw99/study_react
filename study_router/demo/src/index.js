@@ -8,6 +8,7 @@ import Router02Params from './Router02Params.js';
 import Router03Auth from './Router03Auth.js';
 import Router04CustomLink from './Router04CustomLink.js';
 import Router05Preventing from './Router05PreventingTransitions.js';
+import Router06NoMatch from './Router06NoMatch.js';
 
 ReactDOM.render(
     <div>
@@ -32,10 +33,15 @@ ReactDOM.render(
         <Router04CustomLink />
 
         <hr />
+
         <h1>preventing transitions</h1>
         <Router05Preventing />
 
-            
+        <hr />
+
+        <h1>No Match</h1>
+        <Router06NoMatch />
+
     </div>,
     document.getElementById('root')
 );
