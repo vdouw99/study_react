@@ -5,6 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Router01BasicExample from './Router01BasicExample.js';
 import Router02Params from './Router02Params.js';
+import Router03Auth from './Router03Auth.js';
 
 ReactDOM.render(
     <div>
@@ -15,6 +16,9 @@ ReactDOM.render(
         <hr />
         <h1>url Params</h1>
         <Router02Params />
+        <hr />
+        <h1>auth-workflow</h1>
+        <Router03Auth />
     </div>
     , document.getElementById('root')
 );
