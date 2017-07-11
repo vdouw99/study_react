@@ -7,6 +7,7 @@ import Router01BasicExample from './Router01BasicExample.js';
 import Router02Params from './Router02Params.js';
 import Router03Auth from './Router03Auth.js';
 import Router04CustomLink from './Router04CustomLink.js';
+import Router05Preventing from './Router05PreventingTransitions.js';
 
 ReactDOM.render(
     <div>
@@ -14,16 +15,28 @@ ReactDOM.render(
         <hr />
         <h1>Router Basic Example</h1>
         <Router01BasicExample />
+
         <hr />
+
         <h1>url Params</h1>
         <Router02Params />
+
         <hr />
+
         <h1>auth-workflow</h1>
         <Router03Auth />
+
         <hr />
+
         <h1>custom-link</h1>
         <Router04CustomLink />
-    </div>
-    , document.getElementById('root')
+
+        <hr />
+        <h1>preventing transitions</h1>
+        <Router05Preventing />
+
+            
+    </div>,
+    document.getElementById('root')
 );
 registerServiceWorker();
