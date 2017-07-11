@@ -22,7 +22,8 @@ render(
         <div style={{clear:'both'}}></div>
         <Todo />
         <div style={{clear:'both'}}></div>
-        <RouteMap history={hashHistory} />
+        <RouteMap history={hashHistory}/>
+        <div style={{clear:'both'}}></div>
     </div>,
     document.getElementById('root')
 );

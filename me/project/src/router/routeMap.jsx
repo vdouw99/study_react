@@ -42,7 +42,7 @@ class RouteMap extends React.Component {
     }
 
     updateHandle() {
-        console.log('每次router变化后触发');
+        console.log('每次router变化后触发，可以做PV统计等');
     }
 }
 
