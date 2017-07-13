@@ -120,7 +120,7 @@ componentWillUnmount
 
 todoList包含两个子组件：Input和List
 
-router打包出来有点问题，具体看一下这个帖子
+router打包出来有点问题，具体看一下这个帖子：
 https://segmentfault.com/a/1190000007238999
 
 
