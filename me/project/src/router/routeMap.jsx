@@ -5,6 +5,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+import {hashHistory} from 'react-router';
 
 import App from '../containers/App.jsx';
 import Home from '../containers/Home/index.jsx';
