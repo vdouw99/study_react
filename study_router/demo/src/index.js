@@ -9,11 +9,14 @@ import Router03Auth from './Router03Auth.js';
 import Router04CustomLink from './Router04CustomLink.js';
 import Router05Preventing from './Router05PreventingTransitions.js';
 import Router06NoMatch from './Router06NoMatch.js';
+// import Router07RecursivePaths from './Router07RecursivePaths.js';
 
 ReactDOM.render(
     <div>
         <App />
+
         <hr />
+
         <h1>Router Basic Example</h1>
         <Router01BasicExample />
 
@@ -41,6 +44,12 @@ ReactDOM.render(
 
         <h1>No Match</h1>
         <Router06NoMatch />
+
+        {/*<hr />
+         <h1>Recursive paths</h1>
+         has problem
+         <Router07RecursivePaths />*/}
+
 
     </div>,
     document.getElementById('root')
