@@ -4,28 +4,16 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import {BrowserRouter as Router, Route, Link, IndexRoute} from 'react-router-dom';
-import {hashHistory} from 'react-router';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import App from '../containers/App.jsx';
 import Home from '../containers/Home/index.jsx';
 import List from '../containers/List/index.jsx';
 
-// class RouteMap extends React.Component {
-//     render() {
-//         return (
-//             <Router path="/" component={App}>
-//                 <Route path="home" component={Home}/>
-//                 <Route path="list" component={List}/>
-//             </Router>
-//         )
-//     }
-// }
-
-class RouteMap extends React.Component {
+class RouterMap extends React.Component {
     render() {
         return (
-            <Router onUpdate={this.updateHandle.bind(this)}>
+            <Router>
                 <div>
                     <ul>
                         <li><Link to="/">App</Link></li>
@@ -40,11 +28,42 @@ class RouteMap extends React.Component {
             </Router>
         )
     }
-
-    updateHandle() {
-        console.log('每次router变化后触发，可以做PV统计等');
-    }
 }
+
+// class RouteMap extends React.Component {
+//     render() {
+//         return (
+//             <Router path="/" component={App}>
+//                 <Route path="home" component={Home}/>
+//                 <Route path="list" component={List}/>
+//             </Router>
+//         )
+//     }
+// }
+
+// class RouteMap extends React.Component {
+//     render() {
+//         return (
+//             <Router onUpdate={this.updateHandle.bind(this)}>
+//                 <div>
+//                     <ul>
+//                         <li><Link to="/">App</Link></li>
+//                         <li><Link to="/home">Home</Link></li>
+//                         <li><Link to="/list">List</Link></li>
+//                     </ul>
+//                     <div style={{clear: 'both'}}></div>
+//                     <Route exact path="/" component={App}/>
+//                     <Route path="/home" component={Home}/>
+//                     <Route path="/list" component={List}/>
+//                 </div>
+//             </Router>
+//         )
+//     }
+//
+//     updateHandle() {
+//         console.log('每次router变化后触发，可以做PV统计等');
+//     }
+// }
 
 // class RouteMap extends React.Component {
 //     render() {
@@ -67,4 +86,4 @@ class RouteMap extends React.Component {
 //     }
 // }
 
-export default RouteMap;
+export default RouterMap;

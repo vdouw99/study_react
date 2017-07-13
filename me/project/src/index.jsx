@@ -22,7 +22,7 @@ render(
         <div style={{clear:'both'}}></div>
         <Todo />
         <div style={{clear:'both'}}></div>
-        <RouteMap history={hashHistory}/>
+        <RouteMap/>
         <div style={{clear:'both'}}></div>
     </div>,
     document.getElementById('root')
