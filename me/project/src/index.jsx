@@ -17,7 +17,7 @@ window.Perf = Perf;
 // }
 
 render(
-    <div onclick="alert()">
+    <div>
         <Hello />
         <div style={{clear:'both'}}></div>
         <Todo />
