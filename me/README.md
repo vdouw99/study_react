@@ -123,6 +123,17 @@ todoList包含两个子组件：Input和List
 router打包出来有点问题，具体看一下这个帖子：
 https://segmentfault.com/a/1190000007238999
 
+redux教程
+http://v.ku6.com/show/XPQZ9Ir3aSw3KNpO12tmEg...html?from=my
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+淘宝镜像
+cnpm --registry=https://registry.npm.taobao.org
+
+
+
+
+
 
 
 
