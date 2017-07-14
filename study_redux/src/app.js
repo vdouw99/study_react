@@ -4,11 +4,12 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import ReduxStore from './ReduxStore01.jsx';
 
 class App extends React.Component {
     render() {
         return (
-            <div>App.component</div>
+            <div><ReduxStore /></div>
         )
     }
 }
