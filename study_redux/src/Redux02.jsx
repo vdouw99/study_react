@@ -11,22 +11,25 @@ import {Provider, connect} from 'react-redux';
 
 class Redux02 extends React.Component {
     render() {
-        const {text,onChangetext,onButtonClick} = this.props;
+        const {text, onChangetext, onButtonClick} = this.props;
         return (
-            <div>
-                <h1 onClick={onChangetext}>{text}</h1>
-                <button onclick={onButtonClick}>Click Me</button>
-            </div>
+            <Provider store={store}>
+                <div>
+                    <h1 onClick={onChangetext}>{text}</h1>
+                    <button onclick={onButtonClick}>Click Me</button>
+                </div>
+            </Provider>
+
         )
     }
 }
 
 //action
 const changeTextAction = {
-    type:'CHANGE_TEXT'
+    type: 'CHANGE_TEXT'
 }
 const buttonClickAction = {
-    type:'BUTTON_CLICK'
+    type: 'BUTTON_CLICK'
 }
 
 
@@ -38,7 +41,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'CHANGE_TEXT':
             return {
-                text: state.text=='Hello' ? 'world':'Hello'
+                text: state.text == 'Hello' ? 'world' : 'Hello'
             }
         case 'BUTTON_CLICK':
             return {
@@ -54,18 +57,18 @@ let store = createStore(reducer);
 
 //映射Redux state到组件的属性
 function mapStateToProps(state) {
-    return { text: state.text }
+    return {text: state.text}
 }
 
 //映射Redux actions到组件的属性
-function mapDispatchToProps(dispatch){
-    return{
-        onButtonClick:()=>dispatch(buttonClickAction),
-        onChangeText:()=>dispatch(changeTextAction)
+function mapDispatchToProps(dispatch) {
+    return {
+        onButtonClick: ()=>dispatch(buttonClickAction),
+        onChangeText: ()=>dispatch(changeTextAction)
     }
 }
 
 //连接组件
-Redux02 = connect(mapStateToProps, mapDispatchToProps)(Redux02);
+// var Redux02 = connect(mapStateToProps, mapDispatchToProps)(Redux02);
 
 export default Redux02;
