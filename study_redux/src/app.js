@@ -5,6 +5,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import ReduxStore from './ReduxStore01.jsx';
+import Redux02 from './Redux02.jsx';
 
 import {createStore} from 'redux';
 
@@ -24,7 +25,10 @@ document.write(JSON.stringify(action));
 class App extends React.Component {
     render() {
         return (
-            <div><ReduxStore /></div>
+            <div>
+                <ReduxStore />
+                <Redux02 />
+            </div>
         )
     }
 }
