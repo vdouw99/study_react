@@ -4,8 +4,7 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import ReduxStore from './ReduxStore01.jsx';
-import Redux02 from './Redux02.jsx';
+import Redux01 from './Redux01.jsx';
 
 import {createStore} from 'redux';
 
@@ -26,8 +25,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <ReduxStore />
-                <Redux02 />
+                <Redux01 />
             </div>
         )
     }

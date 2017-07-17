@@ -6,17 +6,13 @@ import React from 'react';
 import {render} from 'react-dom';
 import App from './app.js';
 
-import { createStore } from 'redux';
-import { Provider, connect } from 'react-redux';
-import Redux02 from './Redux02.jsx';
-
+import {createStore} from 'redux';
+import {Provider, connect} from 'react-redux';
 
 render(
     <div>
         <App />
-        <Provider>
-            <Redux02 />
-        </Provider>
+        <h3>宣布失败，老老实实跟着官网学习吧。</h3>
     </div>,
     document.getElementById('root')
 );
