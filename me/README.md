@@ -198,3 +198,5 @@ store收到action后，必须给出一个新的state，这样view才会发生变
 
 
 
+
+
