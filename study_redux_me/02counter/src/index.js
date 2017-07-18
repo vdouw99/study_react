@@ -3,7 +3,7 @@
  */
 
 // import React from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 // import {createStore} from 'redux';
 // const render1 = () => ReactDOM.render(
 //     <div>123</div>,
@@ -18,10 +18,20 @@ import {render} from 'react-dom';
 import {createStore} from 'redux';
 
 import Counter from './components/Counter.js';
+import counter from './reducers/index.js';
 
-render(
+const store = createStore(counter);
+
+const render1 = () => ReactDOM.render(
     <div>
-        <Counter></Counter>
+        <Counter
+            value={store.getState()}
+            onIncrement={()=>store.dispatch({type:'INCREMENT'})}
+            onDecrement={()=>store.dispatch({type:'DECREMENT'})}
+        />
     </div>,
     document.getElementById('root')
 );
+
+render1();
+store.subscribe(render1);
