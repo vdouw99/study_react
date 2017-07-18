@@ -1,0 +1,27 @@
+
+body {
+    background: #eeeeee;
+}
+
+#root{
+    overflow: hidden;
+    height:300px;
+}
+
+.flex {
+    width: 500px;
+    display: flex;
+    margin-bottom:50px;
+}
+
+.flex .left {
+    flex: 1;
+    height: 50px;
+    background: red;
+}
+
+.flex .right {
+    width: 100px;
+    height: 50px;
+    background: blue;
+}

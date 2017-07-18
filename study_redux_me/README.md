@@ -1,5 +1,6 @@
 redux教程
 http://cn.redux.js.org/docs/introduction/Examples.html
+redux官方示例
 https://github.com/reactjs/redux.git
 
 一、store
@@ -45,3 +46,7 @@ store收到action后，必须给出一个新的state，这样view才会发生变
 一旦state发生变化，就自动执行stor.subscribe()函数。
 所以，只要把view的更新函数入也listen，就会实现view的自动渲染。
 对于react，就是render()方法或setState()方法。
+
+
+
+解析 02counter 代码

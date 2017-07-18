@@ -3,7 +3,6 @@
  */
 
 // import React from 'react';
-import ReactDOM from 'react-dom';
 // import {createStore} from 'redux';
 // const render1 = () => ReactDOM.render(
 //     <div>123</div>,
@@ -16,6 +15,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import {render} from 'react-dom';
 import {createStore} from 'redux';
+import ReactDOM from 'react-dom';
 
 import Counter from './components/Counter.js';
 import counter from './reducers/index.js';
