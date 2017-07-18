@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>Redux example</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <script src="redux.min.js"></script>
+</head>
+<body>
+<div>
+    <span>clicked:</span>
+    <span id="value">0</span>
+    <span>times</span>
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+    <button id="incrementIfOdd">Increment if odd</button>
+    <button id="incrementAsync">Increment async</button>
+</div>
+<script>
+    var store = Redux.createStore(counter);
+    // 使用Redux提供的方法createStore，创建全局store
+
+    var valueE1 = document.getElementById('value');
+    function render() {
+        valueE1.innerHTML = store.getState().toString();
+    }
+    render();
+    // 通过store.getState()，得到当前时刻的state
+    // 并赋值给ID为value的DOM节点
+
+    store.subscribe(render);
+     // store.subscribe()，state变化时自动执行
+
+    function counter(state, action) {
+        if (typeof state === 'undefined') {
+            return 0;
+        }
+        switch (action.type) {
+            case 'INCREMENT':
+                return state + 1;
+            case 'DECREMENT':
+                return state - 1;
+            default:
+                return state;
+        }
+    }
+    // 改变state的唯一方法，就是action
+    // action是一个对象，其中有一个type值表示action的名称
+
+    document.getElementById('increment').addEventListener('click', function () {
+        store.dispatch({
+            type: 'INCREMENT'
+        });
+        // store.dispatch()，view（DOM节点）触发Redux的action方法
+    });
+    document.getElementById('decrement').addEventListener('click', function () {
+        store.dispatch({
+            type: 'DECREMENT'
+        })
+    });
+    document.getElementById('incrementIfOdd').addEventListener('click', function () {
+        if (store.getState() % 2 !== 0) {
+            store.dispatch({
+                type: 'INCREMENT'
+            })
+        }
+    });
+    document.getElementById('incrementAsync').addEventListener('click', function () {
+        setTimeout(function () {
+            store.dispatch({
+                type: 'INCREMENT'
+            })
+        }, 1000);
+    });
+
+    document.write('<br><br>');
+    for (var i in Redux) {
+        document.write(i + ':' + Redux[i] + '<br><br>');
+    }
+
+</script>
+</body>
+</html>
