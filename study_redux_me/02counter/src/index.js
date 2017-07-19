@@ -1,37 +1,42 @@
 /**
- * Created by sf on 2017/7/18.
+ * Created by zhangsanfeng on 2017/7/18.
  */
 
-// import React from 'react';
-// import {createStore} from 'redux';
-// const render1 = () => ReactDOM.render(
-//     <div>123</div>,
-//     document.getElementById('root')
-// );
-// render1();
-
-// 上面这种写法也可以，只是我看不懂而已
-
 import React from 'react';
-import {render} from 'react-dom';
 import {createStore} from 'redux';
 import ReactDOM from 'react-dom';
 
 import Counter from './components/Counter.js';
-import counter from './reducers/index.js';
+import reducer from './reducers.js';
 
-const store = createStore(counter);
+const store = createStore(reducer);
+// createStore函数接受另一个函数作为参数，返回新生成的Store对象
 
-const render1 = () => ReactDOM.render(
-    <div>
-        <Counter
-            value={store.getState()}
-            onIncrement={()=>store.dispatch({type:'INCREMENT'})}
-            onDecrement={()=>store.dispatch({type:'DECREMENT'})}
-        />
-    </div>,
-    document.getElementById('root')
-);
+// const renderr = () => ReactDOM.render(
+//     <div>
+//         <Counter
+//             value={store.getState()}
+//             onIncrement={()=>store.dispatch({type:'INCREMENT'})}
+//             onDecrement={()=>store.dispatch({type:'DECREMENT'})}
+//         />
+//     </div>,
+//     document.getElementById('root')
+// );
 
-render1();
-store.subscribe(render1);
+// 与如下的renderr的方法，是等同的效果
+
+function renderr() {
+    ReactDOM.render(
+        <div>
+            <Counter value={store.getState()}
+                     onIncrement={function onIncrement(){return store.dispatch({type:'INCREMENT'})}}
+                     onDecrement={function onDecrement(){return store.dispatch({type:'DECREMENT'})}}
+            />
+        </div>,
+        document.getElementById('root')
+    )
+}
+
+renderr();
+store.subscribe(renderr);
+

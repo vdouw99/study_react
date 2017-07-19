@@ -22,6 +22,8 @@ class Counter extends React.Component {
 
     render() {
         const {value,onIncrement,onDecrement} = this.props;
+        // alert(value);    // 实时查看store中value值的变化
+        // alert(onIncrement); // function onIncrement(){return store.dispatch({type:'INREMENT'})}
         return (
             <div>
                 <span>clicked:</span>
