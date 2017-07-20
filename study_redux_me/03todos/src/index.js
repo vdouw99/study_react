@@ -5,19 +5,21 @@
 import React from 'react';
 import {createStore} from 'redux';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
+import reducer from './reducers/index.js';
 import App from './components/App.js';
 
-// const store = createStore();
+const store = createStore(reducer);
 
 function renderr() {
     ReactDOM.render(
-        <div>
-            <p>Todos</p>
+        <Provider store={store}>
             <App />
-        </div>,
+        </Provider>,
         document.getElementById('root')
     )
 }
 
 renderr();
+store.subscribe(renderr);

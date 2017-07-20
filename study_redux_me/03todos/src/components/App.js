@@ -5,12 +5,14 @@
 import React from 'react';
 
 import Footer from './Footer.js';
+import AddTodo from '../containers/AddTodo.js';
 
-class App extends React.Component{
-    render(){
-        return(
+class App extends React.Component {
+    render() {
+        return (
             <div>
-                <p>App</p>
+                <p>App-03todos</p>
+                <AddTodo />
                 <Footer />
             </div>
         )
