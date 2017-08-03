@@ -41,7 +41,7 @@
 //        }
 //    }
 //    kitty.grow()
-//    bug
+//    报错
 
     let kitty2 = {
         age:1,
@@ -110,8 +110,25 @@
     document.write('<br>模板字符串<br>');
     var name = '张三丰';
     document.write(`My name is ${name}.<br>`);
-
 </script>
+
+<h4>解构赋值</h4>
+<p>解构语法可以快速从数组或对象中提取变量，可以用一个表达式读取整个结构。</p>
+<p>解构数组</p>
+<script>
+    let foo = ['解构语法','可以快速从数组或对象中','提取变量'];
+    let [one,two,three] = foo;
+    document.write(`${one} | ${two} | ${three}`);
+    document.write('<br>' + one + '<br>');
+</script>
+<p>解构对象</p>
+<script>
+    let person = {name:'张三丰',age:30};
+    let {name,age111} = person;
+    document.write(`${name}${age111}`);
+    document.write('<br>可以看出，名字必须对应才行');
+</script>
+
 
 </body>
 </html>
