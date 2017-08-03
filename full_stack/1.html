@@ -129,6 +129,43 @@
     document.write('<br>可以看出，名字必须对应才行');
 </script>
 
+<h4>类</h4>
+<script>
+    class Animal{
+        constructor(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        shout(){
+            return(`My name is ${this.name}, age is ${this.age}`)
+        }
+        static foo(){
+            return('Here is a static method');
+        }
+    }
+    const cow = new Animal('张三丰',30);
+    document.write(cow.shout());
+    document.write('<br>' + Animal.foo());
+
+    class Dog extends Animal{
+        constructor(name,age=2,color='black'){
+            super(name,age);
+            // 在构造函数中可以直接调用super方法
+            this.color = color;
+        }
+        shout(){
+            // 在非构造函数中不能直接使用super方法
+            // 但是可以采用super加方法名字调用父类方法
+            return super.shout() + `, color is ${this.color}`;
+        }
+    }
+    const jackTheDog = new Dog('jack');
+    document.write('<br>' + jackTheDog.shout());
+</script>
+
+<h4>模块</h4>
+
+
 
 </body>
 </html>
