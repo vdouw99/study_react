@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"/>
+    <title>Title</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+<body>
+<h4>let const</h4>
+<script>
+    if (true) {
+        let a = 'a';
+    }
+    // console.log(a);     // a is not defined
+
+    if (true) {
+        var b = 'b';
+    }
+    document.write(b + '<br>');         // b
+
+    document.write('const定义常量' + '<br>');
+    const MYNAME = '张三丰';
+    // MYNAME = '张三丰';         // Uncaught TypeError: Assignment to constant variable
+
+    let add = (a, b) =>{
+        return a + b;
+    }
+    document.write(add(4, 5) + '<br>');
+
+//    let age = 2;
+//    let kitty = {
+//        age: 44,
+//        grow: function () {
+//            setTimeout(function () {
+//                document.write(this.age)
+//            }, 100)
+//        }
+//    }
+//    kitty.grow()
+//    bug
+
+    let kitty2 = {
+        age:1,
+        grow:function(){
+            const _this = this;
+            setTimeout(function(){
+                console.log(++_this.age);
+            },100)
+        }
+    }
+    kitty2.grow();
+
+    let kitty3 = {
+        age:4,
+        grow:function(){
+            setTimeout(function(){
+                console.log(++this.age)
+            }.bind(this),100);
+        }
+    }
+    kitty3.grow();
+
+    document.write('箭头函数，就很轻松解决这个问题<br>');
+
+    let kitty4 = {
+        age:899,
+        grow:function(){
+            setTimeout(()=>{console.log(++this.age)},100)
+        }
+    }
+    kitty4.grow();
+
+    document.write('函数默认参数<br>');
+
+    function desc(name='张三丰',age=30){
+        return name + ' is ' + age + ' years old';
+    }
+    document.write(desc());
+</script>
+
+<p>Rest参数</p>
+<script>
+    function test(...args){
+        document.write(args + '<br>');
+        document.write(typeof args + '<br>');
+    }
+    test(1,2,3);
+
+    document.write('<br>数组作为函数的参数<br>');
+    function test2(x,y,z){document.write(x+"|"+y+"|"+z)}
+    var args = ['数组','用作','函数的参数'];
+    test2.apply(null,args);
+
+    document.write('<br><br>数组作为函数的参数（Rest参数）<br>');
+    function test3(x,y,z){document.write(x+"|"+y+"|"+z)}
+    var args3 = ['数组3','用作3','函数的参数3'];
+    test3(...args3);
+
+    var arr1 = ['数','组','合','并'];
+    var arr2 = ['数','组','合','并'];
+    var arr3 = arr1.concat(arr2);
+    document.write('<br><br>' + arr3 + '<br>');
+    var arr4 = [...arr1, ...arr2];
+    document.write(arr4 + '<br>');
+
+    document.write('<br>模板字符串<br>');
+    var name = '张三丰';
+    document.write(`My name is ${name}.<br>`);
+
+</script>
+
+</body>
+</html>
