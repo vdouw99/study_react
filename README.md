@@ -24,6 +24,10 @@ http://cn.redux.js.org/docs/introduction/Examples.html
 
 学习redux，主要依赖官方的示例和教程
 
+es6-promise
+https://segmentfault.com/a/1190000006557624
+
+
 
 
 

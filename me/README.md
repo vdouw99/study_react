@@ -126,30 +126,8 @@ https://segmentfault.com/a/1190000007238999
 淘宝镜像
 cnpm --registry=https://registry.npm.taobao.org
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+the babel package has been deprecated in favor of babel-cli
+注意：babel被弃用，建议使用babel-cli
 
 
 
