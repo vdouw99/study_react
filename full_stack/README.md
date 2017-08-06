@@ -21,6 +21,9 @@ followAuthorCode
             练习通过css-loader和style-loader加载CSS
             webpack index.js bundle.js
             extract-text-webpack-plugin 可以解决CSS从JS中分离
+        part3
+            通过配置文件webpack.config.js对webpack构建，简化、优雅。
+
 
 
 
