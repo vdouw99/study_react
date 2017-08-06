@@ -10,6 +10,8 @@ npm install webpack@1.12.14
 
 loader : 作用于应用中资源文件的转换行为。它是运行在Node.js环境的函数，接收资源文件的源代码作为参数，并返回新的代码。
 
+
+
 followAuthorCode
     chapter2
         part1
@@ -22,7 +24,14 @@ followAuthorCode
             webpack index.js bundle.js
             extract-text-webpack-plugin 可以解决CSS从JS中分离
         part3
-            通过配置文件webpack.config.js对webpack构建，简化、优雅。
+            通过配置文件webpack.config.js和各种loader，对webpack构建，简化、优雅。
+            构建命令：webpack
+        part4
+            使用插件 html-webpack-plugin
+            构建命令：webpack
+
+
+
 
 
 
