@@ -8,12 +8,20 @@ Redux + Flux + webpack + Babel整合开发
 安装某个版本的依赖
 npm install webpack@1.12.14
 
+loader : 作用于应用中资源文件的转换行为。它是运行在Node.js环境的函数，接收资源文件的源代码作为参数，并返回新的代码。
+
 followAuthorCode
     chapter2
         part1
+            熟练习JS打包
             webpack生成文件 webpack index.js bundle.js
             index.js基于CommonJS的模块规范书写，浏览器不支持，所以通过webpack构建应用。
-            index.js中引用文件，同目录注意加上./
+            index.js中引用文件，同目录注意加上“./”。
+        part2
+            练习通过css-loader和style-loader加载CSS
+            webpack index.js bundle.js
+            extract-text-webpack-plugin 可以解决CSS从JS中分离
+
 
 
 
