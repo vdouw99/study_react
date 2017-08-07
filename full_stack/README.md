@@ -31,6 +31,12 @@ followAuthorCode
             构建命令：webpack
 
 
+第3章 初识React
+    npm install --babel-core babel-loader babel-preset-latest babel-preset-react --save-dev cnpm --registry=https://registry.npm.taobao.org
+    npm install react react-dom --save cnpm --registry=https://registry.npm.taobao.org
+
+
+
 
 
 
