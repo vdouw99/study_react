@@ -39,6 +39,8 @@ npm install --save-dev autoprefixer babel-cli babel-core babel-loader babel-pres
     npm install --babel-core babel-loader babel-preset-latest babel-preset-react --save-dev cnpm --registry=https://registry.npm.taobao.org
     npm install react react-dom --save cnpm --registry=https://registry.npm.taobao.org
 
+当程序越来越复杂后，组件的复杂程度也会成倍的提高，所以就需要验证组件传入的属性。
+
 
 
 
