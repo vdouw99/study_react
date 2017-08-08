@@ -41,6 +41,10 @@ npm install --save-dev autoprefixer babel-cli babel-core babel-loader babel-pres
 
 当程序越来越复杂后，组件的复杂程度也会成倍的提高，所以就需要验证组件传入的属性。
 
+state状态
+    state是组件内部的属性，组件本身是一个状态机，可以在constructor中通过this.state直接定义，然后根据这些值来渲染不同的UI。
+    当state的值发生改变时，可以通过this.setState方法让组件再次调用render方法，渲染新的UI。
+
 
 
 
