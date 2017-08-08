@@ -16,8 +16,8 @@ class Page90_Liked extends React.Component {
 
     likedCallback() {
         let liked = this.state.liked;
-        liked++;
-        this.setState({
+        liked++;                // 给当前liked加1
+        this.setState({         // 然后更新this.setState，完成UI的重新渲染
             liked: liked
         });
     }
