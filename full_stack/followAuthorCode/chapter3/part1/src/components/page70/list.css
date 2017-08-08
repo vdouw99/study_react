@@ -1,0 +1,18 @@
+#page70 ul, #page70 li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#page70 li {
+    width: 300px;
+    height: 50px;
+    line-height:50px;
+    text-align: center;
+    border:1px solid #ccc;
+    margin-bottom:10px;
+}
+
+.active {
+    background: #ccc;
+}
