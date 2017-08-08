@@ -30,6 +30,10 @@ followAuthorCode
             使用插件 html-webpack-plugin
             构建命令：webpack
 
+npm install --save bundle-loader connect-history-api-fallback es6-promise fastclick prismjs react react-addons-perf react-addons-pure-render-mixin react-dom react-redux react-router react-router-dom react-swipe redux whatwg-fetch
+
+npm install --save-dev autoprefixer babel-cli babel-core babel-loader babel-preset-env babel-preset-es2015 babel-preset-latest babel-preset-react babel-preset-stage-2 bundle-collapser cnpm css-loader ejs-loader envify eslint eslint-loader express extract-text-webpack-plugin file-loader html-loader html-webpack-plugin img-loader koa koa-router less less-loader open-browser-webpack-plugin optimize-css-assets-webpack-plugin postcss postcss-loader resolve-url-loader style-loader uglify-js uglify-js-brunch uglifyify uglifyjs-webpack-plugin url-loader webpack webpack-dev-server
+
 
 第3章 初识React
     npm install --babel-core babel-loader babel-preset-latest babel-preset-react --save-dev cnpm --registry=https://registry.npm.taobao.org
