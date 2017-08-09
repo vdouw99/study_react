@@ -6,7 +6,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import Hobby from './Hobby.jsx';
 
-class Page91_Lifecycle extends React.Component {
+class Page97_Lifecycle extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -20,13 +20,25 @@ class Page91_Lifecycle extends React.Component {
         liked++;
         this.setState({liked: liked});
     }
-
-    // 传说中的生命周期，难道是我没有理解其真谛？！
-    // componentDidMount() 是在render完成并且组件装载完成之后调用的方法
+    
     componentDifMount() {
         setTimeout(()=> {
             this.likedCallback()
         }, 1000);
+    }
+
+    addHobbyCallback() {
+        var hobbyInput = this.refs.hobby;
+        var val = hobbyInput.value;
+        if (val) {
+            let hobbies = this.state.hobbies;
+            hobbies = [...hobbies, val];
+            this.setState({
+                hobbies: hobbies
+            }, ()=> {
+                hobbyInput.value = "";
+            })
+        }
     }
 
     render() {
@@ -38,9 +50,11 @@ class Page91_Lifecycle extends React.Component {
                 <p>总点赞数：{this.state.liked}</p>
                 <h6>我的爱好：</h6>
                 <ul>{this.state.hobbies.map((hobby, i)=><Hobby key={i} hobby={hobby}/>)}</ul>
+                <input type="text" ref="hobby"/>
+                <button onClick={this.addHobbyCallback.bind(this)}>添加爱好</button>
             </div>
         )
     }
 }
 
-export default Page91_Lifecycle;
+export default Page97_Lifecycle;
