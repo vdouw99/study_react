@@ -9,7 +9,7 @@ export default class Profile extends React.Component {
     render() {
         return (
             <div className="profile-componet">
-                <h2>Hi, I am zhangsanfeng, and you?</h2>
+                <p>Hi, I am zhangsanfeng, and you?</p>
             </div>
         )
     }
