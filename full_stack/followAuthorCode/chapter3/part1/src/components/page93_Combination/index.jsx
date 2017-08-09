@@ -36,7 +36,7 @@ class Page91_Lifecycle extends React.Component {
                 <h6>我今年{this.props.age}</h6>
                 <button onClick={this.componentDifMount.bind(this)}>点赞</button>
                 <p>总点赞数：{this.state.liked}</p>
-                <h6>我的爱好：</h6>
+                <h6>我的爱好是：</h6>
                 <ul>{this.state.hobbies.map((hobby, i)=><Hobby key={i} hobby={hobby}/>)}</ul>
             </div>
         )
