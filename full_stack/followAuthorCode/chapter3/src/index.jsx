@@ -1,6 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+import './index.css';
+
 import Page65_Component from './components/page65/index.jsx';
 import P70_Component from './components/page70/index.jsx';
 import Page86_Props from './components/page86_Props/index.jsx';
