@@ -64,6 +64,12 @@ componentDidUpdate : 重新渲染完成后调用，与componentDidMount一样。
 componentWillUnmount : 在组件被卸载或销毁之前调用。
 
 
+bootstrap暂时作为插件外部引入，但在打包的时候，要复制public文件夹，似乎不是一个很好的解决方案。
+先这样吧，后面再研究。
+
+
+
+
 
 
 
