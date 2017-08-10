@@ -1,11 +1,13 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import App from './components/Deskmark/index.jsx';
+// import 'bootstrap/dist/css/bootstrap.css';
+
+import Destmark from './components/Deskmark/index.jsx';
 
 render(
     <div>
-        <App />
+        <Destmark />
     </div>,
     document.getElementById('root')
 );
