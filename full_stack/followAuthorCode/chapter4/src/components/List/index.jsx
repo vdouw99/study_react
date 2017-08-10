@@ -7,13 +7,13 @@ import {render} from 'react-dom';
 import ListItem from '../ListItem/index.jsx';
 
 function List({items}) {
-    items = items.map(
-        item=>(
-            <ListItem item={item} key={item.id}/>
-        )
-    );
+    // items = items.map(
+    //     item=>(
+    //         <ListItem item={item} key={item.id}/>
+    //     )
+    // );
     return (
-        <div className="list-component col-md-4 list-group">{items}</div>
+        <div className="list-component col-md-4 list-group">items</div>
     );
 }
 
