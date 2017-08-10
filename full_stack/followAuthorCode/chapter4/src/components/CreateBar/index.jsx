@@ -8,7 +8,7 @@ import './index.less';
 
 function CreateBar({onClick}) {
     return (
-        <a href="#" className="list-group-item create-bar-component">
+        <a href="#" onClick={onClick} className="list-group-item create-bar-component">
             + 创建新的文章
         </a>
     )

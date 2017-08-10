@@ -11,10 +11,37 @@ import CreateBar from '../CreateBar/index.jsx';
 import ItemEditor from '../ItemEditor/index.jsx';
 import ItemShowLayer from '../ItemShowLayer/index.jsx';
 import List from '../List/index.jsx';
-import ListItem from '../ListItem/index.jsx';
 
 
-export default class App extends React.Component {
+class Deskmark extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: [],
+            selectedId: null,
+            editing: false
+        }
+    }
+
+    selectItem(id) {
+        if (id === this.state.selectedId) {
+            return;
+        }
+        this.setState({
+            selectedId: id,
+            editing: false
+        })
+    }
+
+    createItem() {
+        // alert(123);
+        this.setState({
+            selectedId: null,
+            editing: true
+        });
+        console.log(this.state);
+    }
+
     render() {
         return (
             <section className="deskmark-component">
@@ -24,8 +51,8 @@ export default class App extends React.Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4 list-group">
-                            <CreateBar />
-                            <list />
+                            <CreateBar onClick={this.createItem.bind(this)}/>
+                            <List item={this.state.items} onSelect={this.selectItem.bind(this)}/>
                         </div>
                         <ItemEditor />
                     </div>
@@ -34,3 +61,5 @@ export default class App extends React.Component {
         )
     }
 }
+
+export default Deskmark;
