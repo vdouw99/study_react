@@ -66,6 +66,11 @@ componentWillUnmount : 在组件被卸载或销毁之前调用。
 
 bootstrap暂时作为插件外部引入，但在打包的时候，要复制public文件夹，似乎不是一个很好的解决方案。
 先这样吧，后面再研究。
+解决方案可以参考：http://www.cnblogs.com/zhongxia/p/5834089.html
+2017-08-10
+
+
+
 
 
 

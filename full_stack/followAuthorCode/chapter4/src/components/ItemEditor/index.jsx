@@ -4,6 +4,7 @@
 
 import React, {PropTypes} from 'react';
 import {render} from 'react-dom';
+import './index.less';
 
 class ItemEditor extends React.Component {
     render() {
