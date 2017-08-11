@@ -42,7 +42,24 @@ class Deskmark extends React.Component {
         console.log(this.state);
     }
 
+    // saveItem(item){
+    //     let items = this.state.items;
+    //     if(!item.id){
+    //         items = [...items,{
+    //             ...item,
+    //             id:uuid.v4()
+    //         }]
+    //     }
+    // }
+
     render() {
+        const {items, selectedId, editing} = this.state;
+        const selected = selectedId && items.find(item=>item.id === selectedId);
+        const mainPart = editing ? (
+            <ItemEditor item={selected} onSave={this.saveItem} onCancel={this.cancelEdit}/>
+        ) : (
+            <ItemShowLayer item={selected} onEdit={this.editItem} onDelete={this.deleteItem}/>
+        );
         return (
             <section className="deskmark-component">
                 <nav className="navbar navbar-fixed-top navbar-dark bg-inverse">
@@ -52,9 +69,9 @@ class Deskmark extends React.Component {
                     <div className="row">
                         <div className="col-md-4 list-group">
                             <CreateBar onClick={this.createItem.bind(this)}/>
-                            <List item={this.state.items} onSelect={this.selectItem.bind(this)}/>
+                            <List items={this.state.items} onSelect={this.selectItem.bind(this)}/>
                         </div>
-                        <ItemEditor />
+                        {mainPart}
                     </div>
                 </div>
             </section>
