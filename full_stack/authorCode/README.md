@@ -29,6 +29,8 @@
 
 
 
-npm install --save-dev babel-core babel-eslint babel-loader babel-plugin-transform-object-rest-spread babel-preset-es2015 babel-preset-react babel-preset-react-hmre bootstrap chai css-loader enzyme eslint eslint-config-airbnb eslint-loader eslint-plugin-react expect html-webpack-plugin ignore-styles jsdom mocha node-sass react-addons-test-utils sass-loader style-loader uuid webpack webpack-dev-server --registry=https://registry.npm.taobao.org
+npm install --save-dev babel-core babel-eslint babel-loader babel-plugin-transform-object-rest-spread babel-preset-es2015 babel-preset-react babel-preset-react-hmre bootstrap chai css-loader enzyme eslint eslint-config-airbnb eslint-loader eslint-plugin-react expect html-webpack-plugin ignore-styles jsdom mocha node-sass react-addons-test-utils sass-loader style-loader uuid webpack webpack-dev-server
 
-npm install --save babel-polyfill marked react react-dom --registry=https://registry.npm.taobao.org
+npm install --save babel-polyfill marked react react-dom
+
+ --registry=https://registry.npm.taobao.org
