@@ -4,7 +4,6 @@
 
 // 加载依赖
 import React, {PropTypes} from 'react';
-import {render} from 'react-dom';
 
 // 属性验证
 // const propTypes = {
@@ -20,8 +19,8 @@ function ListItem({item, onClick}) {
     }
     return (
         <a href="#" onClick={onClick} className="list-group-item item-component">
-            <span className="label label-default label-pill pull-xs-right">{formatTime}</span>
-            <span className="item-title">{item.title}</span>
+            <span className="label label-default label-pill pull-xs-right">{formatTime} - formatTime</span>
+            <span className="item-title">{item.title} - item.title</span>
         </a>
     )
 }

@@ -13,7 +13,7 @@ function List({items, onSelect}) {
         )
     );
     return (
-        <div className="list-component">{itemsContent}</div>
+        <div className="list-component">{itemsContent} - itemsContent</div>
     );
 }
 
