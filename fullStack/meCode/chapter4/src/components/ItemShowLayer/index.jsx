@@ -32,7 +32,7 @@ function ItemShowLayer({item}) {
     // );
 
     return (
-        <div className="col-md-8 item-show-layer-component">
+        <div className="col-md-6 item-show-layer-component">
             <div className="control-area">
                 <button className="btn btn-primary">编辑</button>
                 <button className="btn btn-danger">删除</button>

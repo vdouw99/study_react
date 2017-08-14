@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import {render} from 'react-dom';
+import uuid from 'uuid';
 import './index.less';
 
 import CreateBar from '../CreateBar/index.jsx';
@@ -42,21 +42,34 @@ class Deskmark extends React.Component {
         console.log(this.state);
     }
 
-    // saveItem(item){
-    //     let items = this.state.items;
-    //     if(!item.id){
-    //         items = [...items,{
-    //             ...item,
-    //             id:uuid.v4()
-    //         }]
-    //     }
-    // }
+    saveItem(item) {
+        let items = this.state.items;
+        if (!item.id) {
+            items = [...items, {
+                item: item,
+                id: uuid.v4(),
+                time: new Date().getTime()
+            }];
+        } else {
+            items = items.map(
+                exist=>(exist.id === item.id ? {
+                    exist: exist,
+                    item: item
+                } : exist)
+            );
+        }
+        this.setState({
+            items: items,
+            selectedId: item.id,
+            editing: false
+        });
+    }
 
     render() {
         const {items, selectedId, editing} = this.state;
         const selected = selectedId && items.find(item=>item.id === selectedId);
         const mainPart = editing ? (
-            <ItemEditor item={selected} onSave={this.saveItem} onCancel={this.cancelEdit}/>
+            <ItemEditor item={selected} onSave={this.saveItem.bind(this)} onCancel={this.cancelEdit}/>
         ) : (
             <ItemShowLayer item={selected} onEdit={this.editItem} onDelete={this.deleteItem}/>
         );
@@ -67,7 +80,7 @@ class Deskmark extends React.Component {
                 </nav>
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-4 list-group">
+                        <div className="col-md-6 list-group">
                             <CreateBar onClick={this.createItem.bind(this)}/>
                             <List items={this.state.items} onSelect={this.selectItem.bind(this)}/>
                         </div>
