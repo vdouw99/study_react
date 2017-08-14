@@ -12,50 +12,6 @@ const propTypes = {
 };
 
 class ItemEditor extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            items: [],
-            selectedId: null,
-            editing: false
-        };
-    };
-
-    selectItem(id) {
-        if (id === this.state.selectedId) {
-            return;
-        }
-        this.setState({
-            selectedId: id,
-            editing: false
-        })
-    }
-
-    saveItem(item) {
-        let items = this.state.items;
-        if (!item.id) {
-            items = [...items, {
-                item: item,
-                id: 44,
-                time: new Date().getTime()
-            }]
-        } else {
-            items = items.map(
-                exist =>(
-                    exist.id === item.id ? {
-                        exist: exist,
-                        item: item
-                    } : exist
-                )
-            );
-        }
-        this.setState({
-            items: items,
-            selectedId: item.id,
-            editing: false
-        })
-    }
-
     render() {
         const {onSave, onCancel} = this.props;
         const item = this.props.item || {
@@ -66,10 +22,11 @@ class ItemEditor extends React.Component {
         let save = ()=> {
             onSave({
                 // ...item,     // 报错
-                // item: item,  // 暂这样不报错
+                item: item,  // 暂这样不报错
                 title: this.refs.title.value,
                 content: this.refs.content.value
             });
+            console.log('---onSave----');
             console.log(onSave);
         };
         return (
