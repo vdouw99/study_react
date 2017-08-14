@@ -33,4 +33,4 @@ npm install --save-dev babel-core babel-eslint babel-loader babel-plugin-transfo
 
 npm install --save babel-polyfill marked react react-dom
 
- --registry=https://registry.npm.taobao.org
+--registry=https://registry.npm.taobao.org
