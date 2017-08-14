@@ -3,12 +3,16 @@
  */
 
 import React, {PropTypes} from 'react';
-import {render} from 'react-dom';
 import ListItem from '../ListItem/index.jsx';
+
+const propTypes = {
+    items: PropTypes.array.isRequired,
+    onSelect: PropTypes.func.isRequired
+};
 
 function List({items, onSelect}) {
     const itemsContent = items.map(
-        item=>(
+        item =>(
             <ListItem item={item} key={item.id} onClick={()=>onSelect(item.id)}/>
         )
     );
@@ -16,5 +20,7 @@ function List({items, onSelect}) {
         <div className="list-component">{itemsContent} - itemsContent</div>
     );
 }
+
+List.propTypes = propTypes;
 
 export default List;

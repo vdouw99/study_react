@@ -65,7 +65,8 @@ class ItemEditor extends React.Component {
         let saveText = item.id ? '保存' : '创建';
         let save = ()=> {
             onSave({
-                item: item,  // 暂这样不报错
+                // ...item,     // 报错
+                // item: item,  // 暂这样不报错
                 title: this.refs.title.value,
                 content: this.refs.content.value
             });

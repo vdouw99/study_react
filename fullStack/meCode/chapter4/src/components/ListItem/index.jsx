@@ -6,10 +6,10 @@
 import React, {PropTypes} from 'react';
 
 // 属性验证
-// const propTypes = {
-//     item: PropTypes.object.isRequired,
-//     onClick: PropTypes.func.isRequired
-// };
+const propTypes = {
+    item: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired
+};
 
 // 组件主体
 function ListItem({item, onClick}) {
@@ -27,7 +27,7 @@ function ListItem({item, onClick}) {
 }
 
 // 添加验证
-// ListItem.propTypes = PropTypes;
+ListItem.propTypes = propTypes;
 
 // 导出组件
 export default ListItem;
