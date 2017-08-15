@@ -13,11 +13,10 @@ function List({items}) {
     console.log('-----List/index.jsx start---------');
     console.log(items);
     console.log('-----List/index.jsx end---------');
-    const itemContent = items.map(
-        item => {
-            <ListItem item={item} key={item.id}/>
-        }
-    );
+    const itemContent = items.map(item => {
+        // <ListItem item={item} key={item.id}/>
+        <div>{item.id}{item.content}</div>
+    });
 
     return (
         <div className="list-component">{itemContent}</div>
