@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-function Index() {
+function CreateBar() {
     return (
         <a href="javascript:;" className="list-group-item create-bar-component">
             + 创建新的文章
@@ -12,4 +12,4 @@ function Index() {
     );
 }
 
-export default Index;
+export default CreateBar;

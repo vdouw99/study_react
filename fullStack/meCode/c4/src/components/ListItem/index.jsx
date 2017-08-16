@@ -9,18 +9,18 @@ const propTypes = {
     onClick: PropTypes.func.isRequired
 };
 
-function Index({item}) {
-    retrun(
+function ListItem({item}) {
+    return (
         <a href="javascript:;" className="list-group-itme item-component">
-            <span className="label label-default label-pill pull-xs-right">
-                {item.time}
-            </span>
-            item.title
+            <div>
+                <span className="label label-default label-pill pull-xs-right">{item.time}</span>
+                {item.title}
+            </div>
         </a>
     );
 }
 
-Index.propTypes = propTypes;
+ListItem.propTypes = propTypes;
 
-export default Index;
+export default ListItem;
 
