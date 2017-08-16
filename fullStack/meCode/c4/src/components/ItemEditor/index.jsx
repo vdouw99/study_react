@@ -16,6 +16,7 @@ class ItemEditor extends React.Component {
                 title: this.refs.title.value,
                 content: this.refs.content.value
             });
+            this.refs.title.value = this.refs.content.value = "";
         };
         return (
             <div className="col-md-8 item-editor-component">

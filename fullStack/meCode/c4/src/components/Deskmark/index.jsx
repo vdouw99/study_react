@@ -31,7 +31,6 @@ class Deskmark extends React.Component {
     }
 
     createItem() {
-        alert(123);
         this.setState({
             selectedId: null,
             editing: true
@@ -73,7 +72,7 @@ class Deskmark extends React.Component {
                 </nav>
                 <div className="container-fluid bg-success">
                     <div className="col-md-6">
-                        <CreateBar onClick={this.createItem.bind(this)}/>
+                        <CreateBar onClick111={this.createItem.bind(this)}/>
                         <hr />
                         <List items={this.state.items}/>
                     </div>
