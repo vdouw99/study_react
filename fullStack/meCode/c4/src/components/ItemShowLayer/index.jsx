@@ -5,7 +5,7 @@
 import React from 'react';
 import './index.less';
 
-function ItemShowLayer() {
+function ItemShowLayer({item,onEdit}) {
     return (
         <div className="col-md-8 item-show-layer-component">
             <h2>item.title}</h2>

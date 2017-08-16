@@ -23,11 +23,20 @@ class Deskmark extends React.Component {
             editing: false       // 表示在编辑状态还是浏览状态
         };
         // this.selectItem = this.selectItem.bind(this);
-        this.saveItem = this.saveItem.bind(this);
+        // this.saveItem = this.saveItem.bind(this);
         // this.deleteItem = this.deleteItem.bind(this);
         // this.createItem = this.createItem.bind(this);
         // this.editItem = this.editItem.bind(this);
         // this.cancelEdit = this.cancelEdit.bind(this);
+    }
+
+    createItem() {
+        alert(123);
+        this.setState({
+            selectedId: null,
+            editing: true
+        });
+        console.log(this.state);
     }
 
     saveItem(item) {
@@ -51,11 +60,12 @@ class Deskmark extends React.Component {
 
     render() {
         const {items, selectedId, editing} = this.state;
-        // const mainPart = editing ? (
-        //     <ItemEditor onSave={this.saveItem}/>
-        // ) : (
-        //     <ItemShowLayer onEdit={this.editItem}/>
-        // );
+        const selected = selectedId && items.find(item=>item.id === selectedId);
+        const mainPart = editing ? (
+            <ItemEditor item={selected} onSave={this.saveItem.bind(this)}/>
+        ) : (
+            <ItemShowLayer item={selected} onEdit={this.editItem.bind(this)}/>
+        );
         return (
             <section className="deskmark-component">
                 <nav className="container-fuild">
@@ -63,14 +73,17 @@ class Deskmark extends React.Component {
                 </nav>
                 <div className="container-fluid bg-success">
                     <div className="col-md-6">
-                        <CreateBar />
+                        <CreateBar onClick={this.createItem.bind(this)}/>
                         <hr />
                         <List items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
-                        <ItemEditor onSave={this.saveItem}/>
-                        <div className="clearfix"></div>
-                        <ItemShowLayer onEdit={this.editItem}/>
+                        {/*
+                         <ItemEditor onSave={this.saveItem.bind(this)}/>
+                         <div className="clearfix"></div>
+                         <ItemShowLayer onEdit={this.editItem}/>
+                         */}
+                        {mainPart}
                     </div>
                 </div>
             </section>

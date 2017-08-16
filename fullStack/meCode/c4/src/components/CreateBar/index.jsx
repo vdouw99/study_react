@@ -4,9 +4,9 @@
 
 import React from 'react';
 
-function CreateBar() {
+function CreateBar({onClick111}) {
     return (
-        <a href="javascript:;" className="list-group-item create-bar-component">
+        <a href="javascript:;" onClick={onClick111} className="list-group-item create-bar-component">
             + 创建新的文章
         </a>
     );

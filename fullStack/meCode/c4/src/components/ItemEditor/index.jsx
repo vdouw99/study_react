@@ -9,6 +9,7 @@ class ItemEditor extends React.Component {
     render() {
         const {onSave} = this.props;
         const item = this.props.item || {title: "", content: ""};
+        let saveText = item.id ? '保存' : '创建';
         let save = ()=> {
             onSave({
                 item: item,
@@ -19,11 +20,11 @@ class ItemEditor extends React.Component {
         return (
             <div className="col-md-8 item-editor-component">
                 <div className="edit-area">
-                    <input ref="title" placeholder="请填写标题"/>
-                    <textarea ref="content" placeholder="请填写内容"/>
+                    <input ref="title" defaultValue={item.title} placeholder="请填写标题"/>
+                    <textarea ref="content" defaultValue={item.content} placeholder="请填写内容"/>
                 </div>
                 <div className="control-area">
-                    <button onClick={save} className="btn btn-success">saveText}</button>
+                    <button onClick={save} className="btn btn-success">{saveText}</button>
                     <button className="btn secondary">取消</button>
                 </div>
             </div>

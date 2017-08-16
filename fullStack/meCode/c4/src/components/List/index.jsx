@@ -6,7 +6,6 @@ import React from 'react';
 import ListItem from '../ListItem/index.jsx';
 
 function List({items}) {
-    console.log(items);
     items = items.map(
         item=>(
             <ListItem item={item} key={item.id}/>
