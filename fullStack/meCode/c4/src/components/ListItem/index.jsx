@@ -11,7 +11,7 @@ const propTypes = {
 
 function ListItem({item}) {
     var formatTime = '未知时间'
-    if(item.time){
+    if (item.time) {
         formatTime = new Date(item.time).toString();
     }
     return (
