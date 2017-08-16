@@ -10,10 +10,14 @@ const propTypes = {
 };
 
 function ListItem({item}) {
+    var formatTime = '未知时间'
+    if(item.time){
+        formatTime = new Date(item.time).toString();
+    }
     return (
         <a href="javascript:;" className="list-group-itme item-component">
             <div>
-                <span className="label label-default label-pill pull-xs-right">{item.time}</span>
+                <span className="label label-default label-pill pull-xs-right">{formatTime}</span>
                 {item.title}
             </div>
         </a>

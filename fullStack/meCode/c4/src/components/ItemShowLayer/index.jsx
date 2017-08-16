@@ -3,4 +3,22 @@
  */
 
 import React from 'react';
+import './index.less';
+
+function ItemShowLayer() {
+    return (
+        <div className="col-md-8 item-show-layer-component">
+            <div className="control-area">
+                <button className="btn btn-primary">编辑</button>
+                <button className="btn btn-danger">删除</button>
+            </div>
+            <h2>item.title}</h2>
+            <div className="item-text">
+                div dangerouslySetInnerHTML= __html: content
+            </div>
+        </div>
+    )
+}
+
+export default ItemShowLayer;
 
