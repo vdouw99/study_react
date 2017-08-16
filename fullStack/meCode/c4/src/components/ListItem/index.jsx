@@ -15,7 +15,7 @@ function Index({item}) {
             <span className="label label-default label-pill pull-xs-right">
                 {item.time}
             </span>
-            {item.title}
+            item.title
         </a>
     );
 }
