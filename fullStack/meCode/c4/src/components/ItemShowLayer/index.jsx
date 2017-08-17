@@ -3,14 +3,27 @@
  */
 
 import React from 'react';
+import marked from 'marked';
 import './index.less';
 
-function ItemShowLayer({item,onEdit}) {
+function ItemShowLayer({item, onEdit}) {
+    if (!item || !item.id) {
+        return (
+            <div className="col-md-8 item-show-layer-component">
+                <div className="no-select">请选择左侧列表里面的文章</div>
+            </div>
+        );
+    }
+
+    const content = item.content;
     return (
         <div className="col-md-8 item-show-layer-component">
-            <h2>item.title}</h2>
+            <h2>{item.title}</h2>
             <div className="item-text">
-                div dangerouslySetInnerHTML= __html: content
+                <div dangerouslySetInnerHTML={{ __html: content }}/>
+                <div>这是marked的用处：{content}</div>
+                {/*
+                 */}
             </div>
             <div className="control-area">
                 <button className="btn btn-primary">编辑</button>

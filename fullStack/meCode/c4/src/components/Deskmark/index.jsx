@@ -16,8 +16,8 @@ class Deskmark extends React.Component {
         super(props);
         this.state = {
             items: [
-                {id: 'id1', title: 'title1', content: 'content1', time: 1458030208359},
-                {id: 'id2', title: 'title2', content: 'content2', time: 1458030408359}
+                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: 1459030208359},
+                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: 1458030408359}
             ],
             selectedId: null,    // 表示当前选择的内容
             editing: false       // 表示在编辑状态还是浏览状态
@@ -28,6 +28,17 @@ class Deskmark extends React.Component {
         // this.createItem = this.createItem.bind(this);
         // this.editItem = this.editItem.bind(this);
         // this.cancelEdit = this.cancelEdit.bind(this);
+    }
+
+    selectItem(id) {
+        if (id === this.state.selectedId) {
+            return;
+        }
+        this.setState({
+            selectedId: id,
+            editing: false
+        });
+        console.log(this.state);
     }
 
     createItem() {
@@ -74,7 +85,7 @@ class Deskmark extends React.Component {
                     <div className="col-md-6">
                         <CreateBar onClick111={this.createItem.bind(this)}/>
                         <hr />
-                        <List items={this.state.items}/>
+                        <List onSelect={this.selectItem.bind(this)} items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
                         {/*

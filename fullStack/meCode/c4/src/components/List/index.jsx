@@ -5,15 +5,15 @@
 import React from 'react';
 import ListItem from '../ListItem/index.jsx';
 
-function List({items}) {
+function List({items,onSelect}) {
     items = items.map(
         item=>(
-            <ListItem item={item} key={item.id}/>
+            <ListItem item={item} key={item.id} onSelect={()=>onSelect(item.id)}/>
         )
     );
     console.log(items);
     return (
-        <div className="list-component col-md-6 list-group">{items}</div>
+        <div className="list-component">{items}</div>
     )
 }
 
