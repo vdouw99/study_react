@@ -93,13 +93,23 @@ class Deskmark extends React.Component {
         });
     }
 
+    // 删除某篇文章
+    deleteItem(id) {
+        if (!id)return;
+        this.setState({
+            items: this.state.items.filter(
+                result=>result.id !== id
+            )
+        })
+    }
+
     render() {
         const {items, selectedId, editing} = this.state;
         const selected = selectedId && items.find(item=>item.id === selectedId);
         const mainPart = editing ? (
             <ItemEditor item={selected} onCancel={this.cancelEdit.bind(this)} onSave={this.saveItem.bind(this)}/>
         ) : (
-            <ItemShowLayer item={selected} onEdit={this.editItem.bind(this)}/>
+            <ItemShowLayer item={selected} onEdit={this.editItem.bind(this)} onDelete={this.deleteItem.bind(this)}/>
         );
         return (
             <section className="deskmark-component">

@@ -6,7 +6,7 @@ import React from 'react';
 import marked from 'marked';
 import './index.less';
 
-function ItemShowLayer({item, onEdit}) {
+function ItemShowLayer({item, onEdit,onDelete}) {
     if (!item || !item.id) {
         return (
             <div className="col-md-8 item-show-layer-component">
@@ -27,7 +27,7 @@ function ItemShowLayer({item, onEdit}) {
             </div>
             <div className="control-area">
                 <button onClick={()=>onEdit(item.id)} className="btn btn-primary">编辑</button>
-                <button className="btn btn-danger">删除</button>
+                <button onClick={()=>onDelete(item.id)} className="btn btn-danger">删除</button>
             </div>
         </div>
     )
