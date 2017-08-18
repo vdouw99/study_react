@@ -15,14 +15,14 @@ function ItemShowLayer({item, onEdit}) {
         );
     }
 
-    const content = item.content;
+    const content = marked(item.content);
     return (
         <div className="col-md-8 item-show-layer-component">
             <h2>{item.title}</h2>
             <div className="item-text">
                 <div dangerouslySetInnerHTML={{ __html: content }}/>
-                <div>这是marked的用处：{content}</div>
                 {/*
+                <div>这是marked的用处：{content}</div>
                  */}
             </div>
             <div className="control-area">

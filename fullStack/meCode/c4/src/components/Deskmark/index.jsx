@@ -32,7 +32,7 @@ class Deskmark extends React.Component {
 
     // 选择某一个
     selectItem(id) {
-        alert('selectItem:' + id);
+        // alert('selectItem:' + id);
         if (id === this.state.selectedId) {
             return;
         }
@@ -55,8 +55,9 @@ class Deskmark extends React.Component {
     // 创建新文章 按钮
     saveItem(item) {
         // item是编辑器返回的对象，里面应该包括标题和内容
-        alert(item.id);
+        console.log(item);
         let items = this.state.items;
+        console.error(this.state);
         if (!item.id) {
             alert('没有这个ID的时候');
             item.id = uuid.v4();
@@ -68,14 +69,14 @@ class Deskmark extends React.Component {
             console.log(this.state);
         } else {
             alert('有这个ID的时候');
-            items = items.map(
-                exist=>(
-                    exist.id === item.id ? {
-                        exist: exist,
-                        item: item
-                    } : exist
-                )
-            )
+            // items = items.map(
+            //     exist=>(
+            //         exist.id === item.id ? {
+            //             exist: exist,
+            //             item: item
+            //         } : exist
+            //     )
+            // )
         }
         console.log(this.state);
     }
