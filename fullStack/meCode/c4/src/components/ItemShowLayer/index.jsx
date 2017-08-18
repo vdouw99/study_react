@@ -26,7 +26,7 @@ function ItemShowLayer({item, onEdit}) {
                  */}
             </div>
             <div className="control-area">
-                <button className="btn btn-primary">编辑</button>
+                <button onClick={()=>onEdit(item.id)} className="btn btn-primary">编辑</button>
                 <button className="btn btn-danger">删除</button>
             </div>
         </div>

@@ -8,7 +8,7 @@ import ListItem from '../ListItem/index.jsx';
 function List({items,onSelect}) {
     items = items.map(
         item=>(
-            <ListItem item={item} key={item.id} onSelect={()=>onSelect(item.id)}/>
+            <ListItem item={item} key={item.id} onClick={()=>onSelect(item.id)}/>
         )
     );
     console.log(items);
