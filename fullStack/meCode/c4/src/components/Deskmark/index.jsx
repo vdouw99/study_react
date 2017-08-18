@@ -30,6 +30,7 @@ class Deskmark extends React.Component {
         // this.cancelEdit = this.cancelEdit.bind(this);
     }
 
+    // 选择某一个
     selectItem(id) {
         if (id === this.state.selectedId) {
             return;
@@ -41,6 +42,7 @@ class Deskmark extends React.Component {
         console.log(this.state);
     }
 
+    // 创建新文章 显示输入框
     createItem() {
         this.setState({
             selectedId: null,
@@ -49,6 +51,7 @@ class Deskmark extends React.Component {
         console.log(this.state);
     }
 
+    // 创建新文章 按钮
     saveItem(item) {
         // item是编辑器返回的对象，里面应该包括标题和内容
         let items = this.state.items;
@@ -59,6 +62,11 @@ class Deskmark extends React.Component {
             items: items
         });
         console.log(this.state);
+    }
+
+    // 取消创建、取消编辑
+    cancelEdit() {
+        this.setState({editing: false});
     }
 
     editItem(id) {
@@ -72,7 +80,7 @@ class Deskmark extends React.Component {
         const {items, selectedId, editing} = this.state;
         const selected = selectedId && items.find(item=>item.id === selectedId);
         const mainPart = editing ? (
-            <ItemEditor item={selected} onSave={this.saveItem.bind(this)}/>
+            <ItemEditor item={selected} onCancel={this.cancelEdit.bind(this)} onSave={this.saveItem.bind(this)}/>
         ) : (
             <ItemShowLayer item={selected} onEdit={this.editItem.bind(this)}/>
         );
