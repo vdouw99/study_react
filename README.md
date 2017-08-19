@@ -27,7 +27,7 @@ http://cn.redux.js.org/docs/introduction/Examples.html
 es6-promise
 https://segmentfault.com/a/1190000006557624
 
-fullStack/authorCode/chapter4/part1
+fullStack/authorCode/chapter4/part1/node_modules
 http://pan.baidu.com/s/1hsOlryW
 
 
