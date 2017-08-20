@@ -7,6 +7,8 @@ import assign from 'object-assign';
 import AppDispatcher from '../dispatcher/index.jsx';
 import uuid from 'uuid';
 
+// store：整个程序所需要的数据
+// 使用Object.assign方法，把EventEmitter.prototype挂载到TodoStore上
 const TodoStore = assign({}, EventEmitter.prototype, {
     todos: [{id: uuid.v4(), content: 'first one'}, {id: uuid.v4(), content: '2nd one'}],
 
