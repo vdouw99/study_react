@@ -4,10 +4,10 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import Todo from './components/Todo.jsx';
 
 render(
-    <div>
-        <div>新建一个项目，学习flux</div>
-    </div>,
+    <Todo />,
     document.getElementById('root')
 );
+
