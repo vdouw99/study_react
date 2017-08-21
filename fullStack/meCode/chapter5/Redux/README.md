@@ -21,6 +21,16 @@
         stor.getState();
     3、使用纯函数执行修改
         为了描述action怎样改变state，需要编写reducer来支付宝修改的规则
+        reducer是纯函数，接收先前的state和处理的action，返回新的state。
+        // 这是一个reducer，处理action，并返回新的state
+        function posts(state=[],action){
+            switch(action.type){
+                case 'CREATE_POST':
+                    return [...state,action.post]
+                default:
+                    return state;
+            }
+        }
 
 
 
