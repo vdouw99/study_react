@@ -2,9 +2,7 @@
  * Created by Administrator on 2017/8/15 0015.
  */
 
-import {combineReducers, createStore} from 'redux';
-import Handlebars from 'handlebars';
-
+// action就是一个特殊的对象，描述了一个特定的行为
 // action是信息的载体，里面有action的名称和要传递的信息，然后可以被传递到store中去。
 // 传递的方法是store.dispatch方法，action是store唯一信息来源。
 // action只是一个普通的JS对象，且必须有一个type属性，表示这个action要完成的功能。
@@ -13,9 +11,9 @@ const CREATE_POST = 'CREATE_POST';
 const DELETE_POST = 'DELETE_POST';
 const USER_LOGIN = 'USER_LOGIN';
 // 对应的构造3个action的值
-let createPostAction = {type: CREATE_POST, data: {id: 1, title: 'new title'}};
-let deletePostAction = {type: DELETE_POST, id: 1};
-let userLoginAction = {type: USER_LOGIN, date: {name: '张三丰', email: 'zhangsf@qq.com'}};
+// let createPostAction = {type: CREATE_POST, data: {id: 1, title: 'new title'}};
+// let deletePostAction = {type: DELETE_POST, id: 1};
+// let userLoginAction = {type: USER_LOGIN, date: {name: '张三丰', email: 'zhangsf@qq.com'}};
 
 
 // Action Creator 用来创建不同的action，主要用于异步
@@ -31,9 +29,11 @@ function userLogin(data) {
 
 
 // reducer 用来定义整个程序的state如何响应
+// 就是一个函数，接收数据和action，返回唯一的值
+// 它会根据不同的action更新对应的state值
 const initalPostsState = [];
 const initalUserState = {isLogin: false, userData: {}};
-function posts(state = initalPostState, action) {
+function posts(state = initalPostsState, action) {
     switch (action.type) {
         // 新建文章
         case CREATE_POST:
@@ -62,122 +62,57 @@ function user(state = initalUserState, action) {
 // Object.assign创建一个state的备份，每次返回都是新的对象，而不是直接改变了state的值
 
 
+// state数据在Redux都存储在一个对象中
+// const initalState = {posts: [], user: {isLogin: false, userDate: {}}};
+// // 纯函数，返回一个对象，包括两个函数的返回值
+// function rootReducer(state = initalState, action) {
+//     return {
+//         posts: posts(state.posts, action),
+//         user: user(state.user, action)
+//     };
+// }
+// 每个函数只关心state的一部分，当应用很复杂时，可以把不同的reducer拆分到不同的文件中，这样会让文件结构和代码更新清晰合理。
+
+// Redux提供了一个函数combineReducers，可以完成合并函数的工作
+import {combineReducers} from 'redux';
+const rootReducer = combineReducers({
+    posts: posts,
+    user: user
+});
 
 
+// store是action和reducer的黏合剂，它能完成：
+// 保存整个程序的state
+// 可以通过getState()方法访问state的值
+// 可以通过dispatch()方法执行一个action
+// 可以通过subscribe(listener)注册回调，监听state的变化
+import {createStore} from 'redux';
+// 创建store.reducer这个纯函数作为参数
+let store = createStore(rootReducer);
+// 使用Redux的createStore方法创建store，现在调用action
 
+console.log('查看store初始值');
+console.log(store.getState());
 
+store.subscribe(function () {
+    console.log('监听state变化，每次都打印出来');
+    console.log(store.getState());
+});
 
-/*
- const source = ` <div class="oprate"><p> 文章列表: 总数 {{posts.length}}</p>
- {{#if posts}}
- <ul>
- {{#each posts}}
- <li>{{this.id}} --- {{this.title}}</li>
- {{/each}}
- </ul>
- {{/if}}
- <p> 用户信息： 是否登录：{{user.isLogin}}</p>
- {{#if user.isLogin}}
- 用户邮箱：{{user.userData.email}} 用户名：{{user.userData.name}}
- {{/if}}</div>`;
+// 添加一篇文章
+store.dispatch(createPost({id: 1, title: 'new title1'}));
 
- const template = Handlebars.compile(source);
+// 再添加一篇文章
+store.dispatch(createPost({id: 2, title: 'new title2'}));
 
- function displayPage(data) {
- const html = template(data);
- document.body.innerHTML += html;
- console.log(data);
- }
+// 再添加一篇文章
+store.dispatch(createPost({id: 3, title: 'new title3'}));
 
- // inital states
- const initalPostsState = [];
+// 删除一篇文章
+store.dispatch(deletePost(2));
 
- const initalUserState = {
- isLogin: false,
- userData: {
+// 再添加一篇文章
+store.dispatch(createPost({id: 4, title: 'new title4'}));
 
- }
- };
-
-
- // action names
- const CREATE_POST = 'CREATE_POST';
- const DELETE_POST = 'DELETE_POST';
- const USER_LOGIN = 'USER_LOGIN';
-
- // action creators
- function createPost(data) {
- return {
- type: CREATE_POST,
- data
- };
- }
- function deletePost(id) {
- return {
- type: DELETE_POST,
- id
- };
- }
- function userLogin(data) {
- return {
- type: USER_LOGIN,
- data
- };
- }
- function posts(state = initalPostsState, action) {
- switch (action.type) {
- case CREATE_POST:
- return [...state, action.data];
- case DELETE_POST:
- return state.filter(post => post.id !== action.id);
- default:
- return state;
- }
- }
-
- function user(state = initalUserState, action) {
- switch (action.type) {
- case USER_LOGIN:
- return Object.assign({}, state, {
- isLogin: true,
- userData: action.data
- });
- default:
- return state;
- }
- }
-
- const rootReducer = combineReducers({
- posts,
- user
- });
-
- const store = createStore(rootReducer);
-
- document.body.innerHTML += '<h2>初始化状态</h2>';
-
- displayPage(store.getState());
-
- store.subscribe(() => {
- displayPage(store.getState());
- });
-
- // create two posts
- document.body.innerHTML += '<h2>创建两篇文章</h2>';
- store.dispatch(createPost({ id: 1, title: 'new title' }));
- // store.dispatch({type: CREATE_POST, data: {id: 1, title: 'new title'}});
- store.dispatch(createPost({ id: 2, title: 'the second title' }));
- // store.dispatch({type: CREATE_POST, data: {id: 2, title: 'the second title'}});
-
- // delete one post
- document.body.innerHTML += '<h2>删除一篇文章</h2>';
- store.dispatch(deletePost(1));
- // store.dispatch({type: DELETE_POST, id: 1});
-
- // User login
- document.body.innerHTML += '<h2>用户登录</h2>';
- store.dispatch(userLogin({ name: 'viking', email: 'viking@v.me' }));
- // store.dispatch({type: USER_LOGIN, data: {name: 'viking', email: 'viking@v.me'}});
-
-
- */
+// 用户登录
+store.dispatch(userLogin({"name": "张三丰", "email": "zhangsa@qq.com"}));
