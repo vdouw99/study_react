@@ -30,6 +30,38 @@ function userLogin(data) {
 }
 
 
+// reducer 用来定义整个程序的state如何响应
+const initalPostsState = [];
+const initalUserState = {isLogin: false, userData: {}};
+function posts(state = initalPostState, action) {
+    switch (action.type) {
+        // 新建文章
+        case CREATE_POST:
+            return [...state, action.data];
+        // 删除文章
+        case DELETE_POST:
+            return state.filter((post)=> {
+                return post.id != action.id
+            });
+        default:
+            return false;
+    }
+}
+function user(state = initalUserState, action) {
+    switch (action.type) {
+        case USER_LOGIN:
+            return Object.assign({}, state, {
+                isLogin: true,
+                userData: action.data
+            });
+        default:
+            return false;
+    }
+}
+// 注意：不能改变state值。
+// Object.assign创建一个state的备份，每次返回都是新的对象，而不是直接改变了state的值
+
+
 
 
 
