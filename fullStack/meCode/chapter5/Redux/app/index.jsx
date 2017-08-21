@@ -18,6 +18,18 @@ let deletePostAction = {type: DELETE_POST, id: 1};
 let userLoginAction = {type: USER_LOGIN, date: {name: '张三丰', email: 'zhangsf@qq.com'}};
 
 
+// Action Creator 用来创建不同的action，主要用于异步
+function createPost(data) {
+    return {type: CREATE_POST, data: data};
+}
+function deletePost(id) {
+    return {type: DELETE_POST, id: id};
+}
+function userLogin(data) {
+    return {type: USER_LOGIN, data: data};
+}
+
+
 
 
 
