@@ -28,7 +28,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest','react']}
+                query: {presets: ['latest', 'react']}
             },
             {
                 test: /\.css$/,
@@ -60,7 +60,7 @@ module.exports = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                postcss: ()=> {
+                postcss: function () {
                     return [
                         require('autoprefixer')({
                             browsers: ['last 10 versions', 'ie>=8', '>1% in CN']

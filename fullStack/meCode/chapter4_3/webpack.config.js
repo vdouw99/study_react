@@ -64,7 +64,7 @@ module.exports = {
     plugins: [
         new webpack.LoaderOptionsPlugin({
             options: {
-                postcss: ()=> {
+                postcss: function () {
                     return [
                         require('autoprefixer')({
                             browsers: ['last 10 versions', 'ie>=8', '>1% in CN']
@@ -94,5 +94,5 @@ module.exports = {
         // historyApiFallback: true,    //不跳转
         hot: true,
         inline: true
-    }
-};
+    },
+}
