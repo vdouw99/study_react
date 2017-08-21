@@ -36,6 +36,14 @@
     1、action
         action是信息的载体，
 
+5.2.4 数据流
+    Redux是严格的单向数据流，数据完全可控。
+    1、调用store.dispatch(action)，来执行一个action
+    2、store调用传入的reducer函数，store的来源就是reducer，const store=createStore(Reducer)。当前的state和action会传入到reducer这个函数中
+    3、reducer处理action并且返回新的state。在reducer这个纯函数中，可以根据传入的action，来生成新的state并且返回
+    4、store保存reducer返回新的完整的state。可以根据store.getState()来取得当前的state，也可以通过store.subscribe(listener)来监听state的变化
+
+
 
 
 
