@@ -54,11 +54,11 @@ const rootReducer = combineReducers({
 import {createStore} from 'redux';
 let store = createStore(rootReducer);
 
-console.log('查看store的初始值');
+console.log('查看APP2的store的初始值');
 console.log(store.getState());
 
 store.subscribe(function () {
-    document.write('监听state的变化<br>');
+    document.write('监听APP2的state的变化<br>');
     document.write(JSON.stringify(store.getState()));
     document.write('<br/><br/>');
 });

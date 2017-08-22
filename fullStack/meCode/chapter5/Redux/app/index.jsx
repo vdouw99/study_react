@@ -10,7 +10,6 @@ import App2 from './app2.jsx';
 render(
     <div>
         <App1 />
-        <hr />
         <App2 />
     </div>,
     document.getElementById('root')

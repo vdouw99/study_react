@@ -91,12 +91,14 @@ import {createStore} from 'redux';
 let store = createStore(rootReducer);
 // 使用Redux的createStore方法创建store，现在调用action
 
-console.log('查看store初始值');
-console.log(store.getState());
+document.write('查看APP1的store初始值<br>');
+document.write(JSON.stringify(store.getState()));
+document.write('<br><br>');
 
 store.subscribe(function () {
-    console.log('监听state变化，每次都打印出来');
-    console.log(store.getState());
+    document.write('监听APP1的state变化，每次都打印出来<br>');
+    document.write(JSON.stringify(store.getState()));
+    document.write('<br><br>');
 });
 
 // 添加一篇文章
@@ -117,12 +119,6 @@ store.dispatch(createPost({id: 4, title: 'new title4'}));
 // 用户登录
 store.dispatch(userLogin({"name": "张三丰", "email": "zhangsa@qq.com"}));
 
-console.log('--------------APP1 over-----------');
-
-// let action = addTodo('Use Redux');
-// console.log('dispatching', action);
-// store.dispatch(action);
-// console.log('next state', store.getState());
 
 import React from 'react';
 function app1() {
