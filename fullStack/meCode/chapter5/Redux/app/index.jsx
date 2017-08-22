@@ -3,16 +3,14 @@
  */
 
 import React from 'react';
-import App1 from './app.jsx';
+import {render} from 'react-dom';
+import App1 from './app1.jsx';
+import App2 from './app2.jsx';
 
-class Index extends React.Component {
-    render() {
-        return (
-            <div>
-                <App1 />
-            </div>
-        );
-    }
-}
-
-export default Index;
+render(
+    <div>
+        <App1 />
+        <App2 />
+    </div>,
+    document.getElementById('root')
+);

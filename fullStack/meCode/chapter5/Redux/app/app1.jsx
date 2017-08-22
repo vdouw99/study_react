@@ -122,7 +122,13 @@ store.dispatch(userLogin({"name": "张三丰", "email": "zhangsa@qq.com"}));
 // store.dispatch(action);
 // console.log('next state', store.getState());
 
-
+import React from 'react';
+function app1() {
+    return (
+        <h3>APP1</h3>
+    )
+}
+export default app1;
 
 
 
