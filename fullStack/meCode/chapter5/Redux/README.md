@@ -44,7 +44,7 @@
     4、store保存reducer返回新的完整的state。可以根据store.getState()来取得当前的state，也可以通过store.subscribe(listener)来监听state的变化
 
 
-5.2.4 使用中间件middleware
+5.2.5 使用中间件middleware
     middleware可以同时接触到action信息与store的getState、dispatch方法。
     middleware可以在原有action的基础上，创建一个新的action和dispatch（action转换，用于异步action处理等），也可以触发一些额外的行为（日志管理）。
     可以通过next触发后续的middleware与reducer本身的执行。
