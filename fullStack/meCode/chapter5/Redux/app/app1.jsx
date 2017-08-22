@@ -117,6 +117,8 @@ store.dispatch(createPost({id: 4, title: 'new title4'}));
 // 用户登录
 store.dispatch(userLogin({"name": "张三丰", "email": "zhangsa@qq.com"}));
 
+console.log('--------------APP1 over-----------');
+
 // let action = addTodo('Use Redux');
 // console.log('dispatching', action);
 // store.dispatch(action);
