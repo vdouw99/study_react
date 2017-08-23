@@ -7,7 +7,7 @@ function createPost(data) {
     return {type: 'CREATE_POST', data: data};
 }
 function deletePost(id) {
-    return {type: 'DELETE_POST', id: id};
+    return {type: 'DELETE_POST', data: id};
 }
 function userLogin(data) {
     return {type: 'USER_LOGIN', data: data};
@@ -24,7 +24,7 @@ function posts(state = initalPostsState, action) {
             return [...state, action.data];
         case 'DELETE_POST':
             return state.filter((post)=> {
-                return post.id != action.id
+                return post.id != action.data;
             });
         default:
             return false;
