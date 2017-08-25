@@ -12,6 +12,7 @@ class Index extends React.Component {
         let saveText = item.id ? '保存' : '创建';
         let save = ()=> {
             onSaveFromItemeditor({
+                item: item,
                 title: this.refs.title.value,
                 content: this.refs.content.value
             });

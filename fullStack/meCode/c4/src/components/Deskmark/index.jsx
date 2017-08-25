@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import uuid from 'uuid';
 import List from '../List/index.jsx';
 import CreateBar from '../CreateBar/index.jsx';
 import ItemEditor from '../ItemEditor/index.jsx';
@@ -42,6 +43,11 @@ class Index extends React.Component {
     // 点击“编辑”按钮
     editItem(id) {
         this.setState({selectedId: id, editing: true});
+        var _this = this;
+        setTimeout(function () {
+            console.log('-----当前选择的文章ID是：' + id);
+            console.log(JSON.stringify(_this.state));
+        }, 0);
     }
 
     // 点击“创建新文章”按钮
@@ -69,11 +75,17 @@ class Index extends React.Component {
     // 添加新文章
     saveItem(item) {
         console.log(item);
-        let items = this.state.items;
-        item['time'] = new Date().getTime();
-        items = [...items, item];
-        this.setState({items: items}); //通过setState方法更新state
-        console.log(this.state);
+        if (this.state.selectedId) {
+            
+        } else {
+            let items = this.state.items;
+            console.log(this.state);
+            item['time'] = new Date().getTime();
+            item['id'] = uuid.v4();
+            items = [...items, item];
+            this.setState({items: items}); //通过setState方法更新state
+            console.log(this.state);
+        }
     }
 
     render() {
