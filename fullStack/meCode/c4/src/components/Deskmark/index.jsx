@@ -93,6 +93,8 @@ class Index extends React.Component {
             items = [...items, item];
         }
         this.setState({items: items, selectedId: item.id, editing: false}); //通过setState方法更新state
+        console.log('-----查看数据-------');
+        console.log(this.state);
     }
 
     render() {
