@@ -9,6 +9,16 @@ import ItemEditor from '../ItemEditor/index.jsx';
 import ItemShowLayer from '../ItemShowLayer/index.jsx';
 
 class Index extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            items: [
+                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: 1459030208359},
+                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: 1458030408359}
+            ]
+        };
+    }
+
     render() {
         return (
             <section className="deskmark-component">
@@ -18,7 +28,7 @@ class Index extends React.Component {
                 <div className="container-fuild bg-success">
                     <div className="col-md-6">
                         <CreateBar />
-                        <List />
+                        <List items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
                         <ItemEditor />

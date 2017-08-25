@@ -6,7 +6,9 @@ import React from 'react';
 
 import ListItem from '../ListItem/index.jsx';
 
-function Index() {
+function Index({items}) {
+    console.log('----List组件------');
+    console.log(items);
     return (
         <div className="list-component">
             <ListItem />
