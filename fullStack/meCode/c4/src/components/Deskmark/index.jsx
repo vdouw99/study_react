@@ -17,8 +17,31 @@ class Index extends React.Component {
                 {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: '1503635041777'}
             ],
             selectedId: null,
-            editing: false
+            editing: false,
+            titleValue: null,
+            contentValue: null
         };
+    }
+
+    // 删除文章
+    deleteItem(id) {
+        this.setState({
+            items: this.state.items.filter(res=>res.id != id)
+        });
+    }
+
+    // 取消创建、取消编辑
+    cancelEdit() {
+        this.setState({editing: false});
+        var _this = this;
+        setTimeout(function () {
+            console.log(JSON.stringify(_this.state));
+        }, 0);
+    }
+
+    // 点击“编辑”按钮
+    editItem(id) {
+        this.setState({selectedId: id, editing: true});
     }
 
     // 点击“创建新文章”按钮
@@ -26,7 +49,9 @@ class Index extends React.Component {
         console.log('点击“创建新文章”按钮');
         this.setState({
             selectedId: null,
-            editing: true
+            editing: true,
+            titleValue: null,
+            contentValue: null
         });
     }
 
@@ -64,9 +89,13 @@ class Index extends React.Component {
         console.log(selected);
         console.log('------ItemShowLayer当前选中的文章（结束）：---------');
         const mainPart = editing ? (
-            <ItemEditor onSave={this.saveItem.bind(this)}/>
+            <ItemEditor item={selected}
+                        onCancelFromItemeditor={this.cancelEdit.bind(this)}
+                        onSaveFromItemeditor={this.saveItem.bind(this)}/>
         ) : (
-            <ItemShowLayer item={selected}/>
+            <ItemShowLayer item={selected}
+                           onDeleteFromItemshowlayer={this.deleteItem.bind(this)}
+                           onEditFromItemshowlayer={this.editItem.bind(this)}/>
         );
         return (
             <section className="deskmark-component">
@@ -76,7 +105,9 @@ class Index extends React.Component {
                 <div className="container-fuild bg-success">
                     <div className="col-md-6">
                         <CreateBar onClickFromCreatebar={this.createItem.bind(this)}/>
-                        <List onSelectFromListToDeskmark={this.selectItem.bind(this)} items={this.state.items}/>
+                        <List
+                            onSelectFromListToDeskmark={this.selectItem.bind(this)}
+                            items={this.state.items}/>
                     </div>
                     <div className="col-md-6">{mainPart}</div>
                 </div>

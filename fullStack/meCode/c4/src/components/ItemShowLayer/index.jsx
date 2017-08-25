@@ -5,7 +5,7 @@
 import React from 'react';
 import './index.less';
 
-function Index({item}) {
+function Index({item, onEditFromItemshowlayer, onDeleteFromItemshowlayer}) {
     if (!item) {
         return (
             <div className="col-md-6 item-show-layer-component">
@@ -20,8 +20,8 @@ function Index({item}) {
                     <div>{item.content}</div>
                 </div>
                 <div className="control-area">
-                    <button className="btn btn-primary">编辑</button>
-                    <button className="btn btn-danger">删除</button>
+                    <button onClick={()=>onEditFromItemshowlayer(item.id)} className="btn btn-primary">编辑</button>
+                    <button onClick={()=>onDeleteFromItemshowlayer(item.id)} className="btn btn-danger">删除</button>
                 </div>
             </div>
         );
