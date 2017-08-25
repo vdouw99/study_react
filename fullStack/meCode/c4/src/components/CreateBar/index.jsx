@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-function Index() {
+function Index({onClickFromCreatebar}) {
     return (
-        <a href="javascript:;" className="list-group-item create-bar-component">
-            + 创建新的文章
+        <a href="javascript:;" onClick={onClickFromCreatebar} className="list-group-item create-bar-component">
+            + 创建新文章
         </a>
     )
 }
