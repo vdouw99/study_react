@@ -75,17 +75,24 @@ class Index extends React.Component {
     // 添加新文章
     saveItem(item) {
         console.log(item);
+        let items = this.state.items;
+        console.log(items);
         if (this.state.selectedId) {
-            
+            console.log('---编辑文章');
+            console.log(items);
+            for (var i = 0; i < items.length; i++) {
+                if (items[i]['id'] == this.state.selectedId) {
+                    items[i]['title'] = item['title'];
+                    items[i]['content'] = item['content'];
+                }
+            }
         } else {
-            let items = this.state.items;
             console.log(this.state);
             item['time'] = new Date().getTime();
             item['id'] = uuid.v4();
             items = [...items, item];
-            this.setState({items: items}); //通过setState方法更新state
-            console.log(this.state);
         }
+        this.setState({items: items, selectedId: item.id, editing: false}); //通过setState方法更新state
     }
 
     render() {
