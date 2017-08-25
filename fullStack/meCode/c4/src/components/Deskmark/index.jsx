@@ -13,8 +13,8 @@ class Index extends React.Component {
         super(props);
         this.state = {
             items: [
-                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: '2016-12-12 12:13:14'},
-                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: '2016-12-13 12:13:14'}
+                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: '1503634041777'},
+                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: '1503635041777'}
             ]
         };
     }
@@ -22,9 +22,9 @@ class Index extends React.Component {
     saveItem(item) {
         console.log(item);
         let items = this.state.items;
+        item['time'] = new Date().getTime();
         items = [...items, item];
-        // 通过setState方法更新state
-        this.setState({items: items});
+        this.setState({items: items}); //通过setState方法更新state
         console.log(this.state);
     }
 
