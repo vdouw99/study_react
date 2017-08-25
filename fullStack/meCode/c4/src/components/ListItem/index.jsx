@@ -4,9 +4,9 @@
 
 import React from 'react';
 
-function Index({item}) {
+function Index({item,onClickFromListitem}) {
     return (
-        <a href="javascript:;" className="list-group-item item-component">
+        <a href="javascript:;" onClick={onClickFromListitem} className="list-group-item item-component">
             <div>
                 <span className="label label-default label-pill pull-xs-right">{new Date(Number(item.time)).toString()}</span>
                 <span>{item.title} ||| {item.content}</span>

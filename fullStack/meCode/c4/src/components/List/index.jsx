@@ -6,19 +6,25 @@ import React from 'react';
 
 import ListItem from '../ListItem/index.jsx';
 
-function Index({items}) {
-    console.log('----List组件------');
-    console.log(items);
-    const itemsContent = items.map(
-        item=>(
-            <ListItem item={item} key={item.id}/>
-        )
-    );
-    return (
-        <div className="list-component">
-            {itemsContent}
-        </div>
-    )
+class Index extends React.Component {
+    render() {
+        const {onSelect, items} = this.props;
+        console.log('----List组件------');
+        console.log(items);
+
+        const itemsContent = items.map(
+            item=>(
+                <ListItem item={item} key={item.id} onClickFromListitem={()=>onSelect(item.id)}/>
+            )
+        );
+
+        return (
+            <div className="list-component">
+                {itemsContent}
+            </div>
+        );
+    }
 }
+
 
 export default Index;

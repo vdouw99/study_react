@@ -15,10 +15,23 @@ class Index extends React.Component {
             items: [
                 {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: '1503634041777'},
                 {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: '1503635041777'}
-            ]
+            ],
+            selectedId: null
         };
     }
 
+    // 选中某一篇文章
+    selectItem(id) {
+        if (id === this.state.selectedId) return;
+        this.setState({selectedId: id});
+        var _this = this;
+        setTimeout(function () {
+            console.log('-----当前选择的文章ID是：' + id);
+            console.log(JSON.stringify(_this.state));
+        }, 0);
+    }
+
+    // 添加新文章
     saveItem(item) {
         console.log(item);
         let items = this.state.items;
@@ -37,7 +50,7 @@ class Index extends React.Component {
                 <div className="container-fuild bg-success">
                     <div className="col-md-6">
                         <CreateBar />
-                        <List items={this.state.items}/>
+                        <List onSelect={this.selectItem.bind(this)} items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
                         <ItemEditor onSave={this.saveItem.bind(this)}/>
