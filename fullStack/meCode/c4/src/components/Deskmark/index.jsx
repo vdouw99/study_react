@@ -23,6 +23,7 @@ class Index extends React.Component {
         console.log(item);
         let items = this.state.items;
         items = [...items, item];
+        // 通过setState方法更新state
         this.setState({items: items});
         console.log(this.state);
     }
