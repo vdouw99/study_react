@@ -7,14 +7,22 @@ import './index.less';
 
 class Index extends React.Component {
     render() {
+        const {onSave} = this.props;
+        let save = ()=> {
+            onSave({
+                title: this.refs.title.value,
+                content: this.refs.content.value
+            });
+            this.refs.title.value = this.refs.content.value = '';
+        };
         return (
             <div className="col-md-8 item-editor-component">
                 <div className="edit-area">
-                    <input type="text" placeholder="请填写标题"/>
-                    <textarea placeholder="请填写内容"></textarea>
+                    <input ref="title" type="text" placeholder="请填写标题"/>
+                    <textarea ref="content" placeholder="请填写内容"/>
                 </div>
                 <div className="control-area">
-                    <button className="btn btn-success">创建</button>
+                    <button onClick={save} className="btn btn-success">创建</button>
                     <button className="btn btn-secondary">取消</button>
                 </div>
             </div>

@@ -19,6 +19,14 @@ class Index extends React.Component {
         };
     }
 
+    saveItem(item) {
+        console.log(item);
+        let items = this.state.items;
+        items = [...items, item];
+        this.setState({items: items});
+        console.log(this.state);
+    }
+
     render() {
         return (
             <section className="deskmark-component">
@@ -31,7 +39,7 @@ class Index extends React.Component {
                         <List items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
-                        <ItemEditor />
+                        <ItemEditor onSave={this.saveItem.bind(this)}/>
                         <ItemShowLayer />
                     </div>
                 </div>
