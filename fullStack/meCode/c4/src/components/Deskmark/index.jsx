@@ -42,6 +42,17 @@ class Index extends React.Component {
     }
 
     render() {
+        const {items, selectedId} = this.state;
+        const selected = selectedId && items.find(item=>item.id === selectedId);
+        // 普通写法，效果等同于上面这一行
+        // for (var i = 0; i < items.length; i++) {
+        //     if (items[i]['id'] == selectedId) {
+        //         var selected = items[i];
+        //     }
+        // }
+        console.log('------ItemShowLayer当前选中的文章（开始）：---------');
+        console.log(selected);
+        console.log('------ItemShowLayer当前选中的文章（结束）：---------');
         return (
             <section className="deskmark-component">
                 <nav className="container-fuild">
@@ -54,7 +65,7 @@ class Index extends React.Component {
                     </div>
                     <div className="col-md-6">
                         <ItemEditor onSave={this.saveItem.bind(this)}/>
-                        <ItemShowLayer />
+                        <ItemShowLayer item={selected}/>
                     </div>
                 </div>
             </section>
