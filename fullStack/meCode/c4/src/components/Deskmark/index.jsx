@@ -13,8 +13,8 @@ class Index extends React.Component {
         super(props);
         this.state = {
             items: [
-                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: 1459030208359},
-                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: 1458030408359}
+                {id: 'id1', title: 'title1', content: 'content1&nbsp;', time: '2016-12-12 12:13:14'},
+                {id: 'id2', title: 'title2', content: 'content2&nbsp;', time: '2016-12-13 12:13:14'}
             ]
         };
     }

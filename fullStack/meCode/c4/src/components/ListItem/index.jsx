@@ -4,15 +4,15 @@
 
 import React from 'react';
 
-function Index() {
+function Index({item}) {
     return (
         <a href="javascript:;" className="list-group-item item-component">
             <div>
-                <span className="label label-default label-pill pull-xs-right">时间</span>
-                <span>标题</span>
+                <span className="label label-default label-pill pull-xs-right">{item.title} ||| {item.time}</span>
+                <span>{item.content}</span>
             </div>
         </a>
-    )
+    );
 }
 
 export default Index;
