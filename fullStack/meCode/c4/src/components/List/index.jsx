@@ -8,13 +8,13 @@ import ListItem from '../ListItem/index.jsx';
 
 class Index extends React.Component {
     render() {
-        const {onSelect, items} = this.props;
+        const {onSelectFromListToDeskmark, items} = this.props;
         console.log('----List组件------');
         console.log(items);
 
         const itemsContent = items.map(
             item=>(
-                <ListItem item={item} key={item.id} onClickFromListitem={()=>onSelect(item.id)}/>
+                <ListItem item={item} key={item.id} onClickFromListitemToList={()=>onSelectFromListToDeskmark(item.id)}/>
             )
         );
 

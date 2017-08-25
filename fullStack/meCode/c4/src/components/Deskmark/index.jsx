@@ -50,7 +50,7 @@ class Index extends React.Component {
                 <div className="container-fuild bg-success">
                     <div className="col-md-6">
                         <CreateBar />
-                        <List onSelect={this.selectItem.bind(this)} items={this.state.items}/>
+                        <List onSelectFromListToDeskmark={this.selectItem.bind(this)} items={this.state.items}/>
                     </div>
                     <div className="col-md-6">
                         <ItemEditor onSave={this.saveItem.bind(this)}/>
