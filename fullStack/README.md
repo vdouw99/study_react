@@ -102,6 +102,14 @@ bootstrap暂时作为插件外部引入，但在打包的时候，要复制publi
         const store = creactStore(reducer,ininialState,window.devtoolsExtension && window.devTooolsExtension());
         middleware的使用方法参照P168
 
+6.2 使用Redux重构Deskmark
+6.2.1 概要
+1、整理步骤
+(1)整理action，实现action creator
+(2)设计store state，实现reducer
+(3)划分界面内容，实现展示组件
+(4)通过容器给件连接store与展示组件
+2、目录结构
 
 
 
