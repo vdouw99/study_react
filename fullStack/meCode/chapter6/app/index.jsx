@@ -5,11 +5,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import Deskmark from './components/Deskmark/index.jsx';
+
 
 render(
     <div>
-        <Deskmark />
+        123
     </div>,
     document.getElementById('root')
 );
