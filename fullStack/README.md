@@ -70,6 +70,46 @@ bootstrap暂时作为插件外部引入，但在打包的时候，要复制publi
 2017-08-10
 
 
+第6章 使用Redux
+6.1 在React项目中使用Redux
+6.1.1 如何在React项目中使用
+    与其说如何使用Redux，不如说如何获取并使用store的内容，以及创建并触发action的过程。
+1、从store获取数据
+    属性传递
+        Redux的特点是单一数据源，即整个应用的状态信息都保存在一个store中，因为需要由store将数据从React组件树的根节点传入。
+        为了在数据变化时更新界面，还需要对store进行监听。
+    组件自行获取状态数据
+        把createStore的结果通过一个独立的模块以module export的方式暴露出来，所有组件都可以直接去import这个模块获取store，然后对store进行subscribe。
+2、创建与触发action
+    创建action，即使用actionCreator
+    触发action，即通过store.dispatch将上一步得到的action作用到特定的store上。
+
+6.1.2 react-redux
+    react-redux是Redux官方提供的React绑定，用于辅助在React项目中使用Redux。
+1、Provider
+    store的提供者，一般把原有的组件树根节点包裹在Provider中。
+2、connect
+    用来连接store与组件
+
+6.1.3 组件组织
+1、展示组件与容器组件
+    Presentational Component : 专注于界面展示
+    Container Component : 为展示组件提供容器
+2、组织不同类型的组件
+
+6.1.4 开发工具
+    Redux DevTools
+        const store = creactStore(reducer,ininialState,window.devtoolsExtension && window.devTooolsExtension());
+        middleware的使用方法参照P168
+
+
+
+
+
+
+
+
+
 
 
 
