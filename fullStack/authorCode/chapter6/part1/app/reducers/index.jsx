@@ -7,8 +7,8 @@ import items from './items';
 import editor from './editor';
 
 const rootReducer = combineReducers({
-    items,
-    editor,
+    items: items,
+    editor: editor
 });
 
 export default rootReducer;

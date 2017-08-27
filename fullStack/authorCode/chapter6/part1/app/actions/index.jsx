@@ -2,7 +2,7 @@
  * @file main file for actions
  */
 
-// 将storage.jsx的属性和方法全部引入
+// 将storage.jsx的属性和方法全部引入，并将其命名为storage
 import * as storage from 'utils/storage';
 
 // 整理action分3步
@@ -34,7 +34,7 @@ export function cancelEdit() {
 export const UPDATE_ENTRY_LIST = 'UPDATE_ENTRY_LIST';
 
 function updateEntryList(items) {
-    return {type: UPDATE_ENTRY_LIST, items};
+    return {type: UPDATE_ENTRY_LIST, items:items};
 }
 
 export function deleteEntry(id) {
@@ -47,7 +47,9 @@ export function deleteEntry(id) {
 
 export function fetchEntryList() {
     return dispatch => {
+        // 先获取所有条目的列表，返回一个promise
         storage.getAll()
+            // 并在结果promise resolve时使用dispatch触发更新条目列表
             .then(items => dispatch(updateEntryList(items)));
     };
 }

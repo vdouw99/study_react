@@ -118,6 +118,13 @@ bootstrap暂时作为插件外部引入，但在打包的时候，要复制publi
 定义action第2步：定义内容的格式
 定义action第3步：定义action creator
 
+6.2.3 使用middleware
+    主要介绍redux-thunk和redux-promise-middleware这两个middleware库，以更好的组织异步action的创建和逻辑触发。
+1、redux-thunk
+    如果接收到的action的类型是函数，便直接调用并将dispatch和getState作为参数传入。
+    在action creator所返回的chunk内部，就可以获取dispatch和getState。
+    延迟dispatch或选择性dispatch，甚至一个thunk中多次dispatch。
+
 
 
 

@@ -2,7 +2,7 @@
  * @file reducers for editor state
  */
 
-import * as ActionTypes from '../actions';
+import * as ActionTypes from '../actions/index.jsx';
 
 const initialState = {
     selectedId: null,
