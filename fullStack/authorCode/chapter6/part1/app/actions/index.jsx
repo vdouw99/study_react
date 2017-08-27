@@ -2,15 +2,21 @@
  * @file main file for actions
  */
 
+// 将storage.jsx的属性和方法全部引入
 import * as storage from 'utils/storage';
 
+// 整理action分3步
+// 定义action第1步：定义类型
+// 定义类型为常量，相比于字符串字面量，便于发现低级错误
 export const SELECT_ENTRY = 'SELECT_ENTRY';
 export const CREATE_NEW_ENTRY = 'CREATE_NEW_ENTRY';
 export const EDIT_ENTRY = 'EDIT_ENTRY';
 export const CANCEL_EDIT = 'CANCEL_EDIT';
 
+// 定义action第3步：定义action creator
 export function selectEntry(id) {
-    return {type: SELECT_ENTRY, id};
+    // 定义action第2步：定义内容的格式
+    return {type: SELECT_ENTRY, id: id};
 }
 
 export function createNewEntry() {
@@ -18,7 +24,7 @@ export function createNewEntry() {
 }
 
 export function editEntry(id) {
-    return {type: EDIT_ENTRY, id};
+    return {type: EDIT_ENTRY, id: id};
 }
 
 export function cancelEdit() {
