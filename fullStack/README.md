@@ -111,6 +111,13 @@ bootstrap暂时作为插件外部引入，但在打包的时候，要复制publi
 (4)通过容器给件连接store与展示组件
 2、目录结构
 
+6.2.2 创建与触发action
+整理action分3步
+定义action第1步：定义类型（action type）
+定义类型为常量，相比于字符串字面量，便于发现低级错误
+定义action第2步：定义内容的格式
+定义action第3步：定义action creator
+
 
 
 
