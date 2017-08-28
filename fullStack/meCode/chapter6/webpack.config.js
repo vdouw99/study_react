@@ -12,7 +12,7 @@ module.exports = {
     entry: [
         // 'webpack/hot/dev-server.js',
         // 'webpack-dev-server/client?http://localhost:3000',
-        './app/app.jsx'
+        './app/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -20,9 +20,6 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx']
-    },
-    node: {
-        fs: 'empty'
     },
     module: {
         loaders: [
@@ -57,10 +54,10 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
             },
-            // {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
-            // {test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000"},
-            // {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"},
-            // {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"}
+            // { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+            // { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+            // { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+            // { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
         ]
     },
 
