@@ -1,0 +1,13 @@
+/**
+ * Created by Administrator on 2017/8/28 0028.
+ */
+
+import React from 'react';
+import {render} from 'react-dom';
+
+render(
+    <div>
+        444df123
+    </div>,
+    document.getElementById('root')
+);
