@@ -14,6 +14,11 @@ npm install react-redux redux
     分别是“添加”、“过滤”、“切换”
 
 
+Object.assign({id:1},{id:2},{id:3})
+把对象2和对象3，合并到对象1
+
+
+
 
 
 
