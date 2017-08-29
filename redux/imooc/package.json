@@ -1,0 +1,15 @@
+{
+  "name": "imooc",
+  "version": "1.0.0",
+  "description": "来自慕课网的Redux视频教程\r http://www.imooc.com/learn/744",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  }
+}
