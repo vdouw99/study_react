@@ -36,6 +36,9 @@ http://pan.baidu.com/s/1hsOlryW
 谈谈ES6的Promise对象
 https://segmentfault.com/a/1190000002928371
 
+来自慕课网的Redux视频教程
+http://www.imooc.com/learn/744
+
 
 
 
