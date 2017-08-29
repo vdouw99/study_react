@@ -7,10 +7,10 @@ import uuid from 'uuid';
 const STORAGE = window.localStorage;
 const STORAGE_KEY = 'deskmark';
 
+// 获取storage
 export function getAll() {
     return new Promise((resolve) => {
         const results = STORAGE.getItem(STORAGE_KEY);
-
         try {
             resolve(results ? JSON.parse(results) : []);
         } catch (e) {
@@ -19,6 +19,7 @@ export function getAll() {
     });
 }
 
+// 保存storage
 export function saveAll(results) {
     return new Promise((resolve) => {
         STORAGE.setItem(STORAGE_KEY, JSON.stringify(results));
@@ -35,12 +36,11 @@ export function getEntry(id) {
 
 export function insertEntry(title, content) {
     const entry = {
-        title,
-        content,
+        title: title,
+        content: content,
         id: uuid.v4(),
-        time: new Date().getTime(),
+        time: new Date().getTime()
     };
-
     return getAll()
         .then(results => [...results, entry])
         .then(saveAll)
@@ -61,7 +61,7 @@ export function updateEntry(id, title, content) {
         .then(
             results => results.map(
                 result => (
-                    result.id === id ? (entry = {...result, title, content,}) : result
+                    result.id === id ? (entry = {...result, title, content}) : result
                 )
             )
         )
