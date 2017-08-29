@@ -10,6 +10,10 @@ npm install react-redux redux
 中文：http://cn.redux.js.org
 
 
+第1步：将用户的行为，在actions/index.jsx里面先描述出来
+    分别是“添加”、“过滤”、“切换”
+
+
 
 
 
