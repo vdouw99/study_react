@@ -13,7 +13,10 @@ npm install react-redux redux
 第1步：定义action，就是用户的行为（“添加”、“过滤”、“切换”）
     写在actions/index.jsx
 
-第2步：写响应，就是reducers
+第2步：定义reducers，即响应的抽象，纯方法，传入旧状态和state，返回新状态
+    写在reducers/文件夹中
+
+
 
 
 
