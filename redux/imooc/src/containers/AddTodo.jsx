@@ -7,16 +7,16 @@ import {connect} from 'react-redux';
 import {addTodo} from '../actions/index.jsx';
 
 let AddTodo = ({dispatch}) => {
-    let input;
+    let jsxInputJsx = '';
     return (
         <div>
             <form onSubmit={e => {
 				e.preventDefault();
-				if(!input.value.trim())return;
-				dispatch(addTodo(input.value));
-				input.value='';
+				if(!jsxInputJsx.value.trim())return;
+				dispatch(addTodo(jsxInputJsx.value));
+				jsxInputJsx.value='';
 			}}>
-                <input ref={node =>{input=node}}/>
+                <input ref={node =>{jsxInputJsx=node}}/>
                 <button type="submit">
                     AddTodo
                 </button>
