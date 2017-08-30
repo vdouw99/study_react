@@ -7,7 +7,7 @@ const todos = (state = [], action) => {
         case 'ADD_TODO':
             // return [...state, {id: action.id, text: action.text, completed: false}];
             // 以下为ES5的解决方法
-            var newSt = [];
+            var newSt = [];     // 你是在原state上改动的吧
             for (var i = 0; i < state.length; i++) {
                 newSt.push(state[i]);
             }
@@ -31,6 +31,7 @@ const todos = (state = [], action) => {
 };
 
 export default todos;
+
 
 // 以下为老师的解决方法
 // const todos = (state = [], action) => {
