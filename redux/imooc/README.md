@@ -13,7 +13,7 @@ npm install react-redux redux
 第1步：将用户的行为，在actions/index.jsx里面先描述出来
     分别是“添加”、“过滤”、“切换”
 
-第2步：写响应，就是reducer/index.jsx
+第2步：写响应，就是reducers
 
 Object.assign({id:1},{id:2},{id:3})
 把对象2和对象3，合并到对象1
