@@ -1,3 +1,7 @@
+/**
+ * Created by Administrator on 2017/8/30 0030.
+ */
+
 const todo = (state, action) => {
     switch (action.type) {
         case "ADD_TODO":
@@ -5,7 +9,7 @@ const todo = (state, action) => {
                 id: action.id,
                 text: action.text,
                 completed: false
-            }
+            };
         case "TOGGLE_TODO":
             if (state.id !== action.id) {
                 return state;
@@ -16,7 +20,7 @@ const todo = (state, action) => {
         default:
             return state;
     }
-}
+};
 
 const todos = (state = [], action) => {
     switch (action.type) {

@@ -3,9 +3,9 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Link from "../components/Link";
-import { setVisibility } from '../actions/index.jsx';
+import {setVisibility} from '../actions/index.jsx';
 
 //第二个参数表示组件自身的props
 const mapStateToProps = (state, ownProps) => {
@@ -16,11 +16,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchProps = (dispatch, ownProps) => {
     return {
-        onClick: ()=>{
+        onClick: ()=> {
             dispatch(setVisibility(ownProps.filter))
         }
     }
-}
+};
 
 const FilterLink = connect(
     mapStateToProps,

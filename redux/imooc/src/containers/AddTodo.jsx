@@ -3,10 +3,10 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { addTodo } from '../actions/index.jsx';
+import {connect} from 'react-redux';
+import {addTodo} from '../actions/index.jsx';
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({dispatch}) => {
     let input;
     return (
         <div>
