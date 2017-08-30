@@ -17,9 +17,7 @@ let AddTodo = ({dispatch}) => {
 				jsxInputJsx.value='';
 			}}>
                 <input ref={node =>{jsxInputJsx=node}}/>
-                <button type="submit">
-                    AddTodo
-                </button>
+                <button type="submit">AddTodo</button>
             </form>
         </div>
     );

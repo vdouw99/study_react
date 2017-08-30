@@ -7,7 +7,7 @@ const todos = (state = [], action) => {
         case 'ADD_TODO':
             // return [...state, {id: action.id, text: action.text, completed: false}];
             // 以下为ES5的解决方法
-            var newSt = [];     // 你是在原state上改动的吧
+            var newSt = [];     // 你是在原state上改动的吧，注意不要改动原state
             for (var i = 0; i < state.length; i++) {
                 newSt.push(state[i]);
             }
