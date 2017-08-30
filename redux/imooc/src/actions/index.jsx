@@ -1,5 +1,6 @@
 /**
  * Created by sf on 2017/8/29.
+ * 此文件acions/index.jsx定义用户的行为（抽象）
  */
 
 let nextTodoId = 0;
