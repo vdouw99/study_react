@@ -18,7 +18,6 @@ npm install react-redux redux
 Object.assign({id:1},{id:2},{id:3})
 把对象2和对象3，合并到对象1
 
-该学http://www.imooc.com/video/13214
 
 
 

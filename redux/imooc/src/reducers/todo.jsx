@@ -29,7 +29,7 @@ const todo = (state, action)=> {
 };
 
 // 全部事项的响应
-const todos = (state, action)=> {
+const todos = (state = [], action)=> {
     switch (action.type) {
         case 'ADD_TODO':
             return [...state, todo(undefined, action)];
