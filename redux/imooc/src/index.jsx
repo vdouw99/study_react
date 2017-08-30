@@ -4,12 +4,19 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 
+import todoApp from './reducers/index.jsx';
 import App from './components/App.jsx';
 
+const store = createStore(todoApp);
+
+console.log(store.getState());
+
 render(
-    <div>
+    <Provider store={store}>
         <App />
-    </div>,
+    </Provider>,
     document.getElementById('root')
 );
