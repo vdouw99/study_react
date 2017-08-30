@@ -12,9 +12,7 @@ let AddTodo = ({dispatch}) => {
         <div>
             <form onSubmit={e => {
 				e.preventDefault();
-				if(!input.value.trim()){
-					return;
-				};
+				if(!input.value.trim())return;
 				dispatch(addTodo(input.value));
 				input.value='';
 			}}>
@@ -25,11 +23,24 @@ let AddTodo = ({dispatch}) => {
             </form>
         </div>
     );
-}
+};
 
+// 高阶函数：函数里面返回函数
 AddTodo = connect()(AddTodo);
 
 export default AddTodo;
+
+// ------ container组件的基础写法:start -------
+// import React from 'react';
+// import {connect} from 'react-redux';
+// let AddTodo = function () {
+//     return (
+//         <div>123</div>
+//     );
+// };
+// AddTodo = connect()(AddTodo);
+// export default AddTodo;
+// ------ container组件的基础写法:end -------
 
 
 
