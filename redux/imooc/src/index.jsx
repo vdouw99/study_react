@@ -5,7 +5,11 @@
 import React from 'react';
 import {render} from 'react-dom';
 
+import App from './components/App.jsx';
+
 render(
-    <div>123</div>,
+    <div>
+        <App />
+    </div>,
     document.getElementById('root')
 );
