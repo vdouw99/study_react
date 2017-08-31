@@ -12,19 +12,14 @@ const TodoList = ({todos, onTodoClick}) => {
         <ul>
             {todos.map(function (todo) {
                 return (
-                    <Todo {...todo} key={todo.id} onClick={function(){onTodoClick(todo.id)}}/>
+                    <Todo key={todo.id} onClick={function(){onTodoClick(todo.id)}}
+                        {...todo}
+                    />
                 );
             })}
         </ul>
     );
-
-    // return (
-    //     <ul>
-    //         {todos.map(todo =>
-    //             <Todo key={todo.id}{...todo} onClick={() => onTodoClick(todo.id)}/>
-    //         )}
-    //     </ul>
-    // );
+    // {...todo} 是ES6的语法糖，就等于：completed={todo.completed} text={todo.text}
 };
 
 
