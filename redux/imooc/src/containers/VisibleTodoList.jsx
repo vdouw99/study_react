@@ -5,7 +5,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {toggleTodo} from '../actions/index.jsx';
-import TodoList from '../components/TodoList';
+import TodoList from '../components/TodoList.jsx';
 
 const getVisibleTodos = (todos, filter) => {
     switch (filter) {
@@ -17,7 +17,10 @@ const getVisibleTodos = (todos, filter) => {
                 return t.completed == true;
             });
         case "SHOW_ACTIVE":
-            return todos.filter(t => !t.completed);
+            // return todos.filter(t => !t.completed);
+            return todos.filter(function (t) {
+                return t.completed != true;
+            });
     }
 };
 
