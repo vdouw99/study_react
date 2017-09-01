@@ -7,11 +7,11 @@ import FilterLink from '../containers/FilterLink.jsx';
 
 const Footer = () =>(
     <p>
-        show:{" "}
+        show:
         <FilterLink filter="SHOW_ALL">All</FilterLink>
-        {","}
+        <span>&nbsp;&nbsp;</span>
         <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>
-        {","}
+        <span>&nbsp;&nbsp;</span>
         <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
     </p>
 );
