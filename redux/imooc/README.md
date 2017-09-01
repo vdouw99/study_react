@@ -16,10 +16,9 @@ npm install react-redux redux
 第2步：定义reducers，即响应的抽象，纯方法，传入旧状态和state，返回新状态
     写在reducers/文件夹中
 
-
-
-
-
+第3步：编写组件
+    逻辑组件：containers
+    显示组件：components
 
 Object.assign({id:1},{id:2},{id:3})
 把对象2和对象3，合并到对象1
