@@ -11,6 +11,7 @@ import Test from './components/test.jsx';
 import todoReducer from './reducers/index.jsx';
 
 import AddTodo from './containers/AddTodo.jsx';
+import VisibleTodoList from './containers/VisibleTodoList';
 
 const store = createStore(todoReducer);
 console.log('------初始store start------');
@@ -21,6 +22,7 @@ render(
     <Provider store={store}>
         <div>
             <AddTodo />
+            <VisibleTodoList />
             <Test testProp="testProp"/>
         </div>
     </Provider>,
