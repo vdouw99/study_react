@@ -105,15 +105,15 @@ module.exports = {
         }),
 
         // 分离CSS和JS文件
-        new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
+        // new ExtractTextPlugin('style/[name].[chunkhash:8].css'),
 
-        //css代码压缩
-        new OptimizeCssAssetsPlugin({
-            assetNameRegExp: /\.css$/g,
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {discardComments: {removeAll: true}},
-            canPrint: true
-        })
+        // //css代码压缩
+        // new OptimizeCssAssetsPlugin({
+        //     assetNameRegExp: /\.css$/g,
+        //     cssProcessor: require('cssnano'),
+        //     cssProcessorOptions: {discardComments: {removeAll: true}},
+        //     canPrint: true
+        // })
 
 
     ]
