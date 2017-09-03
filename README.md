@@ -30,6 +30,7 @@ fullStack/meCode/chapter5/Redux/app/app2.jsx
 es6-promise
 https://segmentfault.com/a/1190000006557624
 
+此项目常用的依赖（如果实在安装不上的时候，可以参考）
 fullStack/authorCode/chapter4/part1/node_modules
 http://pan.baidu.com/s/1hsOlryW
 
@@ -38,6 +39,17 @@ https://segmentfault.com/a/1190000002928371
 
 来自慕课网的Redux视频教程
 http://www.imooc.com/learn/744
+
+react/me1
+    整理原来的代码，尚可用，但发现问题：CSS没分离，依赖没有单独打包
+    学习完教程，解决打包的配置问题，基础为此项目
+    src/ReduxBasicDemo.jsx Redux基础代码
+        第一步：定义计算规则，即reducer
+        第二步：根据计算规则生成store
+        第三步：定义数据state变化之后的派发规则
+        第四步：触发数据变化
+
+
 
 
 

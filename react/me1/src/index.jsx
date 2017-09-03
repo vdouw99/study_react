@@ -10,6 +10,10 @@ import Hello from './components/hello/index.jsx';
 import Todo from './containers/Todo/index.jsx';
 import RouteMap from './router/routeMap.jsx';
 
+// Redux基础Demo
+import ReduxSmallDemo from './ReduxBasicDemo.jsx';
+ReduxSmallDemo();
+
 render(
     <div>
         <Hello />
