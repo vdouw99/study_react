@@ -12,13 +12,11 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
     entry: [
-        'webpack/hot/dev-server.js',
-        'webpack-dev-server/client?http://localhost:3000',
-        './src/index.js'
+        './src/index.jsx'
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].bundle.js'
+        filename: 'js/[name].[hash:5].js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -30,7 +28,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest']}
+                query: {presets: ['latest','react']}
             },
             {
                 test: /\.css$/,
@@ -71,30 +69,40 @@ module.exports = {
                 }
             }
         }),
-
-        new htmlWebpackPlugin({
-            template: './src/index.html'
-        }),
-
         new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
             }
         }),
+        new htmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html',
+            inject: 'body',
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            minimize: true,
+            compress: {warnings: false},
+            output: {comments: false},
+            minChunks: Infinity
+        }),
 
-        // 自动打开浏览器
-        new OpenBrowserPlugin({
-            url: 'http://localhost:3000'
-        })
-    ],
+        // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
+        new webpack.optimize.OccurrenceOrderPlugin(),
 
-    devServer: {
-        // historyApiFallback: true,    //不跳转
-        hot: true,
-        inline: true
-    }
+        //js代码压缩
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         //supresses warnings, usually from module minification
+        //         warnings: false
+        //     },
+        //     beautify: false,
+        //     comments: false
+        // })
+
+    ]
 };
-
-
-
-
