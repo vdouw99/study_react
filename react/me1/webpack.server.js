@@ -12,7 +12,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server.js',
         'webpack-dev-server/client?http://localhost:3000',
-        './src/index.jsx'
+        './src/index.jsx',
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),

@@ -9,11 +9,14 @@ var htmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var pkg = require('./package.json')
 
 module.exports = {
-    entry: [
-        './src/index.jsx'
-    ],
+    entry: {
+        app: path.resolve(__dirname, './src/index.jsx'),
+        // 将 第三方依赖（node_modules中的） 单独打包
+        vendor: Object.keys(pkg.dependencies)
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].[hash:5].js'
@@ -28,7 +31,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest','react']}
+                query: {presets: ['latest', 'react']}
             },
             {
                 test: /\.css$/,
@@ -70,7 +73,7 @@ module.exports = {
             }
         }),
         new webpack.DefinePlugin({
-            'process.env':{
+            'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
@@ -93,6 +96,12 @@ module.exports = {
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
+
+        // 提供公共代码
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename: '/js/[name].[hash:5].js'
+        }),
 
         //js代码压缩
         // new webpack.optimize.UglifyJsPlugin({
