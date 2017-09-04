@@ -4,11 +4,18 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import {Provider} from 'react-redux';
 
+import configureStore from './store/index.jsx';
+import Hello from './containers/Hello.jsx';
+
+const store = configureStore();
 
 render(
-    <div>
-        123
-    </div>,
+    <Provider store={store}>
+        <div>
+            <Hello/>
+        </div>
+    </Provider>,
     document.getElementById('root')
 );

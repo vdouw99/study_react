@@ -49,6 +49,16 @@ react/me1
         第三步：定义数据state变化之后的派发规则
         第四步：触发数据变化
 
+react/me2
+    Redux四步曲 注解
+    第一步：定义计算规则，也就是响应规则
+        reducer/userinfo.jsx USERINFO_LOGIN UPDATE_CITYNAME
+        reducer/index.jsx combineReducers将写在各处的响应规则合并
+    第二步：生成store
+        store/index.jsx store=createStore(rootReducer, initialState)
+    第三步：定义数据state变化之后的派发规则
+        index.jsx中，引入Provider，render中用Provider包裹
+
 
 
 
