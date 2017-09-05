@@ -4,10 +4,11 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import {hashHistory} from 'react-router';
 
-import CCC from './router/index.jsx';
+import RouteMap from './router/index.jsx';
 
 render(
-    <CCC />,
+    <RouteMap history={hashHistory}/>,
     document.getElementById('root')
 );
