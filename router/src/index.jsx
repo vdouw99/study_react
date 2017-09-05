@@ -5,6 +5,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {hashHistory} from 'react-router';
+// hashHistory对应的是browserHistory，但需要服务器支持
 
 import RouteMap from './router/index.jsx';
 

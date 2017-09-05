@@ -3,12 +3,14 @@
  */
 
 import React from 'react';
+import {Link} from 'react-router';
 
 class Index extends React.Component {
     render() {
         return (
             <div>
-                NotFound
+                <p>NotFound</p>
+                <Link to="/list">To List</Link>
             </div>
         );
     }
