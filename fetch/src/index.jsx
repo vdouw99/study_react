@@ -4,18 +4,12 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import {hashHistory} from 'react-router';
+// hashHistory对应的是browserHistory，但需要服务器支持
 
-import configureStore from './store/index.jsx';
-import Hello from './containers/Hello.jsx';
-
-const store = configureStore();
+import RouteMap from './router/index.jsx';
 
 render(
-    <Provider store={store}>
-        <div>
-            <Hello/>
-        </div>
-    </Provider>,
+    <RouteMap history={hashHistory}/>,
     document.getElementById('root')
 );
