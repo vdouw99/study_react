@@ -11,7 +11,7 @@ var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 module.exports = {
     entry: [
         'webpack/hot/dev-server.js',
-        'webpack-dev-server/client?http://localhost:3000',
+        'webpack-dev-server/client?http://localhost:1999',
         './src/index.jsx'
     ],
     output: {
@@ -78,23 +78,40 @@ module.exports = {
             template: './src/index.html'
         }),
 
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
+        // new webpack.DefinePlugin({
+        //     'process.env': {
+        //         NODE_ENV: JSON.stringify('production')
+        //     }
+        // }),
 
         // 自动打开浏览器
         new OpenBrowserPlugin({
-            url: 'http://localhost:3000'
+            url: 'http://localhost:1999'
         })
     ],
 
     devServer: {
-        // historyApiFallback: true,    //不跳转
-        hot: true,
-        inline: true
+        proxy: {
+            // 凡是 `/api` 开头的 http 请求，都会被代理到 localhost:3000 上，由 koa 提供 mock 数据。
+            // koa 代码在 ./mock 目录中，启动命令为 npm run mock
+            '/api': {
+                target: 'http://localhost:9527',
+                secure: true
+            }
+        },
+        // contentBase: "./public", //本地服务器所加载的页面所在的目录
+        // colors: true, //终端中输出结果为彩色
+        historyApiFallback: true, //不跳转
+
+        // inline: true, //实时刷新
+        // hot: true  // 使用热加载插件 HotModuleReplacementPlugin
     }
+
+    // devServer: {
+    //     // historyApiFallback: true,    //不跳转
+    //     hot: true,
+    //     inline: true
+    // }
 };
 
 
