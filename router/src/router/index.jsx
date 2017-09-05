@@ -22,7 +22,7 @@ class Index extends React.Component {
                 <Route path="/" component={App}>
                     <IndexRoute component={Home}/>
                     <Route path='list' component={List}/>
-                    <Route path='detail' component={Detail}/>
+                    <Route path='detail/:id' component={Detail}/>
                     <Route path="*" component={NotFound}/>
                 </Route>
             </Router>

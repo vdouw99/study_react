@@ -8,7 +8,7 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                Detail
+                Detail，URL参数：{this.props.params.id}
             </div>
         );
     }
