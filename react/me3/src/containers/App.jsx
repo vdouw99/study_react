@@ -3,13 +3,30 @@
  */
 
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router';
 
 class Index extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.state = {initDone: false};
+    }
+
+    componentDidMount() {
+        setTimeout(()=> {
+            this.setState({initDone: true});
+        }, 2000);
+    }
+
     render() {
         return (
             <div>
-                {this.props.children}
+                <div>Header</div>
+                {
+                    this.state.initDone ? this.props.children : <div>正在加载...</div>
+                }
+                <div>Footer</div>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/detail/1">detail/1</Link></li>
