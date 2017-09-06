@@ -5,7 +5,7 @@
 import React from 'react';
 import {Router, Route, IndexRoute} from 'react-router';
 
-import App from '../containers/App.jsx';
+import App from '../containers/index.jsx';
 import Home from '../containers/Home/index.jsx';
 import City from '../containers/City/index.jsx';
 import User from '../containers/User/index.jsx';
