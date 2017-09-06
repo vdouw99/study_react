@@ -5,6 +5,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
+import './index.less';
+
 class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -13,12 +15,16 @@ class Index extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Home</h1>
+            <div id="home-ad">
+                <h2>超值特惠</h2>
+                <div className="ad-container clear-fix">
+                    <div className="ad-item float-left">
+                        <a href="#"><img src="#" title="img"/></a>
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
 export default Index;
-

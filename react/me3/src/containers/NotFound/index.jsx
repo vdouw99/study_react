@@ -3,15 +3,17 @@
  */
 
 import React from 'react';
-import {Link} from 'react-router';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 class Index extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    }
+
     render() {
         return (
-            <div>
-                <p>NotFound</p>
-                <Link to="/list">To List</Link>
-            </div>
+            <h1>404 Not Found Page</h1>
         );
     }
 }
