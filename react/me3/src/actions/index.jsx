@@ -4,16 +4,9 @@
 
 import * as actionTypes from '../constants/index.jsx';
 
-export function login(data) {
+export function update(data) {
     return {
-        type: actionTypes.USERINFO_LOGIN,
-        data: data
-    };
-}
-
-export function updateCityName(data) {
-    return {
-        type: actionTypes.UPDATE_CITYNAME,
+        type: actionTypes.USERINFO_UPDATE,
         data: data
     };
 }
