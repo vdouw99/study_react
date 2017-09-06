@@ -5,6 +5,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router';
+import Util from '../util/index.jsx';
+import {CITYNAME} from '../config/index.jsx';
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -13,7 +15,12 @@ class Index extends React.Component {
         this.state = {initDone: false};
     }
 
+    // 在render完成且组件装载完成后调用（比如AJAX请求等）
     componentDidMount() {
+        // 从localStorage中获取城市
+        let cityName = Util.getLocalStorage(CITYNAME) || '北京';
+        // 将城市信息存储到Redux中
+        console.log(cityName);
         setTimeout(()=> {
             this.setState({initDone: true});
         }, 2000);

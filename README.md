@@ -60,6 +60,24 @@ react/me2
         index.jsx中，引入Provider，render中用Provider包裹
 
 
+生命周期
+    getDefaultProps : 只会在装载之前调用一次，在组件中赋值的数据会被设置到this.props中。
+    getInitialState : 被constructor替代。
+    componentWillMount : 在render之前被调用，可以在渲染之前做一些准备工作。
+    componentDiDMount : 在render完成且组件装载完成后调用（比如AJAX请求等）。
+
+当组件接收到新的props时，会依次触发以下方法：
+    componentWillReceiveProps : 在组件接收到新的props的时候触发，参数nextProps就是传入新的props，可以用它和this.props比较，来决定是否用this.setState实现UI重新渲染。
+    shouldComponentUpdate : 在重新render之前被调用，可以返回一个布尔值来决定一个组件是否要更新。如果返回false，那么前面的流程都不会被触发。默认都是true。
+    componentWillUpdate : 在render之前被调用，可以在渲染之前做一些准备工作。
+    render : 和组件首次加载的方法一样。
+    componentDidUpdate : 重新渲染完成后调用，与componentDidMount一样。
+
+组件卸载
+    componentWillUnmount : 在组件被卸载或销毁之前调用。
+
+
+
 
 
 
