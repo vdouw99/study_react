@@ -32,7 +32,7 @@ class Index extends React.Component {
         setTimeout(()=> {
             this.setState({initDone: true});
             Util.setLocalStorage(CITYNAME, '天津');
-        }, 2000);
+        }, 1000);
     }
 
     render() {

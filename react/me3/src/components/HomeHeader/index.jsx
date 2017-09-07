@@ -12,13 +12,13 @@ class Index extends React.Component {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
+
     render() {
         return (
             <div id="home-header" className="clear-fix">
                 <div className="home-header-left float-left">
-                    <span>this.props.cityName</span>
-                    &nbsp;
-                    <i className="icon-angle-down"></i>
+                    <span></span>
+                    <i className="icon-angle-down ml-3"></i>
                 </div>
                 <div className="home-header-right float-right">
                     <i className="icon-user"></i>
