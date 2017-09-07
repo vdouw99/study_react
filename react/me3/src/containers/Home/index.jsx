@@ -4,6 +4,7 @@
 
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {connect} from 'react-redux';
 
 import HomeHeader from '../../components/HomeHeader/index.jsx';
 
@@ -16,11 +17,21 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <HomeHeader cityName="重庆" />
+                {/*<HomeHeader cityName={this.props.userinfo.cityName}/>*/}
+                <HomeHeader cityName='北京'/>
             </div>
         );
     }
 }
 
-export default Index;
+function mapStateToProps(state) {
+    return {
+        userinfo: state.userinfo
+    };
+}
+function mapDispatchToProps(dispatch) {
+    return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
 
