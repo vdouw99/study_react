@@ -16,7 +16,7 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <HomeHeader />
+                <HomeHeader cityName="重庆" />
             </div>
         );
     }

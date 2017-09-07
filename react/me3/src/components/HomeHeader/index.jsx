@@ -17,7 +17,7 @@ class Index extends React.Component {
         return (
             <div id="home-header" className="clear-fix">
                 <div className="home-header-left float-left">
-                    <span></span>
+                    <span>{this.props.cityName}</span>
                     <i className="icon-angle-down ml-3"></i>
                 </div>
                 <div className="home-header-right float-right">
