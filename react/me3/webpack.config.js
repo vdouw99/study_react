@@ -28,7 +28,7 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.resolve(__dirname, 'src'),
                 exclude: path.resolve(__dirname, 'node_modules'),       //绝对路径
-                query: {presets: ['latest','react']}
+                query: {presets: ['latest', 'react']}
             },
             {
                 test: /\.css$/,
@@ -53,6 +53,10 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
                 loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
+            },
+            {
+                test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+                loader: 'url-loader?limit=5000&name=fonts/[name]-[hash:5].[ext]'
             }
         ]
     },
@@ -70,7 +74,7 @@ module.exports = {
             }
         }),
         new webpack.DefinePlugin({
-            'process.env':{
+            'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
         }),
@@ -93,7 +97,7 @@ module.exports = {
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
-        
+
         //js代码压缩
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {
