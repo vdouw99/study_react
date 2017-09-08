@@ -19,6 +19,15 @@ class Index extends React.Component {
                 <h2>超值特惠</h2>
                 <div className="ad-container clear-fix">
                     <div className="ad-item float-left">
+                        {
+                            this.props.data.map((item,index)=>{
+                                return(
+                                    <div key={index} className="ad-item float-left">
+                                        <a href={item.link}><img src={item.img} title={item.title}/></a>
+                                    </div>
+                                )
+                            })
+                        }
                         <a href="#"><img src="#" title="img"/></a>
                     </div>
                 </div>

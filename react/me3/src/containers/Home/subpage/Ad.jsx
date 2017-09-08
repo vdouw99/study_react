@@ -18,8 +18,11 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                {this.state.data.length}
-                <HomeAd />
+                {
+                    this.state.data.length
+                        ? <HomeAd data={this.state.data}/>
+                        : <div>加载中...</div>
+                }
             </div>
         );
     }
