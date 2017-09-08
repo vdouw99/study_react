@@ -52,10 +52,10 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: ['url-loader?limit=80000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
+                loaders: ['url-loader?limit=10000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
             },
             {
-                test: /\.(png|woff|woff2|svg|ttf|eot)($|\?)/i,
+                test: /\.(woff|woff2|ttf|eot)($|\?)/i,
                 loader: 'url-loader?limit=5000&name=fonts/[name]-[hash:5].[ext]'
             }
         ]

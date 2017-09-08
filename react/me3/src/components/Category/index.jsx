@@ -6,6 +6,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ReactSwipe from 'react-swipe';
 
+import img1 from '../../static/images/gg.jpg';
+
 import './index.less';
 
 class Index extends React.Component {
@@ -14,7 +16,7 @@ class Index extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log(ReactSwipe);
     }
 
@@ -34,6 +36,7 @@ class Index extends React.Component {
                             <li className="float-left xiaochikuaican">小吃快餐</li>
                             <li className="float-left zizhucan">自助餐</li>
                             <li className="float-left jiuba">酒吧</li>
+                            <img src={img1}/>
                         </ul>
                     </div>
                 </div>
