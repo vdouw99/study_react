@@ -7,6 +7,12 @@ var app = new app1();
 var router = require('koa-router')();
 var koaBody = require('koa-body')();
 
+// 首页-广告（超值特惠）
+var homeAdData = require('./home/ad.js');
+router.get('/api/homead', function *(next) {
+    this.body = homeAdData;
+});
+
 router.get('/', function *(next) {
     this.body = 'hello koa !';
 });
@@ -29,7 +35,6 @@ router.post('/api/post', koaBody, function *(next) {
 });
 
 app.use(router.routes()).use(router.allowedMethods());
-
 app.listen(9527);
 
 

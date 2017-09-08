@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 
 import HomeHeader from '../../components/HomeHeader/index.jsx';
 import Category from '../../components/Category/index.jsx';
+import Ad from './subpage/Ad.jsx';
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -21,6 +22,8 @@ class Index extends React.Component {
                 {/*<HomeHeader cityName={this.props.userinfo.cityName}/>*/}
                 <HomeHeader cityName='北京'/>
                 <Category />
+                <div style={{height:'15px'}}></div>
+                <Ad />
             </div>
         );
     }
