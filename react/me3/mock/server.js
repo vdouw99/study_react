@@ -13,6 +13,14 @@ router.get('/api/homead', function *(next) {
     this.body = homeAdData;
 });
 
+var homeListData = require('./home/list.js');
+router.get('/api/homelist/:city/:page', function *(next) {
+    const params = this.params;
+    const paramsCity = params.city;
+    const paramsPage = params.page;
+    this.body = homeListData;
+});
+
 router.get('/', function *(next) {
     this.body = 'hello koa !';
 });

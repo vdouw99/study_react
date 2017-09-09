@@ -28,7 +28,6 @@ class Index extends React.Component {
                                 )
                             })
                         }
-                        <a href="#"><img src="#" title="img"/></a>
                     </div>
                 </div>
             </div>

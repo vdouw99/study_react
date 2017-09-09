@@ -31,6 +31,7 @@ class Index extends React.Component {
         const result = getAdData();
         console.log('-------Ad.jsx-------');
         result.then((res)=> {
+            console.log(res);
             return res.json();
         }).then((data)=> {
             console.log(data);
