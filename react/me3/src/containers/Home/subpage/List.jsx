@@ -6,6 +6,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import {getListData} from '../../../fetch/home/index.js';
+import ListComponent from '../../../components/List/index.jsx';
 
 import './index.less';
 
@@ -20,6 +21,7 @@ class Index extends React.Component {
         return (
             <div>
                 <h2 className="home-list-title">猜你喜欢</h2>
+                <ListComponent />
                 {this.state.hasMore.toString()}
                 {this.state.data.length}
             </div>
@@ -46,9 +48,7 @@ class Index extends React.Component {
             return res.json();
         }).then((data)=> {
             console.log(data);
-            const hasMore = data.hasMore;
-            const d = data.data;
-            this.setState({data: d, hasMore: hasMore});
+            this.setState({data: data.data, hasMore: data.hasMore});
         })
     }
 }

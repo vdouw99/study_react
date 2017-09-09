@@ -144,7 +144,6 @@ class Index extends React.Component {
                         <li className={this.state.index===2?"selected":''}/>
                     </ul>
                 </div>
-                <img src={img1} width="100" height="100" style={{marginTop:'10px'}}/>
             </div>
         );
     }
