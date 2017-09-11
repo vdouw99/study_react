@@ -40,6 +40,10 @@ https://segmentfault.com/a/1190000002928371
 来自慕课网的Redux视频教程
 http://www.imooc.com/learn/744
 
+React Developer Tools
+Redux DevTools
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
 react/me1
     整理原来的代码，尚可用，但发现问题：CSS没分离，依赖没有单独打包
     学习完教程，解决打包的配置问题，基础为此项目
