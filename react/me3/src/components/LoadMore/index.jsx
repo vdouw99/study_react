@@ -25,8 +25,31 @@ class Index extends React.Component {
         );
     }
 
-    loadMoreHandle(){
+    loadMoreHandle() {
         this.props.loadMoreFn();
+    }
+
+    componentDidMount() {
+        // 使用滚动时自动加载更多
+        const loadMoreFn = this.props.loadMoreFn;
+        const wrapper = this.refs.wrapper;
+        let timeoutId;
+
+        function callback() {
+            const top = wrapper.getBoundingClientRect().top;
+            console.log(top);
+            const windowHeight = window.screen.height;
+            if (top && top < windowHeight) {
+                // 证明wrapper已经被滚动到暴露在页面可视范围之内了
+                loadMoreFn();
+            }
+        }
+
+        window.addEventListener('scroll', function () {
+            if (this.props.isLoadingMore) return false;
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(callback, 50)
+        }.bind(this), false);
     }
 }
 
