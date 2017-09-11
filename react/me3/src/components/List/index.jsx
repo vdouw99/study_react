@@ -6,6 +6,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 import './index.less';
+import Item from './item/index.jsx';
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -14,8 +15,19 @@ class Index extends React.Component {
     }
 
     render() {
+        const data = this.props.data;
+        console.log('----components/List/index.jsx-----');
+        console.log(data);
         return (
-            <div>components/List/index.jsx</div>
+            <div>
+                {
+                    data.map((item, index)=> {
+                        return (
+                            <Item key={index} data={item}/>
+                        )
+                    })
+                }
+            </div>
         );
     }
 }

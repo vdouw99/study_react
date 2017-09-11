@@ -21,9 +21,19 @@ class Index extends React.Component {
         return (
             <div>
                 <h2 className="home-list-title">猜你喜欢</h2>
-                <ListComponent />
-                {this.state.hasMore.toString()}
-                {this.state.data.length}
+                {
+                    this.state.data.length
+                        ? <ListComponent data={this.state.data}/>
+                        : <div>加载中...</div>
+                }
+                <p>
+                    {
+                        this.state.hasMore.toString()
+                            ? 'this.state.hasMore: hasMore'
+                            : 'this.state.hasMore: noMore'
+                    }
+                </p>
+                <p>this.state.data.length: {this.state.data.length}</p>
             </div>
         );
     }
