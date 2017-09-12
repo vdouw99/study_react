@@ -20,12 +20,11 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                {/*<HomeHeader cityName={this.props.userinfo.cityName}/>*/}
-                <HomeHeader cityName='北京'/>
+                <HomeHeader cityName={this.props.userinfo.cityName}/>
                 <Category />
                 <div style={{height:'15px'}}></div>
                 <Ad />
-                <List cityName="北京" />
+                <List cityName={this.props.userinfo.cityName} />
             </div>
         );
     }
