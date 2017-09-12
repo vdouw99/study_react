@@ -18,6 +18,12 @@ class Index extends React.Component {
             </div>
         );
     }
+
+    conponentDidMount(){
+        console.log('----containers/City/index.jsx------');
+        console.log(this.props.userinfo);
+        console.log(this.props.userinfoActions);
+    }
 }
 
 export default Index;

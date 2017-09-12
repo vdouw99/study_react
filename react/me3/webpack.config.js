@@ -96,16 +96,6 @@ module.exports = {
         }),
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
-        new webpack.optimize.OccurrenceOrderPlugin(),
-
-        //js代码压缩
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         //supresses warnings, usually from module minification
-        //         warnings: false
-        //     },
-        //     beautify: false,
-        //     comments: false
-        // })
+        new webpack.optimize.OccurrenceOrderPlugin()
     ]
 };
