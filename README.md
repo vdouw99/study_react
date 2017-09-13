@@ -81,6 +81,9 @@ react/me2
     componentWillUnmount : 在组件被卸载或销毁之前调用。
 
 
+建议使用非约束性
+约束性 refs，类似jquery获取节点了
+非约束性组件 可以理解为双向数据绑定 详见react/me3/src/components/HomeHeader/index.jsx的this.state.kwd
 
 
 
