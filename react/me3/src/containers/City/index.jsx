@@ -8,13 +8,13 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {hashHistory} from 'react-router';
 
+import {CITYNAME} from '../../config/index.jsx';
+import Util from '../../util/index.jsx';
+import * as userInfoActionsFromOtherFile from '../../actions/index.jsx';
+
 import Header from '../../components/Header/index.jsx';
 import CurrentCity from '../../components/CurrentCity/index.jsx';
 import CityList from '../../components/CityList/index.jsx';
-
-import {CITYNAME} from '../../config/index.jsx';
-import Util from '../../util/index.jsx';
-import * as userInfoActionsFromOtherFile from '../../actions/index.jsx'
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -39,7 +39,7 @@ class Index extends React.Component {
         const userinfo = this.props.userinfo;
         userinfo.cityName = newCity;
         this.props.userinfoActions.update(userinfo);
-        // 修改cookie
+        // 修改localStorage
         Util.setLocalStorage(CITYNAME, newCity);
         hashHistory.push('/city');
     }
