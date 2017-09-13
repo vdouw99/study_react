@@ -5,6 +5,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 
+import Header from '../../components/Header/index.jsx';
+
 class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -14,12 +16,12 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <h1>City</h1>
+                <Header title="选择城市" />
             </div>
         );
     }
 
-    conponentDidMount(){
+    conponentDidMount() {
         console.log('----containers/City/index.jsx------');
         console.log(this.props.userinfo);
         console.log(this.props.userinfoActions);
