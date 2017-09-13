@@ -14,9 +14,13 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <h1>Search</h1>
+                <h1>Search - {this.props.params.category} - {this.props.params.keyword}</h1>
             </div>
         );
+    }
+
+    componentDidMount(){
+        console.log(this.props.params.category + '|' + this.props.params.keyword);
     }
 }
 

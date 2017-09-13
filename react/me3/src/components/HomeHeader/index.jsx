@@ -4,7 +4,7 @@
 
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
 import './index.less';
 
@@ -12,6 +12,7 @@ class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+        this.state = {kwd: ''};
     }
 
     render() {
@@ -29,11 +30,22 @@ class Index extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"/>
-                        <input type="text" placeholder="请输入关键字"/>
+                        <input type="text" placeholder="请输入关键字" value={this.state.kwd}
+                               onChange={this.changeHandle.bind(this)} onKeyUp={this.keyUpHandle.bind(this)}/>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    changeHandle(e) {
+        this.setState({kwd: e.target.value});
+    }
+
+    keyUpHandle(e) {
+        if (e.keyCode == 13) {
+            hashHistory.push('/search/all/' + encodeURIComponent(this.state.kwd));
+        }
     }
 }
 

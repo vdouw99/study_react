@@ -33,7 +33,6 @@ class Index extends React.Component {
     }
 
     changeCity(newCity) {
-        alert(newCity);
         if (newCity == null) return false;
         // 修改redux
         const userinfo = this.props.userinfo;
