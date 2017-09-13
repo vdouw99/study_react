@@ -30,8 +30,12 @@ class Index extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"/>
-                        <input type="text" placeholder="请输入关键字" value={this.state.kwd}
-                               onChange={this.changeHandle.bind(this)} onKeyUp={this.keyUpHandle.bind(this)}/>
+                        <input type="text"
+                               placeholder="请输入关键字"
+                               value={this.state.kwd}
+                               onChange={this.changeHandle.bind(this)}
+                               onKeyUp={this.keyUpHandle.bind(this)}
+                        />
                     </div>
                 </div>
             </div>
