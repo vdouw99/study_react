@@ -24,7 +24,7 @@ class Index extends React.Component {
                 </span>
                 <div className="input-container">
                     <i className="icon-search"/>
-                    <SearchInput value={this.props.keyword || ''} enterHandle={this.enterHandle.bind(this)}/>
+                    <SearchInput value={this.props.keyword||''} enterHandle={this.enterHandle.bind(this)}/>
                 </div>
             </div>
         )
