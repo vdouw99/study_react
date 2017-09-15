@@ -6,6 +6,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import {Link, hashHistory} from 'react-router';
 
+import SearchInput from '../SearchInput/index.jsx';
+
 import './index.less';
 
 class Index extends React.Component {
@@ -30,16 +32,15 @@ class Index extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"/>
-                        <input type="text"
-                               placeholder="请输入关键字"
-                               value={this.state.kwd}
-                               onChange={this.changeHandle.bind(this)}
-                               onKeyUp={this.keyUpHandle.bind(this)}
-                        />
+                        <SearchInput value="" enterHandle={this.enterHandle.bind(this)}/>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    enterHandle(value) {
+        hashHistory.push('/search/all/' + encodeURIComponent(value));
     }
 
     changeHandle(e) {
