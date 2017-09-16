@@ -27,7 +27,6 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <h2 className="home-list-title">猜你喜欢</h2>
                 {
                     this.state.data.length
                         ? <ListComponent data={this.state.data}/>
@@ -38,14 +37,6 @@ class Index extends React.Component {
                         ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
                         : ''
                 }
-                <p>
-                    {
-                        this.state.hasMore.toString()
-                            ? 'this.state.hasMore: hasMore'
-                            : 'this.state.hasMore: noMore'
-                    }
-                </p>
-                <p>this.state.data.length: {this.state.data.length}</p>
             </div>
         );
     }
@@ -59,6 +50,7 @@ class Index extends React.Component {
         const cityName = this.props.userinfo.cityName;
         const keyword = this.props.keyword || '';
         const category = this.props.category;
+        console.log('cityName:' + cityName + 'keyword:' + keyword + 'category:' + category);
         // const result = getListData(cityName, 0);
         const result = getSearchData(0, cityName, keyword, category);
         console.log(result);
@@ -73,6 +65,7 @@ class Index extends React.Component {
         const page = this.state.page;
         const keyword = this.props.keyword || '';
         const category = this.props.category;
+        console.log('cityName:' + cityName + 'keyword:' + keyword + 'category:' + category);
         // const result = getListData(cityName, 0);
         const result = getSearchData(page, cityName, keyword, category);
         //this.resultHandle(result);
