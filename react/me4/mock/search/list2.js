@@ -7,7 +7,7 @@ module.exports = {
     data: [
         {
             img: '/src/static/images/search1.png',
-            title: '河束人家11111',
+            title: '河束人家222222',
             subTitle: '南锣鼓巷店',
             price: '150',
             distance: '120m',
