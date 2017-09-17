@@ -6,6 +6,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router';
 
+import HomeHeader from '../../components/HomeHeader/index.jsx';
+
 class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -14,7 +16,9 @@ class Index extends React.Component {
 
     render() {
         return (
-            <div>Home</div>
+            <div>
+                <HomeHeader />
+            </div>
         )
     }
 }
