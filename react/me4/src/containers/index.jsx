@@ -6,6 +6,13 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router';
 
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import * as userinfoActionsFromOtherFile from '../actions/index.jsx';
+
+import Util from '../util/index.jsx';
+import {CITYNAME} from '../config/index.jsx';
+
 class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -15,8 +22,16 @@ class Index extends React.Component {
 
     // 在render完成且组件装载完成后调用（比如AJAX请求等）
     componentDidMount() {
+        let cityName = Util.getLocalStorage(CITYNAME);
+        if (cityName == null) cityName = '北京';
+        console.log(cityName);
+        // 将城市信息存储到Redux中
+        this.props.userinfoActions.update({
+            cityName: cityName
+        });
         setTimeout(()=> {
             this.setState({initDone: true});
+            Util.setLocalStorage(CITYNAME, cityName);
         }, 1000);
     }
 
@@ -44,4 +59,14 @@ class Index extends React.Component {
     }
 }
 
-export default Index;
+function mapStateToProps(state) {
+    return {};
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        userinfoActions: bindActionCreators(userinfoActionsFromOtherFile, dispatch)
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
