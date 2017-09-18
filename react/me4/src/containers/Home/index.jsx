@@ -6,7 +6,11 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link} from 'react-router';
 
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+
 import HomeHeader from '../../components/HomeHeader/index.jsx';
+import Category from '../../components/Category/index.jsx';
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -17,10 +21,25 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <HomeHeader />
+                <HomeHeader cityName={this.props.userinfo.cityName}/>
+                <Category />
             </div>
         )
     }
+
+    componentDidMount() {
+        console.log(this.props.userinfo);
+    }
 }
 
-export default Index;
+function mapStateToProps(state) {
+    return {
+        userinfo: state.userinfo
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

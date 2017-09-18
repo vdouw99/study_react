@@ -14,7 +14,6 @@ class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-        this.state = {kwd: ''};
     }
 
     render() {
@@ -22,7 +21,7 @@ class Index extends React.Component {
             <div id="home-header" className="clear-fix">
                 <div className="home-header-left float-left">
                     <Link to="/city">
-                        <span>重庆</span>
+                        <span>{this.props.cityName}</span>
                         <i className="icon-angle-down ml-3"/>
                     </Link>
                 </div>
@@ -32,7 +31,7 @@ class Index extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"/>
-                        <SearchInput value="" enterHandle={this.enterHandle.bind(this)}/>
+                        <SearchInput enterHandle={this.enterHandle.bind(this)}/>
                     </div>
                 </div>
             </div>
@@ -40,7 +39,7 @@ class Index extends React.Component {
     }
 
     enterHandle(value) {
-        alert(value);
+        hashHistory.push('/search/all' + encodeURIComponent(value));
     }
 }
 
