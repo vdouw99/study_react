@@ -26,7 +26,7 @@ class Index extends React.Component {
         if (cityName == null) cityName = '北京';
         console.log(cityName);
         // 将城市信息存储到Redux中
-        this.props.userinfoActions.update({
+        this.props.userinfoActions.userinfoUpdate({
             cityName: cityName
         });
         setTimeout(()=> {

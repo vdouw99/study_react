@@ -6,6 +6,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {Link, hashHistory} from 'react-router';
 
+import SearchInput from '../SearchInput/index.jsx';
+
 import './index.less';
 
 class Index extends React.Component {
@@ -30,11 +32,15 @@ class Index extends React.Component {
                 <div className="home-header-middle">
                     <div className="search-container">
                         <i className="icon-search"/>
-                        <input />
+                        <SearchInput value="" enterHandle={this.enterHandle.bind(this)}/>
                     </div>
                 </div>
             </div>
         )
+    }
+
+    enterHandle(value) {
+        alert(value);
     }
 }
 
