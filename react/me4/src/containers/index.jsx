@@ -38,14 +38,14 @@ class Index extends React.Component {
     render() {
         return (
             <div>
-                <div>Header</div>
                 {
-                    this.state.initDone ?
-                        this.props.children :
-                        <div>正在加载...</div>
+                    this.state.initDone
+                        ? this.props.children
+                        : <div>正在加载...</div>
                 }
-                <div>Footer</div>
-                <hr/>
+                <br/>
+                <br/>
+                <br/>
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/detail/1">detail/1</Link></li>
