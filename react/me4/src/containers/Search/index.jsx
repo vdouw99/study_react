@@ -3,7 +3,10 @@
  */
 
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin'
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+import SearchHeader from '../../components/SearchHeader/index.jsx';
+import SearchList from './subpage/List.jsx';
 
 class Index extends React.Component {
     constructor(props, context) {
@@ -15,7 +18,10 @@ class Index extends React.Component {
         const params = this.props.params;
         console.log(params);
         return (
-            <div>Search</div>
+            <div>
+                <SearchHeader keyword={params.keyword}/>
+                <SearchList keyword={params.keyword} category={params.category}/>
+            </div>
         )
     }
 }
