@@ -35,7 +35,7 @@ class Index extends React.Component {
                 }
                 {
                     this.state.hasMore
-                        ? <LoadMore loadMoreFn={this.loadMoreData.bind(this)}/>
+                        ? <LoadMore isLoadingMore={this.state.isLoadingMore} loadMoreFn={this.loadMoreData.bind(this)}/>
                         : ''
                 }
             </div>
@@ -57,9 +57,8 @@ class Index extends React.Component {
 
     loadMoreData() {
         this.setState({isLoadingMore: true});
-        const cityName = this.props.cityName;
         const page = this.state.page;
-        const result = getListData(cityName, page);
+        const result = getListData(this.props.cityName, page);
         this.resultHandle(result);
         this.setState({
             page: page + 1,
