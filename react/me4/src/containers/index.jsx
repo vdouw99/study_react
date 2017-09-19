@@ -20,21 +20,6 @@ class Index extends React.Component {
         this.state = {initDone: false};
     }
 
-    // 在render完成且组件装载完成后调用（比如AJAX请求等）
-    componentDidMount() {
-        let cityName = Util.getLocalStorage(CITYNAME);
-        if (cityName == null) cityName = '北京';
-        console.log(cityName);
-        // 将城市信息存储到Redux中
-        this.props.userinfoActions.userinfoUpdate({
-            cityName: cityName
-        });
-        setTimeout(()=> {
-            this.setState({initDone: true});
-            Util.setLocalStorage(CITYNAME, cityName);
-        }, 1000);
-    }
-
     render() {
         return (
             <div>
@@ -56,6 +41,20 @@ class Index extends React.Component {
                 </ul>
             </div>
         )
+    }
+
+    // 在render完成且组件装载完成后调用（比如AJAX请求等）
+    componentDidMount() {
+        let cityName = Util.getLocalStorage(CITYNAME);
+        if (cityName == null) cityName = '北京';
+        // 将城市信息存储到Redux中
+        this.props.userinfoActions.userinfoUpdate({
+            cityName: cityName
+        });
+        setTimeout(()=> {
+            this.setState({initDone: true});
+            Util.setLocalStorage(CITYNAME, cityName);
+        }, 1000);
     }
 }
 
