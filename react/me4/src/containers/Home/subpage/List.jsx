@@ -35,7 +35,7 @@ class Index extends React.Component {
                 }
                 {
                     this.state.hasMore
-                        ? <LoadMore />
+                        ? <LoadMore loadMoreFn={this.loadMoreData.bind(this)}/>
                         : ''
                 }
             </div>
@@ -53,6 +53,18 @@ class Index extends React.Component {
         const result = getListData(cityName, 0);
         // console.log(result);
         this.resultHandle(result);
+    }
+
+    loadMoreData() {
+        this.setState({isLoadingMore: true});
+        const cityName = this.props.cityName;
+        const page = this.state.page;
+        const result = getListData(cityName, page);
+        this.resultHandle(result);
+        this.setState({
+            page: page + 1,
+            isLoadingMore: false
+        });
     }
 
     // 数据处理
