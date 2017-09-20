@@ -32,13 +32,13 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                // use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
-                loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
+                use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
+                // loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
             },
             {
                 test: /\.less$/,
-                // loader: 'style-loader!css-loader!postcss-loader!less-loader'
-                loader: ExtractTextPlugin.extract('style', 'autoprefixer', 'less')
+                loader: 'style-loader!css-loader!postcss-loader!less-loader'
+                // loader: ExtractTextPlugin.extract('style', 'autoprefixer', 'less')
             },
             {
                 test: /\.scss$/,
@@ -99,7 +99,7 @@ module.exports = {
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new ExtractTextPlugin('./css/index.css'),
+        // new ExtractTextPlugin('./css/index.css'),
         // new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js')
 
         //js代码压缩
