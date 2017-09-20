@@ -19,7 +19,7 @@ class Index extends React.Component {
     render() {
         return (
             <div id="search-header" className="clear-fix">
-                <span className="back-icon float-left">
+                <span className="back-icon float-left" onClick={this.clickHandle.bind(this)}>
                     <i className="icon-chevron-left"/>
                 </span>
                 <div className="input-container">
@@ -30,6 +30,10 @@ class Index extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    clickHandle() {
+        window.history.back();
     }
 
     enterHandle(value) {
