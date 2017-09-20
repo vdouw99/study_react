@@ -10,7 +10,7 @@ import LoadMore from '../../../components/LoadMore/index.jsx';
 
 import {getListData} from '../../../fetch/home/index.js';
 
-import './list.less';
+import './index.less';
 
 class Index extends React.Component {
     constructor(props, context) {
