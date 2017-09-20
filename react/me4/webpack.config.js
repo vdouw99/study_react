@@ -32,19 +32,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                // use: ExtractTextPlugin.extract({
-                //     fallback: "style-loader?importLoaders=1",
-                //     use: ["css-loader", "postcss-loader"]
-                // })
-                use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader?importLoaders=1",
+                    use: ["css-loader", "postcss-loader"]
+                })
+                // use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
             },
             {
                 test: /\.less$/,
-                // use: ExtractTextPlugin.extract({
-                //     fallback: "style-loader?importLoaders=1",
-                //     use: ["css-loader", "postcss-loader", "less-loader"]
-                // })
-                loader: 'style-loader!css-loader!postcss-loader!less-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader?importLoaders=1",
+                    use: ["css-loader", "postcss-loader", "less-loader"]
+                })
+                // loader: 'style-loader!css-loader!postcss-loader!less-loader'
             },
             {
                 test: /\.scss$/,
@@ -95,6 +95,9 @@ module.exports = {
                 collapseWhitespace: true
             }
         }),
+        new ExtractTextPlugin({
+            filename: "css/[name].[contenthash].css",
+        }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             minimize: true,
@@ -107,9 +110,7 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         // new ExtractTextPlugin('./css/index.css'),
         // new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js')
-        new ExtractTextPlugin({
-            filename: "css/[name].[contenthash].css"
-        }),
+
 
         //js代码压缩
         // new webpack.optimize.UglifyJsPlugin({
