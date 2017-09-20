@@ -32,13 +32,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
+                // use: ExtractTextPlugin.extract({
+                //     fallback: "style-loader?importLoaders=1",
+                //     use: ["css-loader", "postcss-loader"]
+                // })
                 use: ['style-loader', 'css-loader?importLoaders=1', 'postcss-loader']
-                // loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
             },
             {
                 test: /\.less$/,
+                // use: ExtractTextPlugin.extract({
+                //     fallback: "style-loader?importLoaders=1",
+                //     use: ["css-loader", "postcss-loader", "less-loader"]
+                // })
                 loader: 'style-loader!css-loader!postcss-loader!less-loader'
-                // loader: ExtractTextPlugin.extract('style', 'autoprefixer', 'less')
             },
             {
                 test: /\.scss$/,
@@ -101,6 +107,9 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         // new ExtractTextPlugin('./css/index.css'),
         // new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js')
+        new ExtractTextPlugin({
+            filename: "css/[name].[contenthash].css"
+        }),
 
         //js代码压缩
         // new webpack.optimize.UglifyJsPlugin({
