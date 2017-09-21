@@ -11,9 +11,11 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 module.exports = {
-    entry: [
-        './src/index.jsx'
-    ],
+    // entry: ['./src/index.jsx'],
+    entry: {
+        main: './src/index.jsx',
+        vendor: ['react']
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].[hash:5].js'
@@ -90,6 +92,7 @@ module.exports = {
             filename: 'index.html',
             template: './src/index.html',
             inject: 'body',
+            chunks: ['vendor', 'main'],
             minify: {
                 removeComments: true,
                 collapseWhitespace: true
@@ -114,6 +117,8 @@ module.exports = {
 
         // 为组件分配ID最小的ID，通过这个插件webpack可以分析和优先考虑使用最多的模块
         new webpack.optimize.OccurrenceOrderPlugin(),
+
+        new webpack.optimize.CommonsChunkPlugin('vendor')
 
     ]
 };
