@@ -115,18 +115,5 @@ module.exports = {
         // 为组件分配ID最小的ID，通过这个插件webpack可以分析和优先考虑使用最多的模块
         new webpack.optimize.OccurrenceOrderPlugin(),
 
-        // new ExtractTextPlugin('./css/index.css'),
-        // new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js')
-
-
-        //js代码压缩
-        // new webpack.optimize.UglifyJsPlugin({
-        //     compress: {
-        //         //supresses warnings, usually from module minification
-        //         warnings: false
-        //     },
-        //     beautify: false,
-        //     comments: false
-        // })
     ]
 };
