@@ -98,6 +98,12 @@ module.exports = {
         new ExtractTextPlugin({
             filename: "css/[name].[contenthash].css",
         }),
+        new OptimizeCssAssetsPlugin({
+            // assetNameRegExp: /\.optimize\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorOptions: {discardComments: {removeAll: true}},
+            canPrint: true
+        }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             minimize: true,
@@ -108,6 +114,7 @@ module.exports = {
 
         // 为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID
         new webpack.optimize.OccurrenceOrderPlugin(),
+
         // new ExtractTextPlugin('./css/index.css'),
         // new webpack.optimize.CommonsChunkPlugin('common', 'common.bundle.js')
 
