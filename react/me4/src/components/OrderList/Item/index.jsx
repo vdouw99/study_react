@@ -35,9 +35,7 @@ class Index extends React.Component {
                                 ? <button className="btn" onClick={this.showComment.bind(this)}>评价</button>
                                 :
                                 this.state.commentState === 1
-                                    // 评价中
-                                    ? ''
-                                    // 已经评价
+                                    ? ''  // 评价中
                                     : <button className="btn unseleted-btn">已评价</button>
                         }
                     </div>
@@ -50,16 +48,16 @@ class Index extends React.Component {
                 {
                     // “评价中”才会显示输入框
                     this.state.commentState === 1
-                        ? <div className="comment-text-container">
-                        <textarea style={{width: '100%', height: '80px'}} className="comment-text"
-                                  ref="commentText"></textarea>
-                        <div style={{paddingTop: '10px', paddingBottom: '10px'}}>
-                            <Star star="0" clickCallback={this.starClickCallback.bind(this)}/>
+                        ?
+                        <div className="comment-text-container">
+                                <textarea style={{width: '100%', height: '80px'}} className="comment-text"
+                                          ref="commentText"/>
+                            <div style={{paddingTop: '10px', paddingBottom: '10px'}}>
+                                <Star star="0" clickCallback={this.starClickCallback.bind(this)}/>
+                            </div>
+                            <button className="btn" onClick={this.submitComment.bind(this)}>提交</button>
+                            <button className="btn unseleted-btn" onClick={this.hideComment.bind(this)}>取消</button>
                         </div>
-                        <button className="btn" onClick={this.submitComment.bind(this)}>提交</button>
-                        &nbsp;
-                        <button className="btn unseleted-btn" onClick={this.hideComment.bind(this)}>取消</button>
-                    </div>
                         : ''
                 }
             </div>
@@ -81,22 +79,22 @@ class Index extends React.Component {
     }
 
     submitComment() {
-        const submitComment = this.props.submitComment; // 获取操作函数
-        const id = this.props.data.id;  // 获取id
-        const stars = this.state.stars; // 获取star数量
+        const submitComment = this.props.submitComment;  //获取操作函数
+        const id = this.props.data.id;   //获取id
+        const stars = this.state.stars;  //获取star数量
         const star = stars[id] || '0';
-        const commentText = this.refs.commentText; // 获取评价内容
+        const commentText = this.refs.commentText;  //获取评价内容
         const value = commentText.value.trim();
         if (!value) return false;
-        submitComment(id, value, star, this.commentOk.bind(this)); // 执行数据提交
+        submitComment(id, value, star, this.commentOk.bind(this));  //执行数据提交
     }
 
     commentOk() {
-        this.setState({commentState: 2});   // 已经评价，修改状态
+        this.setState({commentState: 2});   //已经评价，修改状态
     }
 
     hideComment() {
-        this.setState({commentState: 0}); // 隐藏输入框
+        this.setState({commentState: 0});  //隐藏输入框
     }
 
     starClickCallback(star) {

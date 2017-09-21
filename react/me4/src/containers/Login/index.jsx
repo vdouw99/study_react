@@ -17,7 +17,9 @@ class Index extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
-        this.state = {checking: true};
+        this.state = {
+            checking: true   //正在检查
+        };
     }
 
     render() {
@@ -29,7 +31,6 @@ class Index extends React.Component {
                         ? <div>等待登录...</div>
                         : <LoginComponent loginHandle={this.loginHandle.bind(this)}/>
                 }
-
             </div>
         );
     }
@@ -41,35 +42,34 @@ class Index extends React.Component {
     doCheck() {
         const userinfo = this.props.userinfo;
         if (userinfo.username) {
-            console.log('已登录');
             // 已经登录，则跳转到用户主页
             this.goUserPage();
         } else {
-            console.log('未登录');
             // 未登录，则验证结束
             this.setState({checking: false});
         }
     }
 
     goUserPage() {
+        // 跳转到“用户中心”页面
         hashHistory.push('/user');
     }
 
+    // 登录成功后的处理
     loginHandle(username) {
         const actions = this.props.userinfoActions;
         let userinfo = this.props.userinfo;
         userinfo.username = username;
         actions.userinfoUpdate(userinfo);
-        const params = this.props.params;
+        const params = this.props.params;   //获取路由参数
         const router = params.router;
         if (router) {
-            hashHistory.push(router);
+            hashHistory.push(router);   //跳转到指定的页面
         } else {
-            this.goUserPage();
+            this.goUserPage();  //跳转到“用户中心”页面
         }
     }
 }
-
 
 function mapStateToProps(state) {
     return {userinfo: state.userinfo};
