@@ -10,11 +10,17 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+var package = require('./package.json').dependencies;
+var vendor = [];
+for (var i in package) {
+    vendor.push(i);
+}
+
 module.exports = {
     // entry: ['./src/index.jsx'],
     entry: {
         main: './src/index.jsx',
-        vendor: ['react']
+        vendor: vendor
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
