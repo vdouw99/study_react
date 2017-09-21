@@ -11,6 +11,7 @@ import City from '../containers/City/index.jsx';
 import User from '../containers/User/index.jsx';
 import Search from '../containers/Search/index.jsx';
 import Detail from '../containers/Detail/index.jsx';
+import Login from '../containers/Login/index.jsx';
 import NotFound from '../containers/NotFound/index.jsx';
 
 class Index extends React.Component {
@@ -23,6 +24,7 @@ class Index extends React.Component {
                     <Route path='user' component={User}/>
                     <Route path='search/:category(/:keyword)' component={Search}/>
                     <Route path='detail/:id' component={Detail}/>
+                    <Route path="login(/:router)" component={Login}/>
                     <Route path="*" component={NotFound}/>
                 </Route>
             </Router>
