@@ -8,7 +8,7 @@ import {hashHistory} from 'react-router';
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as userInfoActionsFromOtherFile from '../../actions/index.jsx';
+import * as userInfoActionsFromOtherFile from '../../actions/userinfo.jsx';
 import {CITYNAME} from '../../config/index.jsx';
 import Util from '../../util/index.jsx';
 

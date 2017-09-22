@@ -8,7 +8,7 @@ import {Link} from 'react-router';
 
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import * as userinfoActionsFromOtherFile from '../actions/index.jsx';
+import * as userinfoActionsFromFile from '../actions/userinfo.jsx';
 
 import Util from '../util/index.jsx';
 import {CITYNAME} from '../config/index.jsx';
@@ -48,7 +48,7 @@ class Index extends React.Component {
         let cityName = Util.getLocalStorage(CITYNAME);
         if (cityName == null) cityName = '北京';
         // 将城市信息存储到Redux中
-        this.props.userinfoActions.userinfoUpdate({
+        this.props.userinfoActions.update({
             cityName: cityName
         });
         setTimeout(()=> {
@@ -64,7 +64,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        userinfoActions: bindActionCreators(userinfoActionsFromOtherFile, dispatch)
+        userinfoActions: bindActionCreators(userinfoActionsFromFile, dispatch)
     };
 }
 

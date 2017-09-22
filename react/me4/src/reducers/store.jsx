@@ -6,7 +6,8 @@ import * as actionTypes from '../constants/index.jsx';
 
 const initialState = [];
 
-export default function userinfo(state = initialState, action) {
+// 定义Redux规则
+export default function userinfo (state = initialState, action) {
     switch (action.type) {
         case actionTypes.USERINFO_UPDATE:
             return action.data;

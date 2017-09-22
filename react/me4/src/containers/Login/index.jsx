@@ -8,7 +8,7 @@ import {hashHistory} from 'react-router';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as userinfoActionsFromOtherFile from '../../actions/index.jsx';
+import * as userinfoActionsFromOtherFile from '../../actions/userinfo.jsx';
 
 import Header from '../../components/Header/index.jsx';
 import LoginComponent from '../../components/Login/index.jsx';
