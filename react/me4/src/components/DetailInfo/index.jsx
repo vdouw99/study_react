@@ -42,8 +42,8 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
-        console.log('---DetailInfo---');
-        console.log(this.props.data);
+        // console.log('---DetailInfo---');
+        // console.log(this.props.data);
     }
 }
 
