@@ -24,7 +24,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/[name].[hash:5].js'
+        filename: 'js/[name].[chunkhash:8].js'
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -68,11 +68,11 @@ module.exports = {
             },
             {
                 test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: ['url-loader?limit=10000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
+                loaders: ['url-loader?limit=10000&name=assets/[name]-[chunkhash:8].[ext]', 'img-loader']
             },
             {
                 test: /\.(woff|woff2|ttf|eot)($|\?)/i,
-                loader: 'url-loader?limit=5000&name=fonts/[name]-[hash:5].[ext]'
+                loader: 'url-loader?limit=5000&name=fonts/[name]-[chunkhash:8].[ext]'
             }
         ]
     },
@@ -105,7 +105,7 @@ module.exports = {
             }
         }),
         new ExtractTextPlugin({
-            filename: "css/[name].[contenthash].css",
+            filename: "css/[name].[chunkhash:8].css"
         }),
         new OptimizeCssAssetsPlugin({
             // assetNameRegExp: /\.optimize\.css$/g,
