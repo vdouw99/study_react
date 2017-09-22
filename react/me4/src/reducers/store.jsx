@@ -9,7 +9,7 @@ const initialState = [];
 // 定义Redux规则
 export default function userinfo (state = initialState, action) {
     switch (action.type) {
-        case actionTypes.USERINFO_UPDATE:
+        case actionTypes.STORE_UPDATE:
             return action.data;
         case actionTypes.STORE_ADD:
             state.unshift(action.data);

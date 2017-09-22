@@ -60,7 +60,7 @@ class Index extends React.Component {
         const actions = this.props.userinfoActions;
         let userinfo = this.props.userinfo;
         userinfo.username = username;
-        actions.userinfoUpdate(userinfo);
+        actions.update(userinfo);
         const params = this.props.params;   //获取路由参数
         const router = params.router;
         if (router) {

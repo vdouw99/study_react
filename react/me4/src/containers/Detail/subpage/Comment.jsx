@@ -48,27 +48,23 @@ class Index extends React.Component {
 
     // 获取首页数据
     loadFirstPageData() {
-        const id = this.props.id
-        const result = getCommentData(0, id)
-        this.resultHandle(result)
+        const id = this.props.id;
+        const result = getCommentData(0, id);
+        this.resultHandle(result);
     }
 
     // 加载更多数据
     loadMoreData() {
         // 记录状态
-        this.setState({
-            isLoadingMore: true
-        })
+        this.setState({isLoadingMore: true});
 
-        const id = this.props.id
-        const page = this.state.page
-        const result = getCommentData(page, id)
-        this.resultHandle(result)
+        const id = this.props.id;
+        const page = this.state.page;
+        const result = getCommentData(page, id);
+        this.resultHandle(result);
 
         // 增加 page 技术
-        this.setState({
-            isLoadingMore: false
-        })
+        this.setState({isLoadingMore: false});
     }
 
     // 处理数据
@@ -77,13 +73,11 @@ class Index extends React.Component {
             return res.json()
         }).then(json => {
             // 增加 page 技术
-            const page = this.state.page
-            this.setState({
-                page: page + 1
-            })
+            const page = this.state.page;
+            this.setState({page: page + 1});
 
-            const hasMore = json.hasMore
-            const data = json.data
+            const hasMore = json.hasMore;
+            const data = json.data;
 
             this.setState({
                 hasMore: hasMore,
@@ -91,9 +85,7 @@ class Index extends React.Component {
                 data: this.state.data.concat(data)
             })
         }).catch(ex => {
-            if (__DEV__) {
-                console.error('详情页获取用户评论数据出错, ', ex.message)
-            }
+            console.error('详情页获取用户评论数据出错, ', ex.message);
         })
     }
 }

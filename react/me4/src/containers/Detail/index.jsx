@@ -22,16 +22,17 @@ class Index extends React.Component {
         return (
             <div>
                 <Header title="商户详情"/>
-                <Info />
-                <Buy />
+                <Info id={id}/>
+                <Buy id={id}/>
                 <Comment id={id}/>
             </div>
         )
     }
 
-    componentDidMount() {
-
+    componentDidMount(){
+        // console.log(this.props)
     }
+    
 }
 
 export default Index;

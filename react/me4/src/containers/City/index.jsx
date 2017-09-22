@@ -37,7 +37,7 @@ class Index extends React.Component {
         // 修改redux
         const userinfo = this.props.userinfo;
         userinfo.cityName = newCity;
-        this.props.userinfoActions.userinfoUpdate(userinfo);
+        this.props.userinfoActions.update(userinfo);
         // 修改cookie
         Util.setLocalStorage(CITYNAME, newCity);
         hashHistory.push('/');
