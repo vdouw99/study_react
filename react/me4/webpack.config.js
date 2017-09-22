@@ -67,12 +67,12 @@ module.exports = {
                 loader: 'ejs-loader'
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                loaders: ['url-loader?limit=10000&name=assets/[name]-[chunkhash:8].[ext]', 'img-loader']
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                loaders: ['url-loader?limit=10000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
             },
             {
                 test: /\.(woff|woff2|ttf|eot)($|\?)/i,
-                loader: 'url-loader?limit=5000&name=fonts/[name]-[chunkhash:8].[ext]'
+                loader: 'url-loader?limit=5000&name=fonts/[name]-[hash:5].[ext]'
             }
         ]
     },
@@ -99,6 +99,7 @@ module.exports = {
             template: './src/index.html',
             inject: 'body',
             chunks: ['vendor', 'main'],
+            favicon:'./src/static/images/favicon.ico',
             minify: {
                 removeComments: true,
                 collapseWhitespace: true

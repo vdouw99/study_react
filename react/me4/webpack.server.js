@@ -54,7 +54,7 @@ module.exports = {
                 loader: 'ejs-loader'
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i,
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
                 loaders: ['url-loader?limit=10000&name=assets/[name]-[hash:5].[ext]', 'img-loader']
             },
             {
@@ -78,7 +78,8 @@ module.exports = {
         }),
 
         new htmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            favicon:'./src/static/images/favicon.ico'
         }),
 
         // 自动打开浏览器
