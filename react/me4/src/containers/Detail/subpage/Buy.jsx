@@ -37,13 +37,13 @@ class Index extends React.Component {
     checkStoreState() {
         const id = this.props.id;
         const store = this.props.store;
-        // store.forEach(item => {
-        //     if (item.id === id) {
-        //         // 已经被收藏
-        //         this.setState({isStore: true});
-        //         return false;
-        //     }
-        // })
+        store.forEach(item => {
+            if (item.id === id) {
+                // 已经被收藏
+                this.setState({isStore: true});
+                return false;
+            }
+        })
     }
 
     // 检查登录状态
@@ -76,10 +76,7 @@ class Index extends React.Component {
     storeHandle() {
         // 验证登录，未登录则return
         const loginFlag = this.loginCheck();
-        if (!loginFlag) {
-            return
-        }
-
+        if (!loginFlag) return;
         const id = this.props.id;
         const storeActions = this.props.storeActions;
         if (this.state.isStore) {
