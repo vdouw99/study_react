@@ -6,6 +6,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import {hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
+import 'whatwg-fetch';
+import 'es6-promise';
 
 import configureStore from './store/index.jsx';
 import RouteMap from './router/index.jsx';
