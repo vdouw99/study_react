@@ -39,7 +39,7 @@ jquery(function () {
             console.log('byJquery', response);
         }
     });
-})
+});
 
 render(
     <Provider store={store}>
