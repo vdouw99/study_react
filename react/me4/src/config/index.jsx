@@ -3,3 +3,5 @@
  */
 
 export const CITYNAME = 'USER_CURRENT_CITY_NAME';
+
+export const PHP_HOST = 'http://127.0.0.6/';

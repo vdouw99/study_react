@@ -9,11 +9,35 @@ import {Provider} from 'react-redux';
 
 import configureStore from './store/index.jsx';
 import RouteMap from './router/index.jsx';
+import {PHP_HOST} from './config/index.jsx';
+import jquery from 'jquery';
 
 import './static/css/common.less';
 import './static/css/font.css';
 
 const store = configureStore();
+
+// fetch请求数据
+fetch(PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php').then(function (response) {
+    if (response.status >= 400) {
+        throw new Error("Bad response from server");
+    }
+    return response.json();
+}).then(function (stories) {
+    console.log('byFetch', stories);
+});
+
+// jquery的Ajax请求数据
+jquery(function () {
+    jquery.ajax({
+        url: PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php',
+        type: 'get',
+        data: {},
+        success: function (response) {
+            console.log('byJquery', response);
+        }
+    });
+})
 
 render(
     <Provider store={store}>
