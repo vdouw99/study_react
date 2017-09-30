@@ -21,6 +21,7 @@ module.exports = {
     entry: {
         main: './src/index.jsx',
         vendor: vendor
+        // vendor: Object.keys(packageJson.dependencies)
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
