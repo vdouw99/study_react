@@ -19,27 +19,27 @@ import './static/css/font.css';
 
 const store = configureStore();
 
-// fetch请求数据
-fetch(PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php').then(function (response) {
-    if (response.status >= 400) {
-        throw new Error("Bad response from server");
-    }
-    return response.json();
-}).then(function (stories) {
-    console.log('byFetch', stories);
-});
-
-// jquery的Ajax请求数据
-jquery(function () {
-    jquery.ajax({
-        url: PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php',
-        type: 'get',
-        data: {},
-        success: function (response) {
-            console.log('byJquery', response);
-        }
-    });
-});
+// // fetch请求数据
+// fetch(PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php').then(function (response) {
+//     if (response.status >= 400) {
+//         throw new Error("Bad response from server");
+//     }
+//     return response.json();
+// }).then(function (stories) {
+//     console.log('byFetch', stories);
+// });
+//
+// // jquery的Ajax请求数据
+// jquery(function () {
+//     jquery.ajax({
+//         url: PHP_HOST + 'react/me4/api_php/search/page/city/cate/index.php',
+//         type: 'get',
+//         data: {},
+//         success: function (response) {
+//             console.log('byJquery', response);
+//         }
+//     });
+// });
 
 render(
     <Provider store={store}>
