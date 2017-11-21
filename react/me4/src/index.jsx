@@ -11,8 +11,6 @@ import 'es6-promise';
 
 import configureStore from './store/index.jsx';
 import RouteMap from './router/index.jsx';
-import {PHP_HOST} from './config/index.jsx';
-import jquery from 'jquery';
 
 import './static/css/common.less';
 import './static/css/font.css';
