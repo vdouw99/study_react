@@ -1,5 +1,13 @@
 # react_study
 
+umi
+https://umijs.org/guide/create-umi-app.html
+npm i umi -g
+umi -v
+npm create umi
+
+
+
 cpa : https://github.com/duxianwei520/react
 
 create : create-react-app
