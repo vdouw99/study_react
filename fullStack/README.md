@@ -1,5 +1,7 @@
 # React全栈 笔记
 
+链接: https://pan.baidu.com/s/1fR4fNSqVM6HnVrDM-IOTCw&shfl=shareset 提取码: jpph 
+
 Redux + Flux + webpack + Babel整合开发
 
 包：可以用package.json文件描述的文件夹或文件；
