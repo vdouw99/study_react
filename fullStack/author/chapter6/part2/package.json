@@ -57,7 +57,7 @@
   },
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "marked": "^0.3.5",
+    "marked": "^4.0.10",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.2",
